@@ -1,29 +1,30 @@
 ﻿
 $global:playerCharacter = $null
-$global:playerDragonTip = $false
 $global:runGame         = $true
 
 #Clear Console
 Clear-Host
 
-function Setup-Display()
+function Setup-Display() 
 {
     $phost   = get-host
-    $pwindow = $phost.ui.rawui
-    $newsize = $pwindow.windowsize
+    $pWindow = $phost.ui.rawui
+    $newsize = $pWindow.windowsize
     $newsize.height = 55
     $newsize.width  = 110
-    $pwindow.windowsize = $newsize
+    $pWindow.windowsize = $newsize
 }
 
 function Title-Screen()
 {
-    Clear-Host 
+    Clear-Host
+    Write-Host "                                                                                                                   "
+    Write-Host "                                                                                                                   " 
     Write-Host "                                             Press Any Key to Play or Q to quit                                    "
     
     $continue = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown") 
 
-    if($continue.Character -like 'q')
+    if($continue.Character -eq 'q')
     {
         $global:runGame = $false
     }
@@ -45,18 +46,26 @@ function Character-Selection()
     Write-Host "                                                                                                              "
     Write-Host "                     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                    "
     Write-Host "                                                                                                              "
+    
+    [bool] $wait = $true
+    do {
+        $userResponse = Read-Host -Prompt "                                         Choose your character"
 
-    $userResponse = Read-Host -Prompt "                                         Choose your character"
+        Write-Host ""
 
-    Write-Host ""
+        Switch ($userResponse) 
+        { 
+                A {$global:playerCharacter = "Simon"
+                   $wait = $false}
+                B {$global:playerCharacter = "Peter"
+                   $wait = $false} 
+                C {$global:playerCharacter = "Zanny"
+                   $wait = $false} 
+                D {$global:playerCharacter = "Amara"
+                   $wait = $false} 
+        }
+    } until (!$wait)
 
-    Switch ($userResponse) 
-    { 
-            A {$global:playerCharacter = "Simon"}
-            B {$global:playerCharacter = "Peter"} 
-            C {$global:playerCharacter = "Zanny"} 
-            D {$global:playerCharacter = "Amara"} 
-    }
 
     Write-Host "                                     You selected $global:playerCharacter, lets begin"
 
