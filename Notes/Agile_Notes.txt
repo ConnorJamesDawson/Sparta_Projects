@@ -1,0 +1,42 @@
+Compensation, if individual goes behind in project, the team responds
+
+Individuals & interactions over process and tools - Prioritise individuals but tools are important
+
+Working software over comprehensive documentation - 
+
+Customer collaberation over contract negotiation - 
+
+Resonding to change over following a plan - 
+
+Jist is, all the left are more important but shouldn't be at expense of the other
+
+Supported by 12 principles -
+
+1. Highest priority is to show customer valuable software early and continuesly
+
+2. Welcome changing in requirements, even late on. Agile harness change for the customers advantage
+
+3. Deliver software frequently
+
+4. execs/Buisniness and devs must work together frequently 
+
+5. Build projects around motivated individuals. Give them the environment they need and trust them
+
+6. It's important to convey information face to face, less variation of ideas
+
+7. Working progress is the primary measure of progress
+
+8. Developers should be able to have a constant pace indefinitley, Sustainable development
+
+9. Attention to technicals and good design principles enhance agility
+
+10. Simplicity is essential - Max the amount of work not done (re use don't pre code)
+
+11. Self organising teams tend to have the best architectures, requirements and designs
+
+12. Regular meetings, identify places to improve/ be more effective
+
+Agile project management works off the basis that a project can be continuously improved upon throughout its life cycle, 
+with changes being made quickly and responsively.
+
+Agile project management can refer to terms including Scrum, Kanban, Extreme Programming (XP), and Adaptive Project Framework (APF).
