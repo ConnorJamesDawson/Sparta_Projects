@@ -32,23 +32,23 @@ function Title-Screen()
 
 function Character-Selection()
 {
-    #Clear Console
-    Clear-Host
-
-    Write-Host "                     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                    "
-    Write-Host "                                                                                                              "
-    Write-Host "                                           Character Selection                                                "
-    Write-Host "                                                                                                              "   
-    Write-Host "                                               A: Simon                                                       "
-    Write-Host "                                               B: Peter                                                       "
-    Write-Host "                                               C: Zanny                                                       "
-    Write-Host "                                               D: Amara                                                       "
-    Write-Host "                                                                                                              "
-    Write-Host "                     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                    "
-    Write-Host "                                                                                                              "
-    
     [bool] $wait = $true
     do {
+        #Clear Console
+        Clear-Host
+
+        Write-Host "                     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                    "
+        Write-Host "                                                                                                              "
+        Write-Host "                                           Character Selection                                                "
+        Write-Host "                                                                                                              "   
+        Write-Host "                                               A: Simon                                                       "
+        Write-Host "                                               B: Peter                                                       "
+        Write-Host "                                               C: Zanny                                                       "
+        Write-Host "                                               D: Amara                                                       "
+        Write-Host "                                                                                                              "
+        Write-Host "                     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                    "
+        Write-Host "                                                                                                              "
+  
         $userResponse = Read-Host -Prompt "                                         Choose your character"
 
         Write-Host ""
@@ -193,16 +193,16 @@ function GameOver()
 |________________________________________________________________________|
 '@
 
-Write-Host $gameOverText -ForegroundColor Red
+    Write-Host $gameOverText -ForegroundColor Red
 
-Write-Host "                                             Press Any Key to Play Again or Q to quit                                    "
+    Write-Host "                                             Press Any Key to Play Again or Q to quit                                    "
     
-$continue = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown") 
+    $continue = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown") 
 
-if($continue.Character -like 'q')
-{
-    $global:runGame = $false
-}
+    if($continue.Character -like 'q')
+    {
+        $global:runGame = $false
+    }
 }
 
 
