@@ -1,0 +1,31 @@
+In the command line/ terminal:
+
+-What command creates a new directory?
+
+mkdir <name> Makes a new folder you need " " if you want spaces in the name ../<name> if you want to create a new folder in the parent directory
+
+-How do you move into a sub-directory and back to a parent directory?
+
+cd <FilePath> to move to a file cd .. to move back into a parent file
+
+-How do you create a text file?
+
+notepad <Notepad Name>
+
+-How do you print the contents of a text file to the console?
+
+cat <fileName>.txt
+
+-What are some other useful commands that you learnt?
+
+move <fileName> 
+
+ls -al List all files, including hidden ones
+
+clear - Clear the window of commands
+
+Up and Down arrow - See previous commands
+
+cp <FileName> <Directory> - Move file to directory, overwritiing in the process if one is already there
+
+cp -r <Dir1> <Dir2> - Move a whole directory, including subfolders, to a new place
