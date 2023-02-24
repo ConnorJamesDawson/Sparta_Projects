@@ -1,0 +1,75 @@
+I am the Buisiness Owner, I want the system to be able to hold multiple question banks so that users arn't asked the same questions.
+
+Good Scenario: The Admin creates a new question bank with the relevent information
+Given: The Admin is on the page to create a new question bank and has filled out the relevent information
+		-Question Bank name
+		-Question Type
+When: The Admin clicks add new question bank
+Then: A notification occurs saying the question bank was added successfully
+
+Bad Scenario: The Admin creates a new question bank without the relevent information
+Given: The Admin is on the page to create a new question bank and has not filled out the relevent information
+		-Question Bank name
+		-Question Type
+When: The Admin clicks add new question bank
+Then: An error notification occurs saying the "Question bank was not added successfully, please add the question type or question bank name!"
+
+As an Admin, I want to be able to input new questions into the question banks, so that I can keep it up to date and improve it.
+
+Good Scenario: The Admin puts questions into the system correctly
+Given: that the Admin is on the page to input the questions And has filled out what type of question it is
+When: the Admin clicks the button to store the question in one of the banks 
+Then: the Admin sees the notification that the question has been added to the question bank
+
+Bad Scenario: The Admin does not put questions into the system correctly
+Given: That the Admin is on the page to input the questions
+When: The Admin does not state the question type Or the question already excists
+Then: Display an error "Please state the question type" Or "This question already excists"
+
+As a Trainer, I want to be able to get a progress report on the trainees, so that I can see how they have answered the questions.
+
+Good Scenario: The trainer clicks view report and supplies the correct name
+Given: That the trainer is on the 'View Trainees' Page
+When: The trainer clicks on 'View Report' and fills out trainees name
+Then: The trainees report is displayed on screen
+
+Bad Scenario: The trainer clicks view report and does not supply the correct name
+Given: That the trainer is on the 'View Trainees' Page
+When: The trainer clicks on 'View Report' and fills out trainees name incorrectly
+Then: An error occure "There are no students by that name"
+
+As a Trainee, I want to be able to answer multiple choice and text questions so I can train with a variety of material and question types.
+
+Good Scenario: The Trainee fills out both choice and text on question
+Given: The Trainee has answered the question with both choice and text
+When: The Trainee clicks submit answer 
+Then: The question is submitted and gets marked by AI
+
+Bad Scenario: The Trainee does not fill out both choice and text
+Given: The Trainee has answered the question with choice but not with text
+When: The Trainee clicks submit answer 
+Then: An error message, "Please give a text answer as well"
+
+As a Trainee, I want to be able to receive feedback on my past and present performance so that I know what mistakes I am making
+
+Good Scenario: The Trainee does supply the correct question type to recieve feedback on
+Given: The user is on the reieve feedback page and has chosen his interview to recieve feedback on 
+When: The user has clicked the button "Recieve Feedback"
+Then: The AI will display the feedback it has on the interview given
+
+Bad Scenario: The Trainee does not supply the correct question type to recieve feedback on
+Given: The user is on the reieve feedback page and has not chosen his interview to recieve feedback on
+When: The user has clicked the button "Recieve Feedback"
+Then: An error message "Please choose an intervew to recieve feedback on"
+
+As a Trainee, I want to be able to receive coaching so that I know where and how I can improve with interviews
+
+Good Scenario: The user has clicked on the coaching page and Has chosen a topic to cover
+Given: The Trainee is on the page to reciece coaching and has filled out which topic
+When: The Trainee has clicked the button "Coach me"
+Then: The AI will be begin to display useful information to the Trainee about the topic
+
+Bad Scenario: The user has clicked on the coaching page and Has not chosen a topic to cover
+Given: The Trainee is on the page to reciece coaching and has not filled out which topic
+When: The Trainee has clicked the button "Coach me"
+Then: An error message, "Please select a topic to cover"

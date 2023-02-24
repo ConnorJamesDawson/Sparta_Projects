@@ -1,0 +1,140 @@
+# User Stories
+
+As a <type of User>, I want <goal> so that <reason>
+
+Think project board
+
+##Terminology
+
+Feature | Epic | User Stroies
+
+Feature | High level need | NEEDs and WANTs
+
+It's a promise of a furture conversation, keep it simple then explain in time.
+
+A good user story
+
+##INVEST
+
+I ndependent (of all others)
+N egotiable (not a specific contract for features)
+V aluable (or vertical)
+E stimable (to a good approximation)
+S mall (so as to fit within an iteration)
+T estable (in principle, even if there isn’t a test for it yet)
+
+##Persona
+
+A made up story if no actual person available/ in absence of of
+
+##Good user Stories
+
+User comes first
+
+Use personas
+
+Create collaborative
+
+Keep stories simple
+
+Start with Epics
+
+Refine stories until their "ready", no more diccusion
+
+Add acceptance criteria
+
+Keep them visible
+
+They are not everything
+
+## The three c's
+
+Card
+Conversation
+Confirmation
+
+Activity
+
+1. As a beginner parachuter, I want to know what lessons are available so that I can improve my skills
+
+2. As someone who wants to buy their own parachute I want to see if there are any upcoming sales on the website
+3. As the client I want the website to be laid out to be attractive and non cluttered so that I don't have to read irrelevent information
+4. As a potential customer, who lives far away I want to know what the weather is like so that I dont have a wasted journey
+5. As a fan of the parachuting school i want to be able to buy memorabilia and tshirts so that I can show my support
+
+Only need quantity and card details for transaction
+
+Good 
+Given I click the BUY NOW button to buy a memorabilia
+	and these mandatory fields are filled
+	-Quantity wanted
+	-Card details for purchase
+When I submit the details
+
+Then I recieve a confirmation email
+Bad
+Given I'm wanting to buy a memorabilia
+	And these mandatory fields are not entered
+	Or not enough funds
+	-Quantity wanted
+	-Card details
+When I submit the details
+Then purchase unsuccessful, error Message
+	and I am asked to fill the complete the mandatory fields
+	or Add more funds
+
+6. As the parachute school owner, I want to be able to add/remove of items in the shop so that stocks are represented accurately
+7. As an experienced parachuter, I want to know what events and competitions are on so that I can attend ones relevant to me
+
+Great Examples of User Stories!
+
+##Acceptance Criteria
+
+What does it take to complete, what can go wrong?
+
+###Gherkin Script
+
+Given
+When
+Then
+
+Example scenario
+Good Path-
+Given I'm registering for an account
+    And these mandatory fields are entered
+    - email address
+    - password
+
+When I submit the details
+
+Then my details are stored
+    And I receive a confirmation email
+Bad Path-
+Given I'm registering for an account
+    And one or more of these mandatory fields are not entered
+    - email address
+    - password
+When I submit the details
+Then registration is unsuccessful
+    And I am asked to complete the mandatory fields
+
+
+Definition of ready
+
+List of things that are required to be completed before you can start developing user stories
+Tick list of all things before you can start
+General criteria for what is considered ready
+
+Definition of Done
+
+feature complete, members must have the same definition of done 
+
+Retrospectives
+
+Agenda
+
+Set the stage, Research/Gather Data
+
+Identify Patterns, Decide what to do
+
+Close the Retro
