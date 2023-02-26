@@ -1,0 +1,109 @@
+#What are the Agile values?
+
+Individuals over tools
+
+Customer interaction over contract negotiation
+
+Working software over comprehensive documentation
+
+Responding to change over following a plan
+
+#What are the Agile principles?
+
+There are 12 principles:
+
+1. Highest priority is to show customer valuable software early and continuesly
+
+2. Welcome changing in requirements, even late on. Agile harness change for the customers advantage
+
+3. Deliver software frequently
+
+4. execs/Buisniness and devs must work together frequently 
+
+5. Build projects around motivated individuals. Give them the environment they need and trust them
+
+6. It's important to convey information face to face, less variation of ideas
+
+7. Working progress is the primary measure of progress
+
+8. Developers should be able to have a constant pace indefinitley, Sustainable development
+
+9. Attention to technicals and good design principles enhance agility
+
+10. Simplicity is essential - Max the amount of work not done (re use don't pre code)
+
+11. Self organising teams tend to have the best architectures, requirements and designs
+
+12. Regular meetings, identify places to improve/ be more effective
+
+#What is the most popular Agile method?
+
+Scrum
+
+#What are the Scrum ceremonies? 
+
+Scrum ceremonies are meetings that ensure that the scrum master, product owner and development team are in-sync. 
+These ceremonies, or scrum events, are held at key instances in the agile sprint cycle: sprint planning, daily standup, 
+sprint review, sprint retrospective and product backlog grooming.
+
+#What is a Scrum master?
+
+A scrum master is the person who facilitates the scrum meeting and makes sure the scrum can go ahead as planned
+
+#What are personas?
+
+Personas are personalities developers emulate to make user stories/ to see problems from the users point of view
+
+#What makes a good user story?
+
+Independant
+Negotiable
+Valuable
+Estable
+Small
+Testable
+
+#What is Gherkin script?
+
+A gherkin script is scceptance criteria of a user story
+
+#What makes a good Definition of Done?
+
+A definition of done is a set of agreements of when the work is complete or 'done'
+
+A good definition would include transparency, inspection and adaptation. 
+
+It makes transparent your shared understanding of what releasable quality looks like. 
+This makes it easier to deliver releasable Increments Sprint after Sprint. 
+These releasable Increments let you inspect and adapt your work. 
+You can test it with your customers to make sure it’s what they need. 
+And you can build in quality at every step, avoiding costly rework
+
+#What is a Definition of Ready?
+
+A set of agreements of when the work is ready to begin 
+
+#What are the advantages and disadvantages of agile methodology?
+
+## Advantages
+
+Immediate feedback
+
+Adapt to change
+
+More room for experiments due to low costs
+
+Spend less time on paperwork and bureaucracy
+
+Developers can improve due to feedback
+
+## Disadvantages
+
+Project can become ever-lasting due to scope-creep
+
+It's hard to measure progress than other methodologies
+
+Client's on a specified budget or schedual can't know how long or how much the project will cost due to the iteration design.
+
+Lack of documentation, can make it harder for new members to get uptp speed on software.
+
