@@ -6,44 +6,42 @@ internal class Program
     {
         Calculations cal = new Calculations();
         bool quit = false;
-        int firstNum = 0;
-        bool lookingForFirst = true;
-        char operand = ' ';
-        int secondNum = 0;
         Console.WriteLine("Welcome to my calculator");
 
         Console.WriteLine("Please input a calculation to be done with any of the following opperand + - * /");
         while (!quit)
-        {
+        {// Have a general reset before any calculation 
+            int firstNum = 0; 
+            bool lookingForFirst = true;
+            char operand = ' ';
+            int secondNum = 0;
             string userInput = Console.ReadLine();
-
-
 
             if (userInput != null)
             {
                 for (int i = 0; i < userInput.Length; i++)
                 {
-                    Console.WriteLine("Reading {0} " + char.IsNumber(userInput[i]), i);
-                    if (userInput[i] == ' ')
-                    {
-                        lookingForFirst = false;
-                        Console.WriteLine("Found Space");
-                    }
+                    Console.WriteLine("Reading {0} ", userInput[i]);
 
                     if (char.IsNumber(userInput[i]))
                     {
                         if (lookingForFirst)
-                        {
-                            firstNum = Convert.ToInt32(userInput[i]);
-                            Console.WriteLine("Writing {0} to first number", userInput[i]);
+                        {//When adding numbers its important to move the numbers to the left (times by 10) so more than single figures can be used
+                            firstNum = (firstNum * 10) + Convert.ToInt32(userInput[i].ToString());
+                            Console.WriteLine("Writing {0} to first number, first number is now {1}", userInput[i], firstNum);
                         }
                         else
                         {
-                            secondNum = Convert.ToInt32(userInput[i]);
-                            Console.WriteLine("Writing {0} to second number", userInput[i]);
+                            secondNum = (secondNum * 10) + Convert.ToInt32(userInput[i].ToString());
+                            Console.WriteLine("Writing {0} to second number, second number is now {1}", userInput[i], secondNum);
                         }
                     }
-                    switch (userInput[i])
+                    else
+                    {
+                        lookingForFirst = false; //After the first number is parsed switch to reading for the second
+                    }
+
+                    switch (userInput[i]) // Set the operand for use within calculation 
                     {
                         case '+':
                             operand = '+';
@@ -60,7 +58,7 @@ internal class Program
                     }
                 }
             }
-        Console.WriteLine(cal.Calculate(firstNum, secondNum, operand));
+            Console.WriteLine(cal.Calculate(firstNum, secondNum, operand));
         }
     }
 }

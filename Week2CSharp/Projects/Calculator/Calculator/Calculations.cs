@@ -13,12 +13,16 @@ namespace Calculator
             switch (op)
             {
                 case '+':
+                    Console.WriteLine("Adding {0} to {1}", lhs, rhs);
                     return lhs + rhs;
                 case '-':
+                    Console.WriteLine("Subtracting {0} to {1}", lhs, rhs);
                     return lhs - rhs;
                 case '*':
+                    Console.WriteLine("Timesing {0} to {1}", lhs, rhs);
                     return lhs * rhs;
                 case '/':
+                    Console.WriteLine("Dividing {0} by {1}", lhs, rhs);
                     return lhs / rhs;
                 default:
                     throw new ArgumentException($"unknown operator {op}");
