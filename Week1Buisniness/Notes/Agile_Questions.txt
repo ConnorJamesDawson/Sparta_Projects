@@ -48,7 +48,8 @@ sprint review, sprint retrospective and product backlog grooming.
 
 #What is a Scrum master?
 
-A scrum master is the person who facilitates the scrum meeting and makes sure the scrum can go ahead as planned
+A scrum master is the person who facilitates the scrum meeting and makes sure the scrum can go ahead as planned, Scrum masters are accountable for
+helping their teams succedd 
 
 #What are personas?
 
@@ -65,7 +66,9 @@ Testable
 
 #What is Gherkin script?
 
-A gherkin script is scceptance criteria of a user story
+A gherkin script is acceptance criteria of a user story / behavioural tests, behavioural driven development 
+
+Given When Then
 
 #What makes a good Definition of Done?
 

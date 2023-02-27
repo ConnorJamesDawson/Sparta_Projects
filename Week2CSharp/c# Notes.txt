@@ -1,0 +1,30 @@
+C# Notes-
+
+Trade offs between languages
+
+Saftey for control
+
+.NET compiles code/c# into the common intermediate language
+
+then to common runtime language, makes it into cross platform by compiling code into machine code
+
+To the OS/Hardware
+
+.NET Framework is for Windows only. Or at least until 2014 NOT CROSSPLATFORM 
+
+.NET Core is the multiplatform one for UWP and ASP.NET.
+
+Xamarin is for IOS OS X and Android
+
+Underneath all programs, it has one standard library
+
+.NET, Just that, is for the united platform.
+
+#ASP.NET
+
+Active Server Page - c# on the web - used to create APIs, web apps
+
+Framework - an environment to develop in
+
+Create REST APIs
+

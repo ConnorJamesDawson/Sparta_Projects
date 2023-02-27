@@ -16,6 +16,8 @@ notepad <Notepad Name>
 
 cat <fileName>.txt
 
+
+
 -What are some other useful commands that you learnt?
 
 move <fileName> 

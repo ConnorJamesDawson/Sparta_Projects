@@ -17,7 +17,7 @@ git diff allows to see changes
 git commit -m "message needed"
 
 A commit is where all of the modified information on the users local directory gets 'sent' to the working directory, where the modified information
-overwrites the information on the working directory.
+overwrites the information on the remote directory.
 
 -How do you save any local changes to the remote repos?
 
