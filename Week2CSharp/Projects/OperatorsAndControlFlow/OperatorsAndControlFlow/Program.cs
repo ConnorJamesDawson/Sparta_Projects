@@ -19,8 +19,17 @@ public class Program
         Console.WriteLine(GetStones(156));
         Console.WriteLine(GetPoundsLeft(156));
         int j = 5, k = 3, m = 4;
-        m += +j++ + ++k;
-        Console.WriteLine(m);
+        m += +j++ + ++k; // = 13 because J isn't getting incremented before being added 
+
+        bool apples = false;
+        bool oranges = true;
+
+        bool fruit = apples && oranges;
+
+        string luke = "Luke";
+        string alin = null;
+
+        bool bothStartWithA = luke.StartsWith('a') && alin.StartsWith('a');
     }
 
     public static int GetStones(int totalPounds) //1 stone = 14 pounds
@@ -28,7 +37,7 @@ public class Program
         return totalPounds / 14;
     }
 
-    public static int GetPoundsLeft(int totalPounds)
+    public static int GetPoundsLeft(int totalPounds)//% gives the value left over from a /
     {
         return totalPounds % 14;
     }
