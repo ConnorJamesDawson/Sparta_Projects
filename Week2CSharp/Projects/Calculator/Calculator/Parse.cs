@@ -4,7 +4,8 @@
     {
         public int firstNum = 0;
         public bool lookingForFirst = true;
-        public bool minusNumber = false;
+        public bool firstNumIsMinusNumber = false;
+        public bool secondNumIsMinusNumber = false;
         public char operand = ' ';
         public int secondNum = 0;
         public void ResetValues()
@@ -12,6 +13,8 @@
             firstNum = 0;
             secondNum = 0;
             lookingForFirst = true;
+            firstNumIsMinusNumber = false;
+            secondNumIsMinusNumber = false;
             operand = ' ';
         }
 
@@ -74,10 +77,10 @@
                     {
                         if (i > 0 && userInput[i - 1] == '-') // i > 0 for exceptions
                         {
-                            minusNumber = true;
+                            firstNumIsMinusNumber = true;
                         }
 
-                        if (minusNumber)
+                        if (firstNumIsMinusNumber)
                         {
                             firstNum = (firstNum * 10) - Convert.ToInt32(userInput[i].ToString());
                         }
@@ -111,6 +114,11 @@
                                 operand = '+';
                                 return operand;
                             case '-':
+                                if (firstNumIsMinusNumber)
+                                {
+                                    firstNumIsMinusNumber = false;
+                                    break;
+                                }
                                 operand = '-';
                                 return operand;
                             case '*':
@@ -127,12 +135,11 @@
         }
         public int ParseForSecondNumber(string userInput)
         {
-            minusNumber = false;
             if (userInput != null)
             {
                 for (int i = 0; i < userInput.Length; i++)
                 {
-                    if (!Char.IsNumber(userInput[i]))
+                    if (!Char.IsNumber(userInput[i]) && i > 0)
                     {
                         lookingForFirst = false;
                         Console.WriteLine("Found operand at {0}", i);
@@ -140,26 +147,26 @@
 
                     if (Char.IsNumber(userInput[i]) && !lookingForFirst)
                     {
-                        switch(operand)
+                        switch (operand)
                         {
                             case '-':
                                 if (i > 2 && userInput[i - 1] == '-' && userInput[i - 2] == '-') // i > 0 for exceptions
                                 {
                                     Console.WriteLine("Found minus at {0}", i);
-                                    minusNumber = true;
+                                    secondNumIsMinusNumber = true;
                                 }
                                 break;
-                            default: 
-                                if(userInput[i - 1] == '-')
+                            default:
+                                if (userInput[i - 1] == '-')
                                 {
                                     Console.WriteLine("Found minus at {0}", i);
-                                    minusNumber = true;
+                                    secondNumIsMinusNumber = true;
                                 }
                                 break;
                         }
 
 
-                        if (minusNumber)
+                        if (secondNumIsMinusNumber)
                         {
                             secondNum = (secondNum * 10) - Convert.ToInt32(userInput[i].ToString());
                         }
