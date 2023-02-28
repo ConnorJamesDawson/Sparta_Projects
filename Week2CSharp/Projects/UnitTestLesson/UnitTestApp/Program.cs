@@ -12,21 +12,11 @@ public class Program
 
     public static string MyMethod(int timeOfDay)
     {
-        string greeting;
 
-        if (timeOfDay >= 5 && timeOfDay <= 12)
-        {
-            greeting = "Good morning!";
-        }
-        else if (timeOfDay >= 12 && timeOfDay <= 18)
-        {
-            greeting = "Good afternoon!";
-        }
-        else
-        {
-            greeting = "Good evening!";
-        }
+        if (timeOfDay > 5) return "Good evening!";
+        else if (timeOfDay <= 12) return "Good morning!";
+        else if(timeOfDay<= 18) return "Good afternoon!";
+        else return "Good evening!";
 
-        return greeting;
     }
 }

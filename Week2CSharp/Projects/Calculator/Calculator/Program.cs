@@ -35,7 +35,12 @@ internal class Program
                     default:
                     if (userInput != null)
                     {
-                        parse.ParseInput(userInput);
+                        //parse.ParseInput(userInput);
+                        //Console.WriteLine(cal.Calculate(parse.firstNum, parse.secondNum, parse.operand));
+                        parse.ParseForFirstNumber(userInput);
+                        parse.ParseForOperand(userInput);
+                        parse.ParseForSecondNumber(userInput);
+
                         Console.WriteLine(cal.Calculate(parse.firstNum, parse.secondNum, parse.operand));
                     }
                     else
