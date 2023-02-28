@@ -1,6 +1,6 @@
 ﻿namespace Calculator
 {
-    internal class Parse
+    public class Parse
     {
         public int firstNum = 0;
         public bool lookingForFirst = true;

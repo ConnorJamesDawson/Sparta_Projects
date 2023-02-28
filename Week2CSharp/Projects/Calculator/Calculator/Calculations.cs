@@ -8,7 +8,6 @@ namespace Calculator
 {
     public class Calculations
     {
-
         public int Calculate(int lhs, int rhs, char op)
         {
             switch (op)
