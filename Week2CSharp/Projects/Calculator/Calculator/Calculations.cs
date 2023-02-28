@@ -26,8 +26,9 @@ namespace Calculator
                     Console.WriteLine("Dividing {0} by {1}", lhs, rhs);
                     return lhs / rhs;
                 default:
-                    throw new ArgumentException($"unknown operator {op}");
-            }
+                    Console.WriteLine("You have inputed an incorrect value");
+                    return 0;
+                }
         }
 
         public int Add(int lhs, int rhs)

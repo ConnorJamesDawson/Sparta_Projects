@@ -19,10 +19,12 @@ internal class Program
 
             switch(userInput) //Look for specific commands
             {
+                case "Quit":
                 case "quit":
                     Console.WriteLine("Thank you for using my calculator");
                     Environment.Exit(0);
                     break;
+                case "Clear":
                 case "clear":
                     Console.Clear();
                     Console.WriteLine("This should clear");

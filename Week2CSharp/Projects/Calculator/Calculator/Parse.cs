@@ -6,7 +6,7 @@
         public bool lookingForFirst = true;
         public char operand = ' ';
         public int secondNum = 0;
-        public void ResetValues(int firstNum, int secondNum, char operand, bool lookingForFirst)
+        public void ResetValues()
         {
             firstNum = 0;
             secondNum = 0;
@@ -16,7 +16,7 @@
 
         public void ParseInput(string userInput)
         {
-
+            ResetValues();
             if (userInput != null)
             {
                 for (int i = 0; i < userInput.Length; i++)
