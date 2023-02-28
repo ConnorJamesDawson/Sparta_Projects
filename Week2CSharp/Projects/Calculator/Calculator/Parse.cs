@@ -39,6 +39,8 @@
                     else
                     {
                         lookingForFirst = false; //After the first number is parsed switch to reading for the second
+                        if (operand != ' ')
+                            break;
                     }
 
                     switch (userInput[i]) // Set the operand for use within calculation 
