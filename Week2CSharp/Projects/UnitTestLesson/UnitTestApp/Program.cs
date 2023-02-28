@@ -7,9 +7,10 @@ public class Program
         int userInput = Int32.Parse(Console.ReadLine());
 
         Console.WriteLine(MyMethod(userInput));
+        
     }
 
-    static string MyMethod(int timeOfDay)
+    public static string MyMethod(int timeOfDay)
     {
         string greeting;
 
