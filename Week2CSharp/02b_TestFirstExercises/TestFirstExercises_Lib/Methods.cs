@@ -8,9 +8,7 @@ namespace TestFirstExercises
         // implement this method so that it returns true if x is greater than or equal to y
         public static bool GreaterEqual(int x, int y)
         {
-            if(x >= y) return true;
-
-            return false;
+            return x >= y;
         }
 
         // Implement this method so that it take an int as an input,
