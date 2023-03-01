@@ -1,5 +1,7 @@
-﻿using NUnit.Framework;
+﻿using Microsoft.VisualStudio.TestPlatform.TestHost;
+using NUnit.Framework;
 using Op_CtrlFlow;
+using System;
 using System.Collections.Generic;
 
 namespace Op_CtrlFlow_Tests
@@ -67,6 +69,12 @@ namespace Op_CtrlFlow_Tests
         {
             var result = Exercises.GetScottishMaxWeddingNumbers(covidLevel);
             Assert.That(result, Is.EqualTo(expected));
+        }
+        [TestCase(-1)]
+        [TestCase(5)]
+        public void GivenOutOfBoundsInformation_ThrowException(int covidLevel)
+        {
+            Assert.That(() => Exercises.GetScottishMaxWeddingNumbers(covidLevel), Throws.TypeOf<ArgumentOutOfRangeException>());
         }
     }
 }
