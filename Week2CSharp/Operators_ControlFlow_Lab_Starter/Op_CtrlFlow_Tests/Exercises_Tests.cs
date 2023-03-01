@@ -57,6 +57,7 @@ namespace Op_CtrlFlow_Tests
             var result = Exercises.Grade(mark);
             Assert.That(result, Is.EqualTo(expected));
         }
+
         [TestCase(0, 200)]
         [TestCase(1, 100)]
         [TestCase(2, 50)]

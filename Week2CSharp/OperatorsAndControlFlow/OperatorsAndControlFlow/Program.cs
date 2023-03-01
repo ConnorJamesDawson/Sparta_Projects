@@ -51,12 +51,13 @@ public class Program
         // Do While
         #endregion
 
-        List<int> intList = new() {09,18,27,36,45,54,63,72,81,90,-10};
+        /*        List<int> intList = new() {09,18,27,36,45,54,63,72,81,90,-10};
 
-        Console.WriteLine("Highest for loop: " + LoopTypes.HighestForLoop(intList));
-        Console.WriteLine("Highest foreach loop: " + LoopTypes.HighestForEachLoop(intList));
-        Console.WriteLine("Highest do while loop: " + LoopTypes.HighestWhileLoop(intList));
-        Console.WriteLine("Highest while loop:" + LoopTypes.HighestDoWhileLoop(intList));
+                Console.WriteLine("Highest for loop: " + LoopTypes.HighestForLoop(intList));
+                Console.WriteLine("Highest foreach loop: " + LoopTypes.HighestForEachLoop(intList));
+                Console.WriteLine("Highest do while loop: " + LoopTypes.HighestWhileLoop(intList));
+                Console.WriteLine("Highest while loop:" + LoopTypes.HighestDoWhileLoop(intList));*/
+        Console.WriteLine(ReturnGradeTurnery(-99));
     }
 
     public static string Priority(int level)
@@ -82,6 +83,9 @@ public class Program
 
     public static string ReturnGradeTurnery(int testMark)
     {
+        if (testMark < 0 || testMark > 100)
+            throw new ArgumentOutOfRangeException("Mark must be must be between 0-100");
+
         return testMark >= 35 ? testMark >= 65 ? (testMark >= 80 ? "Distinction" : "Pass") : "Resit" : "Fail"; ;
     }
 

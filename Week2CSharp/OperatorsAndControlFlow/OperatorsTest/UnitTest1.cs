@@ -44,35 +44,46 @@ public class Tests
         Assert.That(result, Is.EqualTo(expected));
     }
 
-    [TestCase("5", 1,2,3,4,5)]
-    [TestCase("10", 1,-2,10,4,5)]
-    public void Test_GetHighestInt_WithForLoop( string expected, params int[] intList)
+    [TestCase("5", 1, 2, 3, 4, 5)]
+    [TestCase("10", 1, -2, 10, 4, 5)]
+    public void Test_GetHighestInt_WithForLoop(string expected, params int[] intList)
     {
         string result = LoopTypes.HighestForLoop(intList.ToList());
         Assert.That(result, Is.EqualTo(expected));
     }
 
-    [TestCase("5", 1,2,3,4,5)]
-    [TestCase("11", 11,2,3,4,-5)]
-    public void Test_GetHighestInt_WithForEachLoop( string expected, params int[] intList)
+    [TestCase("5", 1, 2, 3, 4, 5)]
+    [TestCase("11", 11, 2, 3, 4, -5)]
+    public void Test_GetHighestInt_WithForEachLoop(string expected, params int[] intList)
     {
         string result = LoopTypes.HighestForEachLoop(intList.ToList());
         Assert.That(result, Is.EqualTo(expected));
-    }    
+    }
 
-    [TestCase("5", 1,2,3,4,5)]
-    [TestCase("-1", -1,-2,-3,-4,-5)]
-    public void Test_GetHighestInt_WithWhileLoop( string expected, params int[] intList)
+    [TestCase("5", 1, 2, 3, 4, 5)]
+    [TestCase("-1", -1, -2, -3, -4, -5)]
+    public void Test_GetHighestInt_WithWhileLoop(string expected, params int[] intList)
     {
         string result = LoopTypes.HighestWhileLoop(intList.ToList());
         Assert.That(result, Is.EqualTo(expected));
     }
 
-    [TestCase("5", 1,2,3,4,5)]
-    [TestCase("15", 1,2,3,4,15)]
-    public void Test_GetHighestInt_WithDoWhileLoop( string expected, params int[] intList)
+    [TestCase("5", 1, 2, 3, 4, 5)]
+    [TestCase("15", 1, 2, 3, 4, 15)]
+    public void Test_GetHighestInt_WithDoWhileLoop(string expected, params int[] intList)
     {
         string result = LoopTypes.HighestDoWhileLoop(intList.ToList());
         Assert.That(result, Is.EqualTo(expected));
     }
+
+    [TestCase(-99)]
+    [TestCase(-1)]
+    [TestCase(101)]
+    [TestCase(200)]
+    public void GivenInvalidMarkGetGrade_ThrowsArguemntException(int mark)
+    {
+        Assert.That(() => Program.ReturnGradeTurnery(mark), Throws.TypeOf<ArgumentOutOfRangeException>().With.Message.Contain("Mark must be must be between 0-100"));
+        //() => Basically 'borrow' the method so Nunit can view the exception correctly 
+    }
+    
 }

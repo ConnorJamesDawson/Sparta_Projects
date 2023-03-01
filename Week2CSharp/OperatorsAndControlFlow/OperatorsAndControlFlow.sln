@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperatorsAndControlFlow", "OperatorsAndControlFlow\OperatorsAndControlFlow.csproj", "{A8D5CF18-47ED-4365-B70D-71C67D45E6E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OperatorsAndControlFlow", "OperatorsAndControlFlow\OperatorsAndControlFlow.csproj", "{A8D5CF18-47ED-4365-B70D-71C67D45E6E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperatorsTest", "OperatorsTest\OperatorsTest.csproj", "{F9BCB396-6C69-429D-ABA0-ABC8C79C65AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OperatorsTest", "OperatorsTest\OperatorsTest.csproj", "{F9BCB396-6C69-429D-ABA0-ABC8C79C65AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionsAndDataTypes", "ExceptionsAndDataTypes\ExceptionsAndDataTypes.csproj", "{86A8804E-5A1B-4724-8C0A-D97CCEB69AE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F9BCB396-6C69-429D-ABA0-ABC8C79C65AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9BCB396-6C69-429D-ABA0-ABC8C79C65AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9BCB396-6C69-429D-ABA0-ABC8C79C65AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86A8804E-5A1B-4724-8C0A-D97CCEB69AE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86A8804E-5A1B-4724-8C0A-D97CCEB69AE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86A8804E-5A1B-4724-8C0A-D97CCEB69AE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86A8804E-5A1B-4724-8C0A-D97CCEB69AE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
