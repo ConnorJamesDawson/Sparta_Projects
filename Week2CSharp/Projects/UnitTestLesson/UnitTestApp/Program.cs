@@ -18,25 +18,27 @@ public class Program
         else if (timeOfDay <= 18) return "Good afternoon!";
         else return "Good evening!";
     }
-    public static string AvailableClassifications(int ageOfViewer)
+    public static string AvailableClassifications(int ageOfViewer, bool accompaniedByAdult)
     {
-        string result;
-        if (ageOfViewer < 12)
+        switch(ageOfViewer)
         {
-            result = "U, PG & 12A films are available."; // 12A is available only for children accompanied by an adult.
+            case < 12:
+                if (accompaniedByAdult)
+                {
+                    return "U, PG & 12A films are available."; // 12A is available only for children accompanied by an adult.
+                }
+                else
+                {
+                    return "U & PG films are available.";
+                }
+            case < 15:
+                return "U, PG, 12, 12A films are available.";
+            case < 18:
+                return "U, PG, 12, 12A & 15 films are available.";
+            case >= 18:
+                return "All films are available.";
+            default:
+                return "Input an incorrect value for system to use";
         }
-        else if (ageOfViewer < 15)
-        {
-            result = "U, PG, 12, 12A films are available.";
-        }
-        else if (ageOfViewer < 18)
-        {
-            result = "U, PG, 12, 12A & 15 films are available.";
-        }
-        else
-        {
-            result = "All films are available.";
-        }
-        return result;
     }
 }
