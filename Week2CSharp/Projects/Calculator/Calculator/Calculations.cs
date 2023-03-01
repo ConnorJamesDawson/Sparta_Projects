@@ -8,7 +8,7 @@ namespace Calculator
 {
     public class Calculations
     {
-        public int Calculate(int lhs, int rhs, char op)
+        public float Calculate(float lhs, float rhs, char op)
         {
             switch (op)
             {
@@ -28,26 +28,6 @@ namespace Calculator
                     Console.WriteLine("You have inputed an incorrect value");
                     return 0;
                 }
-        }
-
-        public int Add(int lhs, int rhs)
-        {
-            return lhs + rhs;
-        }
-
-        public int Subtract (int lhs, int rhs)
-        {
-            return lhs - rhs;
-        }
-
-        public int Multiply(int lhs, int rhs)
-        { 
-            return lhs * rhs; 
-        }
-
-        public int Divide(int lhs, int rhs)
-        {
-            return lhs / rhs;
         }
     }
 

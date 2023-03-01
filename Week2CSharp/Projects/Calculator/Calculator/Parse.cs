@@ -2,12 +2,12 @@
 {
     public class Parse
     {
-        public int firstNum = 0;
+        public float firstNum = 0;
         public bool lookingForFirst = true;
         public bool firstNumIsMinusNumber = false;
         public bool secondNumIsMinusNumber = false;
         public char operand = ' ';
-        public int secondNum = 0;
+        public float secondNum = 0;
         public void ResetValues()
         {
             firstNum = 0;
@@ -17,8 +17,8 @@
             secondNumIsMinusNumber = false;
             operand = ' ';
         }
-
-        public void ParseInput(string userInput)
+        /*
+        public static void ParseInput(string userInput)
         {
             ResetValues();
             if (userInput != null)
@@ -65,8 +65,8 @@
                 }
             }
         }
-
-        public int ParseForFirstNumber(string userInput)
+        */
+        public float ParseForFirstNumber(string userInput)
         {
             ResetValues();
             if (userInput != null)
@@ -133,7 +133,7 @@
             }
             return ' ';
         }
-        public int ParseForSecondNumber(string userInput)
+        public float ParseForSecondNumber(string userInput)
         {
             if (userInput != null)
             {

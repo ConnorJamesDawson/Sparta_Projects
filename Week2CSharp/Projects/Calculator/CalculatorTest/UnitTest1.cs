@@ -5,21 +5,31 @@ namespace CalculatorTest;
 
 public class Tests
 {
-    [SetUp]
-    public void Setup()
+    [TestCase("6+6", 12)]
+    [TestCase("7+3", 10)]
+    [TestCase("3-3", 0)]
+    [TestCase("-3--6", 3)]
+    [TestCase("6/3", 2)]
+    [TestCase("5/2", 2.5f)]
+    [TestCase("2*8", 16)]
+    public void GivenEquation_Calculations(string input, float expected)
     {
+        Calculations cal = new();
+        Parse parse = new();
+
+        parse.ParseForFirstNumber(input);
+
+        parse.ParseForOperand(input);
+
+        parse.ParseForSecondNumber(input);
+
+        float result = cal.Calculate(parse.firstNum, parse.secondNum, parse.operand);
+
+        Assert.That(result, Is.EqualTo(expected));
     }
 
-    [Test]
-    public void Givensix_Calculations()
+    public void GivenEquation_GiveFirstNumber(string input, int expected)
     {
-        Calculations cal = new Calculations();
-        Parse parse = new Calculator.Parse();
 
-        string input = "6+6";
-        int expected = 12;
-        parse.ParseInput(input);
-        int result = cal.Calculate(parse.firstNum, parse.secondNum, parse.operand);
-        Assert.That(result, Is.EqualTo(expected));
     }
 }
