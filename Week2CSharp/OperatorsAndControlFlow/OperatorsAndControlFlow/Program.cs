@@ -77,7 +77,7 @@ public class Program
             case 5:
                 return "Defcon: 5!!!!!";
             default:
-                return "Error there is no DEFCON level at " + level;
+                throw new ArgumentOutOfRangeException("Error there is no DEFCON level at " + level);
         }
     }
 
@@ -106,11 +106,15 @@ public class Program
 
     public static int GetStones(int totalPounds) //1 stone = 14 pounds
     {
+        if (totalPounds < 14)
+            throw new ArgumentOutOfRangeException("Please provide more than 14 total pounds to use equation");
         return totalPounds / 14;
     }
 
     public static int GetPoundsLeft(int totalPounds)//% gives the value left over from a /
     {
+        if (totalPounds < 0)
+            throw new ArgumentOutOfRangeException("Please provide a positive value");
         return totalPounds % 14;
     }
 }
@@ -151,6 +155,7 @@ public static class LoopTypes
             if (intList[count] > max)
             {
                 max = intList[count];
+                count++;
             }
         } while (count < intList.Count);
         return max.ToString();

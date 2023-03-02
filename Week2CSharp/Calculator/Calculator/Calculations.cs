@@ -26,7 +26,7 @@ namespace Calculator
                     return lhs / rhs;
                 default:
                     Console.WriteLine("You have inputed an incorrect value");
-                    return 0;
+                    throw new ArgumentNullException("You have inputed an incorrect value, " + op + " is not a operand that this system can use");
                 }
         }
     }

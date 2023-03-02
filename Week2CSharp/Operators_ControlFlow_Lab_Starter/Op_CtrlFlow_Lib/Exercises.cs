@@ -8,7 +8,7 @@ namespace Op_CtrlFlow
     {
         public static bool MyMethod(int num1, int num2)
         {
-            return num1 == num2 ? false : (num1 % num2) == 0;
+            return num1 == num2 ? false : (num1 % num2) == 0; //If num1 is equal to num2 return true Or if the ramainder of um / num2 = 0 return true
         }
 
         // returns the average of the array nums
@@ -16,7 +16,7 @@ namespace Op_CtrlFlow
         {
             if(nums.Count == 0)
             {
-                return 0;
+                throw new ArgumentNullException(nums + " is an empty list, please use a populated list");
             }
             return nums.Sum() / Convert.ToDouble(nums.Count);
         }
@@ -29,6 +29,9 @@ namespace Op_CtrlFlow
         // "Free" if they are under 5
         public static string TicketType(int age)
         {
+            if (age > 115 || age < 0)
+                throw new ArgumentOutOfRangeException(age + " is not a valid age, please add a valid age (between 0 - 115");
+
             switch(age)
             {
                 case >= 60:
@@ -64,16 +67,12 @@ namespace Op_CtrlFlow
             }
             else
             {
-                return "Invalid amount of marks";
+                throw new ArgumentOutOfRangeException(mark + " is not a valid input, please add marks between 0 - 100");
             }
         }
 
         public static int GetScottishMaxWeddingNumbers(int covidLevel)
         {
-            if(covidLevel < 0 || covidLevel > 4)
-            {
-                throw new ArgumentOutOfRangeException();
-            }
             switch(covidLevel)
             {
                 case 0:
@@ -87,7 +86,7 @@ namespace Op_CtrlFlow
                 case 4:
                     return 20;
                 default:
-                    return 0;
+                    throw new ArgumentOutOfRangeException(covidLevel + " is not a valid covid level. The covid levels are 0-4, please use the appropiate level");
             }
         }
     }

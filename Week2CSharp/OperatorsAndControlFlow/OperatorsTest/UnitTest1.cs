@@ -85,5 +85,20 @@ public class Tests
         Assert.That(() => Program.ReturnGradeTurnery(mark), Throws.TypeOf<ArgumentOutOfRangeException>().With.Message.Contain("Mark must be must be between 0-100"));
         //() => Basically 'borrow' the method so Nunit can view the exception correctly 
     }
-    
+
+    [TestCase(13)]
+    [TestCase(0)]
+    [TestCase(-13)] //AOORE Argument Out Of Range Exception
+    public void GivenInvalidInput_GetStones_ThowsAOORE(int pounds)
+    {
+        Assert.That(() => Program.GetStones(pounds), Throws.TypeOf<ArgumentOutOfRangeException>().With.Message.Contain("Please provide more than 14 total pounds to use equation"));
+    }
+
+    [TestCase(-1)]
+    [TestCase(-13)]
+    public void GivenInvalidInput_GetPoundsLeft_ThowsAOORE(int pounds)
+    {
+        Assert.That(() => Program.GetPoundsLeft(pounds), Throws.TypeOf<ArgumentOutOfRangeException>().With.Message.Contain("Please provide a positive value"));
+    }
+
 }
