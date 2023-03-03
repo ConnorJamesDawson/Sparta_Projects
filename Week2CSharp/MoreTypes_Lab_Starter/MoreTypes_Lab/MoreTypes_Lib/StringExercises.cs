@@ -8,28 +8,27 @@ namespace MoreTypes_Lib
         // manipulates and returns a string - see the unit test for requirements
         public static string ManipulateString(string input, int num)
         {
-            string trim = input.Trim();
-            string upper = trim.ToUpper();
-            string alteredString = upper;
+            string trim = input.Trim().ToUpper();
 
             for (int i = 0; i < num; i++)
             {
-                alteredString +=  i.ToString();
+                trim +=  i.ToString();
             }
 
-            return alteredString;
+            return trim;
         }
 
         // returns a formatted address string given its components
         public static string Address(int number, string street, string city, string postcode)
         {
-            string addressString = number.ToString() + " " + street + ", " + city + " " + postcode +".";
+            //string addressString = number.ToString() + " " + street + ", " + city + " " + postcode +".";
+            string addressString = $"{number.ToString()} {street}, {city} {postcode}.";
             return addressString;
         }
         // returns a string representing a test score, written as percentage to 1 decimal place
         public static string Scorer(int score, int outOf)
         {
-            float percentage = score / (float)outOf * 100;
+            double percentage = score / (double)outOf * 100;
             double num = Math.Round(percentage, 1);
             string result = $"You got {score} out of {outOf}: {num}%";
             return result;
@@ -39,6 +38,7 @@ namespace MoreTypes_Lib
         public static double ParseNum(string numString)
         {
             double number;
+
             try
             {
                 number = Convert.ToDouble(numString);

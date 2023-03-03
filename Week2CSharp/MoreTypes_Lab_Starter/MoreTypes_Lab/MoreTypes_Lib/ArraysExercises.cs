@@ -14,7 +14,7 @@ namespace MoreTypes_Lib
         // returns a 3D array containing the contents of a given List
         public static string[,,] Make3DArray(int length1, int length2, int length3, List<string> contents)
         {
-            if (contents.Count != length1 + length2 + length3) throw new ArgumentException("Number of elements in list must match array size");
+            if (contents.Count != length1 * length2 * length3) throw new ArgumentException("Number of elements in list must match array size");
 
             string[,,] new3DArray = new string[length1,length2,length3];
 
@@ -43,21 +43,23 @@ namespace MoreTypes_Lib
                 new string[countRow2]
             };
             int p = 0;
-            for (int i = 0; i < countRow1; i++)
+            for (int i = 0; i < newJaggedArray.Length; i++)
             {
-                for (int j = 0; j < countRow2; j++)
+                for (int j = 0; j < newJaggedArray[i].Length; j++)
                 {
-                    Console.WriteLine($"Trying to wrtie to {i} {j}");
-                    try
-                    {
-                        newJaggedArray[i][j] = contents[p++];
-                        //Console.WriteLine($"Writing {contents[p]} to {i} {j}");
-                    }
-                    catch(System.IndexOutOfRangeException e)
-                    {
-                        p--;
-                        break;
-                    }
+                    /*                    Console.WriteLine($"Trying to wrtie to {i} {j}");
+                                        try
+                                        {
+                                            newJaggedArray[i][j] = contents[p++];
+                                            //Console.WriteLine($"Writing {contents[p]} to {i} {j}");
+                                        }
+                                        catch(System.IndexOutOfRangeException e)
+                                        {
+                                            p--;
+                                            break;
+                                        } Brute force much */
+                    newJaggedArray[i][j] = contents[p++];
+
                 }
             }
 
