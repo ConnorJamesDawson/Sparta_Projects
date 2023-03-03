@@ -1,0 +1,25 @@
+It's all a matter of time and space.
+Value types are small and fixed size int 
+4 byte,
+double 8 byte,
+
+Why would we want to store the address (4 byte) of an int when we can store the data itself?
+
+Copying the address (eg in a method call) would take the same amount of time as copying the actual data- 
+
+Reference types are generally larger and have variable size-
+
+Copying an reference is much faster than copying the referenced object (time) 
+And the copied object takes up space Using reference types allow complex objects to be made containing references to other reference typesfor example, the Person object had references to string objects
+
+Referenced objects of the same type but different size can be substituted as we did when changing the Person object last name 
+
+But beware:When providing a reference type as a method argument, be aware that it CAN be changed by the method
+
+Often this is a good thing, such as a method to fill an array with user input 
+
+When providing a value type as a method argument, be aware than it CANNOT be changed by the method
+
+Any changes made in the method are made to the copy, not the original
+
+TLDR Passing references is alot better than passing objects due to the amount of information given. Passing a reference is fast, passing an object can be BIG.

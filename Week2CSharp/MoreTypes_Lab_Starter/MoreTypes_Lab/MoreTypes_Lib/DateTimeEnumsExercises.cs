@@ -13,7 +13,7 @@ namespace MoreTypes_Lib
         {
             if (birthDate > date) throw new ArgumentException("Error - birthDate is in the future");
 
-            if (birthDate.Month > date.Month) return date.Year - birthDate.Year - 1; //IF birthday month is more into year take away a year because it hasn't happened yet 
+            if (birthDate.Month > date.Month) return date.Year - birthDate.Year - 1; //IF birthday month is more into year, take away a year because it hasn't happened yet 
 
             return date.Year - birthDate.Year;
         }
