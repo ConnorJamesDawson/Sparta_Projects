@@ -41,6 +41,13 @@ namespace DataTypes_Test
         {
             Assert.That(() => IntegerCalc.Subtract(int.MinValue, 3), Throws.TypeOf<OverflowException>());
         }
+        [TestCase(2, 2, 4)]
+        [TestCase(100, 0, 0)]
+        [TestCase(8, 2, 16)]
+        public void WhenGivenTwoInts_Multiply_ReturnsCorrectAnswer(int num1, int num2, int expectedAnswer)
+        {
+            Assert.That(IntegerCalc.Multiply(num1, num2), Is.EqualTo(expectedAnswer));
+        }
 
         [TestCase(9, 3, 3)]
         [TestCase(9, 2, 4)]
