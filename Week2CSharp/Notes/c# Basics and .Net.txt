@@ -1,0 +1,24 @@
+#C# Basics and .NET
+ 
+##What's compile time and run time?
+
+compile time is the time it takes the computer to compile the given code, Run time is the time it takes the computer to run the application
+
+##What is .NET?  
+
+.NET is an open source developer platform, created by Microsoft, for building many different types of applications.
+
+##What is the difference between .NET Framework, NET Core, and .NET5/.NET6/.NET7?  
+
+.Net frame is for windows only
+.NetCore is for UWP and ActiveServerPage.NEt (websites severs / cloud workloads
+
+Form .NET 5 onwars it became multiplatform for all disaplins, a build once run everwhere
+
+##What is a conditional breakpoint?  
+
+a conditional breakpoint is where once a certain condition is met a breakpoint is activated in the code that wouldn't otherwise have been activated
+
+##What is the difference between compiling to debug and release formats?
+
+Debug includes debug information in the compiled files (allowing easy debugging such as breakpoints and console staying open instead of crashing) while Release usually has optimizations enabled with the debugging options disabled.

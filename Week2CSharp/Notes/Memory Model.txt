@@ -1,0 +1,22 @@
+#Memory Model
+ 
+##What is a stack, what is a heap?  
+
+The Stack is responsible for keeping track of what's executing in the code (or what's been "called") it works on a last come first serve.  The Heap is responsible for keeping track of the objects or predefined data that the stack will refernce 
+
+##What is the difference between passing method parameters by value and by reference?  
+
+Pass by value means passing a copy of the variable to the method. Pass by reference means passing access to the variable to the method. 
+
+A variable of a reference type contains a reference to its data. A variable of a value type contains its data directly.
+
+##What types are normally passed by value?  By reference?  
+
+When you pass by reference, the method contains a reference to the object being manipulated, 
+whereas when you pass by value, the method copies the value being manipulated
+
+Value references are typres such as ints, floats and such, by reference are imutable types such as bools and strings
+
+##When does the .NET garbage collector run? What does it do?
+
+The grabage collecter runs in the compile time of the code and deletes all of the unreferenced code that is generated during compile 

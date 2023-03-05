@@ -1,0 +1,29 @@
+#Refactoring, Unit Tests
+ 
+##What does the using keyword do?
+
+The using keyword allows the current project to see another one and use its public methods and variables
+
+##What is refactoring?
+
+Changing the code to fir new requirements but not affecting the ouput, for example adding a maximum age to a ticket system instead of leaving the OAP age to be 60>
+
+##Why did we need to refactor the Main method in yesterday's example?  
+
+Because new information came up that made the excisting logic incorrect
+
+##What is unit testing?
+
+Unit testing is testing methods to see if they return the expected values
+
+##Why should we write unit tests?
+
+To see if the code is behaving as expected and producing the desired output
+
+##How can you decide what test input to use?
+
+The test input should be the bounderies of the logic, so upper and lower as well as one in the middle
+
+##What is a TestCase? Why use it instead of separate tests?
+
+A TestCase in unit testing allows Tests to be modular and accept aruments so there only has to be one block of code instead of multiple

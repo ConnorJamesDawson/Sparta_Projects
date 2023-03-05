@@ -1,0 +1,58 @@
+#Give an example of a ternary operator  
+
+variable_name = (condition) ? value_if_true : value_if false;
+
+int c = (a%b==0) ? c=a : c=b;
+
+#What does the modulus operator do?  
+
+% returns the remainder value from dividing the lhs from the rhs so 4 % 2 = 0, 4 % 3 = 1
+
+#What is the result of dividing integers 10 by 4  
+
+Integer division means no decimals so answer is 2
+
+#How would you calculate the number of weeks and days in 34 days?  
+
+int weeks = 34 / 7;
+int days = 34 % 7;
+
+#What is the difference between a postfix and a prefix increment operator?  
+
+postfix increment c++; This operation happens last 
+prefix increment ++c;
+
+The Prefix operators increment or decrement the variable prior to dereferencing the object, while the Postfix operators increment or decrement the variable after referencing it.
+
+#What is the difference between a unary and binary operator?  
+
+A binary operator has two operands. For example the addition operator acts on the operands a and b.
+
+a+b
+
+A uniary only has one such as ! in boolean statements or the - in numbers
+
+#Which types of operator have the lowest priority?  
+
+logic expressions have the lowest priority, such as & | and ,
+
+#What is the difference between an if-else block and a switch-case block?  Give an example of when you would use each.  
+
+If else blocks are used to compare two conditions, true or false, if true execute code, if false don't
+
+A switch case is used to compare multiple conditions, or 'cases' in the same block for better user readability
+
+What are the 4 types of loop (just name them) 
+for , foreach, while, do while
+
+#What is the difference between a for- loop and a foreach- loop?  Give an example of when you would use each.
+
+For is an iterator using a counter, foreach loop looks at each individal object of a collection whilst cycling through it
+
+For loops are good for controlling the iteration through an array, such as when you want to get every second object in an array
+
+Foreach are good for iterating through an array whilst looking at each indiviual object in a collection
+
+#What is the difference between a while- loop and a do while- loop?  Give an example of when you would use each.
+
+A do while executes the code once before the while loop takes effect. 

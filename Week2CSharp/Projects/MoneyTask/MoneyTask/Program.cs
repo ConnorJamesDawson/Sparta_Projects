@@ -1,6 +1,6 @@
 ﻿namespace MoneyTask;
 
-internal class Program
+public class Program
 {
     static void Main()
     {
@@ -14,6 +14,7 @@ internal class Program
 
     public static string MoneyParse(float money)
     { //Remember working in pennies
+        if (money < 0) throw new ArgumentOutOfRangeException("Please add a positive value to get a result from");
 
         float pennies = money * 100;
         Console.WriteLine(pennies);

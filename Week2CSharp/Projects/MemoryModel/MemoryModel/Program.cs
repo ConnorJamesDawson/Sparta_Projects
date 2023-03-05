@@ -32,6 +32,8 @@ internal class Program
         //Becase everything is defined in a scope anything created here is thrown off the heap after the { }
 
         int ali = DemoMethod(samsung, alin);
+
+        PassByReferenceDemo(ref alin, out ali);
     }
 
     static int DemoMethod(int[] Jack, int max)
@@ -39,5 +41,14 @@ internal class Program
         max *= 2;
         Jack[1] = 404;
         return Jack[0];
+    }
+
+    static void PassByReferenceDemo(ref int ricardo, out int luke)
+    {
+        // in is now read only
+        // Use ref if you want a reference but modifiable
+        luke = ricardo * 3;
+        ricardo++;
+
     }
 }

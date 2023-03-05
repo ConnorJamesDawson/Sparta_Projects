@@ -1,0 +1,40 @@
+#Strings, Arrays, DateTime, and Enums
+
+##What is StringBuilder and why is it used?
+
+Stringbuilder allows a string to be mutable, to be changed without having to create a new object 
+
+##What is String Interpolation?
+
+An interpolated string is a string literal that might contain interpolation expressions. 
+When an interpolated string is resolved to a result string, items with interpolation expressions are replaced by the string representations of the expression results.
+
+a $"" marks a string for interpolation
+
+##What is string parsing?
+
+String parsing is when the code tries to convert a string into another base type such as a string "123" would be parsed into a int 123
+
+##What is the difference between the Parse and TryParse methods?
+
+A TryParse is a boolean statement on whether the method can return a value or not allowing coders to use TryParse for error handling
+
+A TryParse also has an out value that is the result of the Parse method
+
+##What is the difference between a multidimensional array and a jagged array?  
+
+A multidiensional array is more uniform as each array has the same length
+
+A jagged array has different lengths for each of the second arrays
+
+##Why is representing Dates and Times complicated?  
+
+Date and Times are different based on cultures so it is complicated to represent in a uniform manner
+
+##What is an enum and why would you use it?
+
+An enumeration, or Enum , is a symbolic name for a set of values. 
+
+Enumerations are treated as data types, and you can use them to create sets of constants for use with variables and properties.
+
+Using enums can lead to less errors invlolving passing incorrect values

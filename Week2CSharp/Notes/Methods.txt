@@ -1,0 +1,40 @@
+#Methods
+ 
+##What makes up a method signature?  
+
+A method signature is made up of the methods name and parameter types takes as arguments
+
+##What is a method body?  
+
+A method body is the block of code inside of the method
+
+##In a method signature, what does the void keyword mean?  
+
+The void keyword means the method does not return any result
+
+##What is method overloading?  
+
+Method overloading is where multiple methods of the same name take different parameter types as input 
+
+##What is an out parameter?  
+
+The out parameter in C# is used to pass arguments to methods by reference, which then alters the reference.
+
+int initializeInMethod;
+OutArgExample(out initializeInMethod);
+Console.WriteLine(initializeInMethod);     // value is now 44
+
+void OutArgExample(out int number)
+{
+    number = 44;
+}
+
+##What are named arguments and why are they useful?
+
+Named arguments enable you to specify an argument for a parameter by matching the argument with its name rather than with its position in the parameter list.
+
+This is useful for the readability of the code as the code can specifically see what values are going to which arguement
+
+##What is a tuple, and why is it useful?
+
+Tuples are used to store multiple items in a single variable. These can be very useful for returning multiple data types instead of relying on multiple methods to return one datat type

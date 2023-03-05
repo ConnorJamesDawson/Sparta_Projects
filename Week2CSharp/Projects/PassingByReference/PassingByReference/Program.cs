@@ -1,10 +1,20 @@
-﻿namespace PassingByReference
+﻿using System;
+
+namespace PassingByReference;
+
+internal class Program
 {
-    internal class Program
+    static void Main()
     {
-        static void Main(string[] args)
+        int a = 6;
+        int b = 3;
+        int d = Int32.MaxValue;
+        int c = (a % b == 0) ? c = a : c = b;
+        Console.WriteLine(c);
+
+        checked
         {
-            Console.WriteLine("Hello, World!");
+            d++;
         }
     }
 }
