@@ -4,7 +4,7 @@ namespace AdvancedNUnit
 {
     public class Calculator
     {
-        public double Num1 { get; set; }
+        public double Num1 { get; set; } //Constructors
         public double Num2 { get; set; }
         public double Add()
         {
