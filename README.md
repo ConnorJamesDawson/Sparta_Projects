@@ -27,4 +27,4 @@ The basics of c# covering:
 
 ## **[Week 3](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP/AdvancedUnitTesting) Advanced Unit Tests & OOP**
 
-- [Advanced Unit Testing](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP/AdvancedUnitTesting)
+- [Advanced Unit Testing](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP)
