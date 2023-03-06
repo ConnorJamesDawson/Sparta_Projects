@@ -18,12 +18,12 @@ This folder contains the notes and the project files on the topics covered in We
 ### **Intro to c#**
 
 The basics of c# covering:
-- the inception of C# 
-- the difference betweeen .NET and .NETFramework
-- Operators and Control flow
-- Data types
-- Unit Tests
-- A sample c# project from the lesson as well as a calculator I made and a days, weeks calculator.
+- [The inception of C# & The difference betweeen .NET and .NETFramework](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week2CSharp/IntroToC%23)
+- [Data types](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week2CSharp/DataTypesWork)
+- [Unit Testing](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week2CSharp/UnitTestWork)
+- [Operators and Control flow](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week2CSharp/OperatorsAndControlFlowWork)
+- [Unit Tests](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week2CSharp/UnitTestWork) 
+- A sample c# [calculator] (https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week2CSharp/Calculator) I made to test my skills on work learned in the week
 
 ## **Week 3 Advanced Unit Tests & OOP**
 
