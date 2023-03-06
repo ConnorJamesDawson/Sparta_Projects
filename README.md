@@ -23,7 +23,7 @@ The basics of c# covering:
 - [Unit Testing](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week2CSharp/UnitTestWork)
 - [Operators and Control flow](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week2CSharp/OperatorsAndControlFlowWork)
 - [Unit Tests](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week2CSharp/UnitTestWork) 
-- A sample c# [calculator] (https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week2CSharp/Calculator) I made to test my skills on work learned in the week
+- A sample c# [calculator](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week2CSharp/Calculator) I made to test my skills on work learned in the week
 
 ## **Week 3 Advanced Unit Tests & OOP**
 
