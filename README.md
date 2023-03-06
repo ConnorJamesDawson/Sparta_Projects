@@ -3,7 +3,7 @@ A collection of projects and notes made whist training with Sparta
 
 # Add links into readme for navigation 
 
-## **Week 1 Buisiness**
+## **[Week 1](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week1Buisniness) Buisiness**
 This folder contains the notes, in the Notes folder, and the project files on the topics covered in Week 1 such as:
 
 - Elevator Pitches
@@ -11,7 +11,7 @@ This folder contains the notes, in the Notes folder, and the project files on th
 - Git and Github
 - Agile methodology
 
-## **Week 2 Intro to c**
+## **[Week 2](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week2CSharp) Intro to c**
 
 This folder contains the notes and the project files on the topics covered in Week 2.
 
@@ -25,6 +25,6 @@ The basics of c# covering:
 - [Unit Tests](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week2CSharp/UnitTestWork) 
 - A sample c# [calculator](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week2CSharp/Calculator) I made to test my skills on work learned in the week
 
-## **Week 3 Advanced Unit Tests & OOP**
+## **[Week 3](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP/AdvancedUnitTesting) Advanced Unit Tests & OOP**
 
 - [Advanced Unit Testing](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP/AdvancedUnitTesting)
