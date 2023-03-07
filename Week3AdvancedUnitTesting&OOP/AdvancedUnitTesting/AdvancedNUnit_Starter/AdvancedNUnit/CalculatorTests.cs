@@ -7,12 +7,12 @@ public class CalculatorTests
     [SetUp]
     public void Setup() { }
 
-    [Test]
-    public void Add_Always_ReturnsExpectedResult()
+    [TestCaseSource("AddCases")]
+    [Category("Happy Path")]
+    public void Add_GivenValues_ReturnsExpectedResult(int num1, int num2, int expectedResult)
     {
         // Arrange
-        var expectedResult = 6;
-        var subject = new Calculator { Num1 = 2, Num2 = 4 };
+        var subject = new Calculator { Num1 = num1, Num2 = num2 };
         // Act
         var result = subject.Add();
         // Assert
@@ -20,7 +20,17 @@ public class CalculatorTests
 
         //Assert.AreEqual(expectedResult, result, "optional failure message"); // Classic model
     }
+
+    private static object[] AddCases = //This is a field 
+    {
+        new int[]{ 2, 4, 6},
+        new int[]{ 12, 4, 16},
+        new int[]{ 2, 24, 26},
+        new int[]{ 32, 34, 66}
+    };
+
     [Test]
+    [Category("Sad Path")]
     public void DivisibleBy3_GivenAnInputOf7_ReturnsFalse()
     {
         // Arrange
@@ -73,7 +83,9 @@ public class CalculatorTests
         var nums = new int[] { 4, 2, 6, 7, 1, 9 };
 
         Assert.That(8, Is.InRange(1,10));
+
         Assert.That(nums, Is.All.InRange(1,10));
+
         Assert.That(nums, Has.Exactly(3).InRange(1,5));
     }
 }
