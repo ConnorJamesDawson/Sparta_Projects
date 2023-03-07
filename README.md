@@ -1,3 +1,6 @@
+<img src="https://boolerang.co.uk/wp-content/uploads/job-manager-uploads/company_logo/2018/04/SG-Logo-Black.png" alt="Sparta Logo" width="200"/>
+
+---   
 # Sparta_Projects
 A collection of projects and notes made whist training with Sparta
 
@@ -28,3 +31,4 @@ The basics of c# covering:
 ## **[Week 3](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP/AdvancedUnitTesting) Advanced Unit Tests & OOP**
 
 - [Advanced Unit Testing](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP)
+- [OOP Fundamentals](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP/OOPFundamentals)
