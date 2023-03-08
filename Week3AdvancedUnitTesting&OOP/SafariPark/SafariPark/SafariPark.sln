@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SafariPark.App", "SafariPark.App\SafariPark.App.csproj", "{FDD3FADB-68AB-4996-AF82-7355ED27AF31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SafariPark.App", "SafariPark.App\SafariPark.App.csproj", "{FDD3FADB-68AB-4996-AF82-7355ED27AF31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SafariPark.Tests", "SafariPark.Tests\SafariPark.Tests.csproj", "{9DB94E37-142C-4C83-8299-051F465A0BEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SafariPark.Tests", "SafariPark.Tests\SafariPark.Tests.csproj", "{9DB94E37-142C-4C83-8299-051F465A0BEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vehicle.App", "Vehicle.App\Vehicle.App.csproj", "{D239D431-BB21-4DAD-8DB8-E4FC0F76A980}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vehicle.Tests", "Vehicle.Tests\Vehicle.Tests.csproj", "{F8BBA1F2-3F10-4BD5-9FB5-3909B004275F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{9DB94E37-142C-4C83-8299-051F465A0BEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DB94E37-142C-4C83-8299-051F465A0BEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DB94E37-142C-4C83-8299-051F465A0BEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D239D431-BB21-4DAD-8DB8-E4FC0F76A980}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D239D431-BB21-4DAD-8DB8-E4FC0F76A980}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D239D431-BB21-4DAD-8DB8-E4FC0F76A980}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D239D431-BB21-4DAD-8DB8-E4FC0F76A980}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8BBA1F2-3F10-4BD5-9FB5-3909B004275F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8BBA1F2-3F10-4BD5-9FB5-3909B004275F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8BBA1F2-3F10-4BD5-9FB5-3909B004275F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8BBA1F2-3F10-4BD5-9FB5-3909B004275F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

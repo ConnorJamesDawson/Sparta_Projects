@@ -17,9 +17,13 @@
   <Class Name="SafariPark.App.Person">
     <Position X="2.75" Y="2.25" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAAAEAAAAAAAAAAAAgIAAABAAAAAAg=</HashCode>
+      <HashCode>AAAAAEAAAAAAAAAAAEAQAAAAAAAAAAgIAAABAAAAAAg=</HashCode>
       <FileName>Person.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object">
+    <Position X="6.75" Y="0.5" Width="5.25" />
+    <TypeIdentifier />
   </Class>
   <Enum Name="SafariPark.App.AnimalType">
     <Position X="11.25" Y="3.5" Width="1.5" />
