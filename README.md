@@ -32,3 +32,6 @@ The basics of c# covering:
 
 - [Advanced Unit Testing](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP)
 - [OOP Fundamentals](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP/OOPFundamentals)
+- [Advent Of Code - Pair Programming Task](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP/PairProgramming_AdventOfCode)
+- [OOP - SafariPark project](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP/SafariPark)
+- [TDD - FizzBuzz project](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP/FizzBuzz)
