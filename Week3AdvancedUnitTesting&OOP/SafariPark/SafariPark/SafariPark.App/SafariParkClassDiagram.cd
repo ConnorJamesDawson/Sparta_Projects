@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="SafariPark.App.Animals">
+    <Position X="8.25" Y="3.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>gAAAAIAAAABAAAAAAAAAAAAAgAAAAAgAACIAAAAAAAA=</HashCode>
+      <FileName>Animals.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SafariPark.App.Lion">
+    <Position X="8.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Lion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SafariPark.App.Person">
+    <Position X="2.75" Y="2.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAEAAAAAAAAAAAAgIAAABAAAAAAg=</HashCode>
+      <FileName>Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="SafariPark.App.AnimalType">
+    <Position X="11.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAgAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AnimalType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SafariPark.App.FoodType">
+    <Position X="13" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAACAAAAAgAAAAAAAAAAAUAAAA=</HashCode>
+      <FileName>FoodType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
