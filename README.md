@@ -2,7 +2,7 @@
 
 ---   
 # Sparta_Projects
-A collection of projects and notes made whist training with Sparta
+A collection of projects and notes made whilst training with Sparta
 
 ## **[Week 1](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week1Buisniness) Buisiness**
 This folder contains the notes, in the Notes folder, and the project files on the topics covered in Week 1 such as:
@@ -20,10 +20,10 @@ This folder contains the notes and the project files on the topics covered in We
 
 The basics of c# covering:
 - [The inception of C# & The difference betweeen .NET and .NETFramework](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week2CSharp/IntroToC%23)
-- [Data types](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week2CSharp/DataTypesWork)
-- [Unit Testing](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week2CSharp/UnitTestWork)
-- [Operators and Control flow](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week2CSharp/OperatorsAndControlFlowWork)
-- [Unit Tests](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week2CSharp/UnitTestWork) 
+- [Data types](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week2CSharp/DataTypesWork) - Covers what data types are and the application
+- [Unit Tests](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week2CSharp/UnitTestWork) - Covers what unit tests are and why we should use them 
+- [Unit Testing](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week2CSharp/UnitTestWork) - This project covers the application of unit testing on multiple projects
+- [Operators and Control flow](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week2CSharp/OperatorsAndControlFlowWork) - This projects goes over what operators are in c# along with the order of operations
 - A sample c# [calculator](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week2CSharp/Calculator) I made to test my skills on work learned in the week
 
 ## **[Week 3](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP) Advanced Unit Tests & OOP**
