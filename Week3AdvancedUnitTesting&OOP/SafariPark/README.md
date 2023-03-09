@@ -67,11 +67,19 @@ Really veritile by passing arguments into the ToString
         return $"Message";
     }
 
+If you want the parents method return as well you just need base.ToString() to add that return.
+
 ## Polymorphism
 
 If you are gonna make a interface you need to note it with an I at the beggining
 
-Everything in an interface is public and abstract
+Everything in an interface is public and abstract.
+
+The interface class is very useful to bind classes together and combine common functionality to allow seperate abstarct classes to present data to one another.
+
+In the interface class you only need to declare the values to be used in all of the other classes, nothing else needs to be added.
+
+
 
 Further reading -
 
