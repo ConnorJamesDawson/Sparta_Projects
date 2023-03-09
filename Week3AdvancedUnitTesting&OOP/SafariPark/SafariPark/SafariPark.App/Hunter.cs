@@ -1,27 +1,27 @@
 ﻿namespace SafariPark.App;
 
-internal class Hunter : Person
+internal class Hunter : Person , IShootable
 {
 
-    private string? _camera;
+    IShootable Shooter { get; set; }
 
     public Hunter() : base ()
     {
 
     }
 
-    public Hunter(string firstName, string lastName, string camera = "" ) : base (firstName, lastName)
+    public Hunter(string firstName, string lastName, IShootable shooter) : base (firstName, lastName)
     {
-        _camera = camera;
+        Shooter = shooter;
     }
 
     public string Shoot()
     {
-        return $"{GetFullName} has taken a photo with their {_camera}";
+        return $"{GetFullName} has taken a shot with their {Shooter.Shoot()}";
     }
 
     public override string ToString() //This override appends onto the parents override so you can build a specialised string for each child
     {
-        return $"{base.ToString()} Camera: {_camera}";
+        return $"{base.ToString()} Shooter: {Shooter}";
     }
 }

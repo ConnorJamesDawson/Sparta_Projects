@@ -49,9 +49,9 @@ internal class AirplaneTests
         Assert.That(result, Is.EqualTo(expected));
     }
 
-    [TestCase("Jet2", 100, "Thank you for flying Jet2: SafariPark.App.Airplane altitude: 100")]
-    [TestCase("2Jet", 1000, "Thank you for flying 2Jet: SafariPark.App.Airplane altitude: 1000")]
-    [TestCase("AirLingus", 50, "Thank you for flying AirLingus: SafariPark.App.Airplane altitude: 50")]
+    [TestCase("Jet2", 100, "Thank you for flying Jet2: Vehicle.App.Airplane altitude: 100")]
+    [TestCase("2Jet", 1000, "Thank you for flying 2Jet: Vehicle.App.Airplane altitude: 1000")]
+    [TestCase("AirLingus", 50, "Thank you for flying AirLingus: Vehicle.App.Airplane altitude: 50")]
     public void ToString_WhenGivenAirlineNameAndAltitude_RetrunExpectedString(string airlineName, int altitude, string expected)
     {
         Airplane sutAirplane = new(210, 200, 50, airlineName);

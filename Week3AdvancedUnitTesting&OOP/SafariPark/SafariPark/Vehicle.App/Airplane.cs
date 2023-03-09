@@ -9,12 +9,12 @@ namespace Vehicle.App
     {
         private readonly string _airline;
 
-        public Airplane(int capacity)
+        public Airplane(int capacity) : base (capacity)
         {
             Capacity = capacity;
         }
 
-        public Airplane(int capacity = 0, int numPassengers = 0, int speed = 0, string airline = "")
+        public Airplane(int capacity = 0, int numPassengers = 0, int speed = 0, string airline = "") : base (capacity, speed)
         {
             Capacity = capacity;
             NumPassengers = numPassengers;

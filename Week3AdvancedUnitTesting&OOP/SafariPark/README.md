@@ -66,3 +66,13 @@ Really veritile by passing arguments into the ToString
     {
         return $"Message";
     }
+
+## Polymorphism
+
+If you are gonna make a interface you need to note it with an I at the beggining
+
+Everything in an interface is public and abstract
+
+Further reading -
+
+https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/interfaces - Polymorphism

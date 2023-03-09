@@ -1,8 +1,7 @@
 ﻿namespace SafariPark.App;
 
-public class Person
+public class Person : IMovable
 {
-    private string _occupation = "";
     private int _age;
 
     public string FirstName{ get; init;} = "";
@@ -38,8 +37,17 @@ public class Person
     }
     public override string ToString() //Override looks for the virtual methods found in the parent Person
     {
-        //return $"{base.ToString()} Name: {GetFullName} Age: {Age}";
-        return $"{base.ToString()}";
+        return $"{base.ToString()} Name: {GetFullName} Age: {Age}";
     }
 
+    public string Move()
+    {
+        return $"{GetFullName} is Moving along";
+
+    }
+
+    public string Move(int times)
+    {
+        return $"{GetFullName} is Moving along {times} times";
+    }
 }

@@ -1,5 +1,6 @@
-﻿namespace SafariPark.App;
+﻿using Vehicle.App;
 
+namespace SafariPark.App;
 #region classes and structs
 /*public struct Point3D
 {
@@ -55,7 +56,7 @@
             p.Age = 92;
             p = null; //You are just assiging the ref of p to null becuase John is passes by Value
         }*/
-        #endregion
+#endregion
 
 
 public class Program
@@ -63,31 +64,56 @@ public class Program
     static void Main()
     {
         #region Person Inheritence
-/*        Hunter hunter = new("Marion", "Jones", "Samsung") {Age = 34 };
+        /*        Hunter hunter = new("Marion", "Jones", "Samsung") {Age = 34 };
 
-        Console.WriteLine(hunter.Age);
-        Console.WriteLine(hunter.Shoot());
+                Console.WriteLine(hunter.Age);
+                Console.WriteLine(hunter.Shoot());
 
-        Hunter h2 = new() { };
-        Console.WriteLine(h2.Shoot());
+                Hunter h2 = new() { };
+                Console.WriteLine(h2.Shoot());
 
-        Rectangle rect = new(2, 4);
+                Rectangle rect = new(2, 4);
 
-        Console.WriteLine(rect);
-        Console.WriteLine($"{hunter}");*/
+                Console.WriteLine(rect);
+                Console.WriteLine($"{hunter}");*/
         #endregion
 
-        Airplane airplane = new Airplane(200, 190, 100, "JetsRUs") { NumPassengers = 150}; 
-        airplane.Ascend(500); 
-        Console.WriteLine(airplane.Move(3));
+        #region Polymorphism
+        /*        List<Object> gameObjects = new List<Object>()
+                {
+                 new Person("Cathy", "French"),
+                 new Airplane(400, 200,  200, "Boeing") { NumPassengers = 55 },
+                 new Vehicle(12, 20){NumPassengers = 6 },
+                 new Hunter("Henry", "Hodgkins", "Pentax")
+                }; 
 
-        Console.WriteLine(airplane); 
+                foreach (var gameObj in gameObjects)
+                {
+                    Console.WriteLine(gameObj);
+                }*/
+        Camera samsung = new("Samsung");
+        Camera IPhone = new("IPhone");
+        Camera Sony = new("Sony");
+        Camera Hitoshi = new("Hitoshi");
+        WaterGun playWet = new WaterGun("PlayWet");
+        LaserGun jacks = new LaserGun("Jacks");
+        LaserGun phillips = new LaserGun("Phillips");
+        WaterGun nerf = new WaterGun("Nerf");
 
-        airplane.Descend(200); 
+        List<IShootable> weapons = new List<IShootable>()
+        {
 
-        Console.WriteLine(airplane.Move()); 
+            new Hunter("Jack","L", jacks),
+            new Hunter("Phillip","N", phillips),
+            new Hunter("Nerd","Q", nerf),
+            new Hunter("Oliver","E", IPhone),
+        };
 
-        airplane.Move(); Console.WriteLine(airplane);
+        foreach (IShootable weapon in weapons)
+        {
+            Console.WriteLine(weapon.Shoot()); 
+        }
+        #endregion
 
     }
 }

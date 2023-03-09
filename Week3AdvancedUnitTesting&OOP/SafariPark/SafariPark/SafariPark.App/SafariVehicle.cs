@@ -1,13 +1,15 @@
-﻿namespace Vehicle.App;
+﻿using SafariPark.App;
 
-public class Vehicle
+namespace Vehicle.App;
+
+public class SafariVehicle : IMovable
 {
     private int _capacity;
     private int _numPassengers;
 
-    public Vehicle(){ }
+    public SafariVehicle(){ }
 
-    public Vehicle(int capacity = 5, int speed = 10){ _capacity = capacity; Speed = speed;}
+    public SafariVehicle(int capacity = 5, int speed = 10){ _capacity = capacity; Speed = speed;}
 
     public int NumPassengers
     {
