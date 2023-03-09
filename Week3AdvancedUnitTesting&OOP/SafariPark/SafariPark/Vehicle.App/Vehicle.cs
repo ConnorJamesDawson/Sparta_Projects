@@ -14,9 +14,10 @@ public class Vehicle
         get { return _numPassengers; }
 
         set
-        { 
-            if(value <= _capacity && value >= 0)
+        {
             {
+                Console.WriteLine($"NumPassengers is gonna be {value} and capacity is {_capacity}");
+                if (value > _capacity) throw new ArgumentOutOfRangeException();
                 _numPassengers = value;
             }
         }
@@ -26,13 +27,13 @@ public class Vehicle
 
     public int Speed{get; init;} = 10;
 
-    public string Move(int times)
+    public virtual string Move(int times)
     {
         Position = Speed * times;
         return $"Moving along {times} times";
     }
 
-    public string Move()
+    public virtual string Move()
     {
         Position = Speed;
         return $"Moving along";

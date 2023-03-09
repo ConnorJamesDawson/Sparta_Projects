@@ -36,6 +36,10 @@ public class Person
 
         Age = age;
     }
-
+    public override string ToString() //Override looks for the virtual methods found in the parent Person
+    {
+        //return $"{base.ToString()} Name: {GetFullName} Age: {Age}";
+        return $"{base.ToString()}";
+    }
 
 }

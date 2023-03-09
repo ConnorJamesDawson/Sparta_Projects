@@ -7,7 +7,7 @@ public class Tests
 
     [TestCase(20, 2)]
     [TestCase(40, 4)]
-    [TestCase(10, 0)]
+    [TestCase(10, 10)]
     [TestCase(0, 0)]
     public void WhenADefaultVehicleMovesANumberOfTimesItsPositionIsExpected(int vehiclePosition, int howManyMoves)
     {

@@ -62,13 +62,32 @@ public class Program
 {
     static void Main()
     {
-        Hunter hunter = new("Marion", "Jones", "Samsung") {Age = 34 };
+        #region Person Inheritence
+/*        Hunter hunter = new("Marion", "Jones", "Samsung") {Age = 34 };
 
         Console.WriteLine(hunter.Age);
         Console.WriteLine(hunter.Shoot());
 
         Hunter h2 = new() { };
         Console.WriteLine(h2.Shoot());
+
+        Rectangle rect = new(2, 4);
+
+        Console.WriteLine(rect);
+        Console.WriteLine($"{hunter}");*/
+        #endregion
+
+        Airplane airplane = new Airplane(200, 190, 100, "JetsRUs") { NumPassengers = 150}; 
+        airplane.Ascend(500); 
+        Console.WriteLine(airplane.Move(3));
+
+        Console.WriteLine(airplane); 
+
+        airplane.Descend(200); 
+
+        Console.WriteLine(airplane.Move()); 
+
+        airplane.Move(); Console.WriteLine(airplane);
 
     }
 }

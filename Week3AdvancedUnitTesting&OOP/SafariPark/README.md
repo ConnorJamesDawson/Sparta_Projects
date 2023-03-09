@@ -53,3 +53,16 @@ Child contructor need : base to send informtaion to the parent e.g
     }
 
 ? after the type such as string? means the type can be nullable
+
+Abstract classes are used to mark a class as non instantiable, kind of like a bookmark to other coders that this class shouldn't be used on it's own and should only be used with it's child classes.
+
+Methods in an abstarct class don't have to have a body as long as the implementation is done in it's children, this reduces the amount of duplicate code in the classes
+
+To edit what a classes generates from a ToString you need, this can be used with Class.ToString() or just Class
+
+Really veritile by passing arguments into the ToString
+
+    public override string ToString()
+    {
+        return $"Message";
+    }

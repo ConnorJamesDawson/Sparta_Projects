@@ -19,4 +19,9 @@ internal class Hunter : Person
     {
         return $"{GetFullName} has taken a photo with their {_camera}";
     }
+
+    public override string ToString() //This override appends onto the parents override so you can build a specialised string for each child
+    {
+        return $"{base.ToString()} Camera: {_camera}";
+    }
 }
