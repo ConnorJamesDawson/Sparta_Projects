@@ -1,4 +1,4 @@
-﻿using SafariPark.App;
+﻿using SafariPark.App.Interfaces;
 
 namespace Vehicle.App;
 

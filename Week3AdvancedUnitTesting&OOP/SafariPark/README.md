@@ -79,7 +79,29 @@ The interface class is very useful to bind classes together and combine common f
 
 In the interface class you only need to declare the values to be used in all of the other classes, nothing else needs to be added.
 
+## Equality and Comparisson
 
+To generate an EqualTo functionality just Generate Equals and click both boxes, that'll make an equals that checks all values against one another, we can edit this to only check FullNqme for example 
+
+## Collections
+
+### LinkedLists vs Lists
+
+Link lists are good for lists where the only use is if you are accessing sequential data (either forwards or backwards) random access is relatively expensive since it must walk the chain each time (hence why it doesn't have an indexer). So unless you need a list where the order is not going to be shuffeled around/added to in real time just use a List.Linked lists are just better for speed and memory
+
+### Queue - First in First out
+
+For queue its a list that can only be accessed at the front of the list with Enqueue and Dequeue (Dequeue also returns that first element)
+
+### Stack - Last in first out
+
+Push - Push on top of the 'stack'
+Pop - Pop off the top of the stock
+Peek - Look at the first element
+
+### HashSet - unordered
+
+Cannot have duplicates in a Hashset (two different objects with the same HashCode), if the two objects have the same Hashcode then the system goes to the Equals to see if they are truely the same object
 
 Further reading -
 

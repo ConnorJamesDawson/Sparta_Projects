@@ -7,8 +7,8 @@ internal class WaterGun : Weapon
 
     }
 
-    public override string Shoot()
+    public override string Shoot(string target)
     {
-        return $"{base.Shoot()} water gun Swish!!!";
+        return $"{base.Shoot(target)} water gun Swish!!!";
     }
 }

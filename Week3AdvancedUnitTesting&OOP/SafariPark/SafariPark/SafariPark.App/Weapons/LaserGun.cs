@@ -7,9 +7,9 @@
 
         }
 
-        public override string Shoot()
+        public override string Shoot(string target)
         {
-            return $"{base.Shoot()} laser gun Zing!!!";
+            return $"{base.Shoot(target)} laser gun Zing!!!";
         }
 
     }

@@ -1,9 +1,11 @@
-﻿namespace SafariPark.App
+﻿using SafariPark.App.Interfaces;
+
+namespace SafariPark.App
 {
     internal class Camera : IShootable
     {
         private string _brand;
-        public string Shoot()
+        public string Shoot(string tagret)
         {
             return $"thier camera, it's an {_brand}";
         }

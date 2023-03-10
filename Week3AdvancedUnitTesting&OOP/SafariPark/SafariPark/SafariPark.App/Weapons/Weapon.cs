@@ -1,4 +1,6 @@
-﻿namespace SafariPark.App
+﻿using SafariPark.App.Interfaces;
+
+namespace SafariPark.App
 {
     internal abstract class Weapon : IShootable
     {
@@ -9,7 +11,7 @@
             _brand = brand;
         }
 
-        public virtual string Shoot()
+        public virtual string Shoot(string tagret)
         {
             return $"{_brand}";
         }
