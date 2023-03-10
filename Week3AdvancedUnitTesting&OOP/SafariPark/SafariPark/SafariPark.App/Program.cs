@@ -288,6 +288,30 @@ public class Program
         var p = personDict["sherlock"];
         personDict.Add("will", will); Console.WriteLine();
 
+        Console.WriteLine("Dictionary problem");
+        string input = "The cat in the hat comes back";
+        input = input.Trim().ToLower();
+
+        var countDict = new Dictionary<char, int>();
+
+        foreach (var c in input)
+        {
+            if (countDict.ContainsKey(c))
+            {
+                countDict[c]++;
+            }
+            else
+            {
+                countDict.Add(c, 1);
+            }
+        }
+
+        foreach (var entry in countDict)
+        {
+            Console.WriteLine(entry);
+        }
+        Console.WriteLine();
+
         #endregion
 
     }

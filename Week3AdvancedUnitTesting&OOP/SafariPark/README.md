@@ -101,7 +101,7 @@ Peek - Look at the first element
 
 ### HashSet - unordered
 
-Cannot have duplicates in a Hashset (two different objects with the same HashCode), if the two objects have the same Hashcode then the system goes to the Equals to see if they are truely the same object
+Cannot have duplicates in a Hashset (two different objects with the same HashCode), if the two objects have the same Hashcode then the system goes to the Equals to see if they are truely the same object.
 
 Further reading -
 
