@@ -29,6 +29,7 @@ namespace Collections_Lib
             int[] result = new int[original.Length];
 
             foreach (int i in original) { stack.Push(i); }
+
             for (int i = 0; i < original.Length; i++)
             {
                 result[i] = stack.Pop();
