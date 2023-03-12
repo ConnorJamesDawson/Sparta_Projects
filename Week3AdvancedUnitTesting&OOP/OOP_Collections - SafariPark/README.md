@@ -106,3 +106,96 @@ Cannot have duplicates in a Hashset (two different objects with the same HashCod
 Further reading -
 
 https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/interfaces - Polymorphism
+
+## GitHub Questions Part 3 OOP-Continued
+
+- What is an abstract method? An abstract class?
+
+Abstract class: is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class). 
+Abstract method: can only be used in an abstract class, and it does not have a body. The body is provided by the derived class (inherited from).
+
+- What is an interface? Can an abstract class be instantiated?
+
+An interface is an abstract class that is used to joint two or more classes to use common functionality as a aprt of polymorphism.
+An abstract class cannot be instantiated.
+
+- Does an Abstract class have to have Abstract methods?  Describe a scenario where you would use an abstract class.
+
+An abstract class does not have to have abstract methods. An abstract class could be used for a parent class that is never supposed to be instantiated so a parent Weapon class
+
+- What is the difference between method overloading and method overriding?
+
+Overloading is the ability to have multiple methods within the same class with the same name, but with different parameters. 
+Overriding is known as compile-time (or static) polymorphism because each of the different overloaded methods is resolved when the application is compiled.
+
+- What are the similarities and differences between classes and structs?
+
+Structures are value types; classes are reference types. 
+
+A variable of a structure type contains the structure's data, rather than containing a reference to the data as a class type does. 
+
+Structures use stack allocation; classes use heap allocation.
+
+- What class is the base class for all C# classes?
+
+The Object Class
+
+- What properties and methods does the Object class have?
+
+ToString(), Equals(), GetHashCode(), GetType()
+
+- What does the Object ToString() method do by default?
+
+The default implementation of the ToString method returns the fully qualified name of the type of the Object
+
+### Object Equality and Comparison
+
+- How would you override the Equals method?
+
+public override bool Equals()
+
+- If you override Equals, what other method do you need to override and why?
+
+If you are gonna override Equals you need to override the GetHashCode method as well as that is used for comparisons in the Hashdown collections to differentiate between duplicates
+
+- How would you implement the CompareTo method of the IComparable interface?
+
+    public int CompareTo(Person? other)
+    {
+        if (other == null) return 1;
+        // This will sort by lowest value goes first, 1,2,3 a,b,c
+        if (LastName != other.LastName)
+        {
+            return this.LastName.CompareTo(other.LastName);
+        }
+        else if (FirstName != other.FirstName)
+        {
+            return FirstName.CompareTo(other.FirstName);
+        }
+        else
+        {
+            return Age.CompareTo(other.Age);
+        }
+    }
+
+- What is the relationship between CompareTo and Equals?
+
+CompareTo method is comparing instance of object with parameter of String object. 
+Equals method determine the value of both are the same or not. 
+
+### Collections
+
+- What is the best Collection type for fast access of sequentially stored items?
+
+LinkedList as they are stored sequentially
+
+- What is the difference between a Stack and a Queue?
+
+Queue - First in first out
+Stack - Last in first out
+
+- What other Collection types are available? Briefly describe them.
+
+Lists - a form of array
+HashSet - an unordered list that is defined by what the element contains
+Dictionary - A way of storing information in a list but adding a 'key' to the element to easily access that element later on
