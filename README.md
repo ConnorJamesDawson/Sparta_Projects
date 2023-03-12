@@ -28,8 +28,9 @@ The basics of c# covering:
 
 ## **[Week 3](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP) Advanced Unit Tests & OOP**
 
-- [Advanced Unit Testing](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP) - Covers additional features of Nunit and testing methodolgy.
-- [Test Driven Development - FizzBuzz project](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP/FizzBuzz) -This project covers the methodology of TDD applied in a project setting
-- [Advent Of Code - Pair Programming Task](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP/PairProgramming_AdventOfCode)- There are two projects that were completed as a part of the Advent Of Code challenge, in Pair Programming style with TDD methodology
-- [Object Orientated Programming (OOP) Fundamentals](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP/OOPFundamentals)- This repos covers the teachables course on OOP and contains my notes on the methodogy
-- [OOP - SafariPark project](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP/SafariPark)- This project covers the OOP priciples applied in a project setting in more detail
+- [Advanced Unit Testing](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP/AdvancedUnitTesting) - Covers additional features of Nunit and testing methodolgy.
+- [Test Driven Development - FizzBuzz project](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP/TDD%20-%20FizzBuzz) -This project covers the methodology of TDD applied in a project setting.
+- [Advent Of Code - Pair Programming Task](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP/PairProgramming_AdventOfCode)- There are two projects that were completed as a part of the Advent Of Code challenge, in Pair Programming style with TDD methodology.
+- [Object Orientated Programming (OOP) Fundamentals](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP/OOPFundamentals)- This repos covers the teachables course on OOP and contains my notes on the methodogy.
+- [OOP - SafariPark project](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP/OOP_Collections%20-%20SafariPark)- This project covers the OOP priciples applied in a project setting in more detail.
+- [Bubble Sort And Collections - Pair Programming Task](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP/PairProgramming-BubbleSort)- There are two projects that were completed as a part of the Lab session for Collections, it contains the BubbleSort project as well as the Collections lab project, in Pair Programming style with TDD methodology.
