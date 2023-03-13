@@ -146,7 +146,7 @@ ToString(), Equals(), GetHashCode(), GetType()
 
 - What does the Object ToString() method do by default?
 
-The default implementation of the ToString method returns the fully qualified name of the type of the Object
+The default implementation of the ToString method returns the fully qualified name of the type of the Object, so projectName and object name
 
 ### Object Equality and Comparison
 
