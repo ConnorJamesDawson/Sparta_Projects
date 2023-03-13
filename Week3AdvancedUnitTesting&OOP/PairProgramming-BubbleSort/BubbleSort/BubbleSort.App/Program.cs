@@ -35,10 +35,8 @@ public class Program
     public static int[] ArrayMerge(int[] array1, int[]array2)
     {
         if (array1 is null || array2 is null) throw new ArgumentNullException();
-       int[] result= array1.Concat(array2).ToArray();
+        int[] result = array1.Concat(array2).ToArray();
         Array.Sort(result);
         return result;
-
-
     }
 }

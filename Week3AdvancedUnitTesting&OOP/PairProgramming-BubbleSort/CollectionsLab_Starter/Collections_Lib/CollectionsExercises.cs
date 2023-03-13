@@ -26,30 +26,31 @@ namespace Collections_Lib
         public static int[] Reverse(int[] original)
         {
             Stack<int> stack = new Stack<int>();
-            int[] result = new int[original.Length];
 
             foreach (int i in original) { stack.Push(i); }
 
-            for (int i = 0; i < original.Length; i++)
-            {
-                result[i] = stack.Pop();
-            }
-            return result;
+            return stack.ToArray();
         }
         // using a Dictionary, counts and returns (as a string) the occurence of the digits 0-9 in the given string
         public static string CountDigits(string input)
         {
-            string result = "";
             Dictionary<char, int> dic = new Dictionary<char, int>();
+
+            string result = "";
+
             foreach (char c in input)
+            {
                 if (char.GetNumericValue(c) != -1)
                 {
                     if (dic.ContainsKey(c))
                         dic[c]++;
                     else dic.Add(c, 1);
                 }
+            }
+
             foreach (var item in dic)
                 result += item;
+
             return result;
         }
     }

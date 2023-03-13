@@ -6,6 +6,7 @@ namespace Collections_Tests
 {
     public class CollectionsExercises_Tests
     {
+
         public class DictionaryTests
         {
             [TestCase("", "")]
