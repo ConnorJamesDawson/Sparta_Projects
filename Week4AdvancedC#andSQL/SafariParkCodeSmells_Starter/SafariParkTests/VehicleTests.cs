@@ -4,11 +4,6 @@ namespace ClassesTests
 {
     public class VehicleTests
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
-
         [Test]
         public void WhenADefaultVehicleIsConstructedItsPositionIsZero()
         {

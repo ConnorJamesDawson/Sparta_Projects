@@ -23,13 +23,13 @@ public class Tests
 
         parse.ParseForSecondNumber(input);
 
-        float result = cal.Calculate(parse.firstNum, parse.secondNum, parse.operand);
+        float result = cal.Calculate(parse.FirstNumber, parse.SecondNumber, parse.Operand);
 
         Assert.That(result, Is.EqualTo(expected));
     }
     [TestCase('a')]
     [TestCase('d')]
-    [TestCase('+')]
+    [TestCase('&')]
     public void GivenWrongOperand_ThrowError_Calculation(char op)
     {
         Calculations cal = new();

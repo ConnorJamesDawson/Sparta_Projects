@@ -2,20 +2,41 @@
 {
     public class Parse
     {
-        public float firstNum = 0;
-        public bool lookingForFirst = true;
-        public bool firstNumIsMinusNumber = false;
-        public bool secondNumIsMinusNumber = false;
-        public char operand = ' ';
-        public float secondNum = 0;
+        private static bool _isDebugging = false;
+        private float _firstNum = 0;
+        private char _operand = ' ';
+        private float _secondNum = 0;
+        private bool _lookingForFirst = true;
+        private bool _firstNumIsMinusNumber = false;
+        private bool _secondNumIsMinusNumber = false;
+        private int _lastElementChecked = 0;
+
+        public float FirstNumber 
+        {
+            get { return _firstNum; }
+            private set { _firstNum = value; }
+        }
+        public float SecondNumber
+        {
+            get { return _secondNum; }
+            private set { _secondNum = value; }
+        }
+
+        public char Operand
+        {
+            get { return _operand; }
+            private set { _operand = value; }
+        }
+
         public void ResetValues()
         {
-            firstNum = 0;
-            secondNum = 0;
-            lookingForFirst = true;
-            firstNumIsMinusNumber = false;
-            secondNumIsMinusNumber = false;
-            operand = ' ';
+            FirstNumber = 0;
+            SecondNumber = 0;
+            _lookingForFirst = true;
+            _firstNumIsMinusNumber = false;
+            _secondNumIsMinusNumber = false;
+            Operand = ' ';
+            _lastElementChecked = 0;
         }
         /*
         public static void ParseInput(string userInput)
@@ -77,19 +98,19 @@
                     {
                         if (i > 0 && userInput[i - 1] == '-') // i > 0 for exceptions
                         {
-                            firstNumIsMinusNumber = true;
+                            _firstNumIsMinusNumber = true;
                         }
 
-                        if (firstNumIsMinusNumber)
+                        if (_firstNumIsMinusNumber)
                         {
-                            firstNum = (firstNum * 10) - Convert.ToInt32(userInput[i].ToString());
+                            FirstNumber = (FirstNumber * 10) - Convert.ToInt32(userInput[i].ToString());
                         }
                         else
                         {
-                            firstNum = (firstNum * 10) + Convert.ToInt32(userInput[i].ToString());
+                            FirstNumber = (FirstNumber * 10) + Convert.ToInt32(userInput[i].ToString());
                         }
-                        Console.WriteLine("The first number is {0}", firstNum);
-                        return firstNum;
+                        _lastElementChecked = i;
+                        DebugPrint($"The first number is {FirstNumber}");
                     }
 
                     if (!Char.IsNumber(userInput[i + 1]))
@@ -98,35 +119,36 @@
                     }
                 }
             }
-            return 0;
+            return FirstNumber;
         }
         public Char ParseForOperand(string userInput)
         {
             if (userInput != null)
             {
-                for (int i = 0; i < userInput.Length; i++)
+                for (int i = _lastElementChecked; i < userInput.Length; i++)
                 {
                     if (!Char.IsNumber(userInput[i]))
                     {
+                        _lastElementChecked = i;
                         switch (userInput[i]) // Set the operand for use within calculation 
                         {
                             case '+':
-                                operand = '+';
-                                return operand;
+                                Operand = '+';
+                                return Operand;
                             case '-':
-                                if (firstNumIsMinusNumber)
+                                if (_firstNumIsMinusNumber)
                                 {
-                                    firstNumIsMinusNumber = false;
+                                    _firstNumIsMinusNumber = false;
                                     break;
                                 }
-                                operand = '-';
-                                return operand;
+                                Operand = '-';
+                                return Operand;
                             case '*':
-                                operand = '*';
-                                return operand;
+                                Operand = '*';
+                                return Operand;
                             case '/':
-                                operand = '/';
-                                return operand;
+                                Operand = '/';
+                                return Operand;
                         }
                     }
                 }
@@ -137,49 +159,54 @@
         {
             if (userInput != null)
             {
-                for (int i = 0; i < userInput.Length; i++)
+                for (int i = _lastElementChecked; i < userInput.Length; i++)
                 {
                     if (!Char.IsNumber(userInput[i]) && i > 0)
                     {
-                        lookingForFirst = false;
-                        Console.WriteLine("Found operand at {0}", i);
+                        _lookingForFirst = false;
+                        DebugPrint($"Found operand at {i}");
                     }
 
-                    if (Char.IsNumber(userInput[i]) && !lookingForFirst)
+                    if (Char.IsNumber(userInput[i]) && !_lookingForFirst)
                     {
-                        switch (operand)
+                        switch (Operand)
                         {
                             case '-':
                                 if (i > 2 && userInput[i - 1] == '-' && userInput[i - 2] == '-') // i > 0 for exceptions
                                 {
-                                    Console.WriteLine("Found minus at {0}", i);
-                                    secondNumIsMinusNumber = true;
+                                    DebugPrint($"Found minus at {i}");
+                                    _secondNumIsMinusNumber = true;
                                 }
                                 break;
                             default:
                                 if (userInput[i - 1] == '-')
                                 {
-                                    Console.WriteLine("Found minus at {0}", i);
-                                    secondNumIsMinusNumber = true;
+                                    DebugPrint($"Found minus at {i}");
+                                    _secondNumIsMinusNumber = true;
                                 }
                                 break;
                         }
 
 
-                        if (secondNumIsMinusNumber)
+                        if (_secondNumIsMinusNumber)
                         {
-                            secondNum = (secondNum * 10) - Convert.ToInt32(userInput[i].ToString());
+                            SecondNumber = (SecondNumber * 10) - Convert.ToInt32(userInput[i].ToString());
                         }
                         else
                         {
-                            secondNum = (secondNum * 10) + Convert.ToInt32(userInput[i].ToString());
+                            SecondNumber = (SecondNumber * 10) + Convert.ToInt32(userInput[i].ToString());
                         }
-                        Console.WriteLine("The second number is {0}", secondNum);
-                        return secondNum;
+                        DebugPrint($"The second number is {SecondNumber}");
                     }
                 }
             }
-            return 0;
+            return SecondNumber;
+        }
+
+        private static void DebugPrint(string output)
+        {
+            if(_isDebugging)
+                Console.WriteLine(output);
         }
     }
 }
