@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Point3D.cs" />
+    <Compile Remove="Shape.cs" />
+    <Compile Remove="ShoppingList.cs" />
+  </ItemGroup>
+
+</Project>

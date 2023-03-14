@@ -2,7 +2,7 @@
 
 namespace Recursion;
 
-internal class Program
+public class Program
 {
     static void Main()
     {
@@ -51,7 +51,7 @@ internal class Program
         return sum;
     }
 
-    private static List<int> MergeSort(List<int> unsorted)
+    public static List<int> MergeSort(List<int> unsorted)
     {
         if (unsorted.Count <= 1)
             return unsorted;
@@ -77,13 +77,13 @@ internal class Program
         return Merge(left, right);
     }
 
-    private static List<int> Merge(List<int> left, List<int> right)
+    public static List<int> Merge(List<int> left, List<int> right)
     {
         List<int> result = new List<int>();
 
         while (left.Count > 0 || right.Count > 0)
         {
-            if (left.Count > 0 && right.Count > 0) //If they both 
+            if (left.Count > 0 && right.Count > 0) //If they both have elements left
             {
                 if (left.First() <= right.First())  //Comparing First two elements to see which is smaller
                 {
@@ -108,7 +108,6 @@ internal class Program
                 right.Remove(right.First());
             }
         }
-        Console.WriteLine($"Result is :");
         return result;
     }
 }
