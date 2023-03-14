@@ -34,3 +34,11 @@ The basics of c# covering:
 - [Object Orientated Programming (OOP) Fundamentals](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP/OOPFundamentals)- This repos covers the teachables course on OOP and contains my notes on the methodogy.
 - [OOP - SafariPark project](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP/OOP_Collections%20-%20SafariPark)- This project covers the OOP priciples applied in a project setting in more detail.
 - [Bubble Sort And Collections - Pair Programming Task](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week3AdvancedUnitTesting%26OOP/PairProgramming-BubbleSort)- There are two projects that were completed as a part of the Lab session for Collections, it contains the BubbleSort project as well as the Collections lab project, in Pair Programming style with TDD methodology.
+
+## **[Week 4](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week4AdvancedC%23andSQL) Advanced C# and SQL**
+
+- [Big-O notation](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week4AdvancedC%23andSQL/BigONotation) This project went over how different methods of solving equations have different costs.
+- [Recursion](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week4AdvancedC%23andSQL/Recursion) This project goes over Recursion in some detail along with the MergeSort algorithm.
+- [Recursion - Factorial & Fibonacci](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week4AdvancedC%23andSQL/Recursion%20-%20Factorial%20%26%20Fibonacci/RecursionLab) This project went over the use of recusrion with the topics in the title.
+- [Design Patterns](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week4AdvancedC%23andSQL/DesignPatternExamples) - Goes over three design principles; Factory Model, Singleton and Decorator.
+- [Decorator Design Pattern Project](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week4AdvancedC%23andSQL/DecoratingDesignPatternExample/DecoratorExample) - A project to go over the Decorator design pattern in a different scenario.
