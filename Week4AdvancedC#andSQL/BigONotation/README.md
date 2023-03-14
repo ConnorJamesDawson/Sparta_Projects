@@ -13,7 +13,7 @@ O(n) - multiple operations
 O(n2) - Quadratic, two nested loops
 O(n3) - Cubic three nested loops
 
-This can get out of hand quite quickly, for example for the wedding plan example, having only 7 possible places had 100000+ examples.
+This can get out of hand quite quickly, for example for the wedding plan example, having only 7 possible places had 10000+ examples.
 
 Algorithms that have O(n!) are inpractable/ unreasonable
 
