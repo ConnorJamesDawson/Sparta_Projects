@@ -10,6 +10,12 @@
         private bool _firstNumIsMinusNumber = false;
         private bool _secondNumIsMinusNumber = false;
         private int _lastElementChecked = 0;
+        private Calculations _calculations;
+
+        public Parse(Calculations calculationClass = null)
+        {
+            _calculations = calculationClass;
+        }
 
         public float FirstNumber 
         {
@@ -201,6 +207,11 @@
                 }
             }
             return SecondNumber;
+        }
+
+        public float CalculateEquation()
+        {
+           return _calculations.Calculate(lhs: FirstNumber, op: Operand, rhs: SecondNumber);
         }
 
         private static void DebugPrint(string output)

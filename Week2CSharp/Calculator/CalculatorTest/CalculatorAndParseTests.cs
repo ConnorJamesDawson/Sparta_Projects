@@ -5,13 +5,13 @@ namespace CalculatorTest;
 
 public class Tests
 {
-    [TestCase("6+6", 12)]
+    [TestCase("61+6", 67)]
     [TestCase("7+3", 10)]
     [TestCase("3-3", 0)]
     [TestCase("-3--6", 3)]
     [TestCase("6/3", 2)]
     [TestCase("5/2", 2.5f)]
-    [TestCase("2*8", 16)]
+    [TestCase("20*8", 160)]
     public void GivenEquation_Calculations(string input, float expected)
     {
         Calculations cal = new();
