@@ -9,6 +9,8 @@ Console.WriteLine(
 
 Beverage espressoPlus = new Soy(new Mocha(new Mocha(new Espresso())));
 
+Beverage bev = new Soy(new Espresso());
+
 Console.WriteLine(
     $"{espressoPlus.Description()} " +
     $"{espressoPlus.Cost():C}");
