@@ -9,7 +9,7 @@ namespace DecoratorExample.App.Enchantments
 {
     public class MarkOfRag : Enchantment
     {
-        public MarkOfRag(Weapon weaponToBuff) : base(weaponToBuff)
+        public MarkOfRag(Weapon weaponToBuff = null) : base(weaponToBuff)
         {
         }
 

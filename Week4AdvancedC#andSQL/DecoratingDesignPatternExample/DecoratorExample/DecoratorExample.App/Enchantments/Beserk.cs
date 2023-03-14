@@ -9,7 +9,7 @@ namespace DecoratorExample.App.Enchantments
 {
     internal class Beserk : Enchantment
     {
-        public Beserk(Weapon weaponToBuff) : base(weaponToBuff)
+        public Beserk(Weapon weaponToBuff = null) : base(weaponToBuff)
         {
         }
 

@@ -8,6 +8,8 @@ namespace DecoratorExample.App.Weapons
 {
     public abstract class Weapon
     {
+        protected string? _name = "A name hasn't been set yet";
+
         protected string? _description = "A desc hasn't been set yet";
 
         public virtual string? Descritption()
@@ -15,8 +17,12 @@ namespace DecoratorExample.App.Weapons
             return _description;
         }
 
-        public abstract int Attack();
+        public virtual string? Name()
+        {
+            return _name;
+        }
 
+        public abstract int Attack();
 
     }
 }

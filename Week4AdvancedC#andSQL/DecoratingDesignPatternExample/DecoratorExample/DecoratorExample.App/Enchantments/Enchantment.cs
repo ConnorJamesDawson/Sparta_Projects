@@ -1,30 +1,37 @@
 ﻿using DecoratorExample.App.Weapons;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+namespace DecoratorExample.App.Enchantments;
 
-namespace DecoratorExample.App.Enchantments
+public class Enchantment : Weapon
 {
-    public class Enchantment : Weapon
+
+    public Weapon weapon;
+
+    public Enchantment(Weapon? weaponToBuff = null)
     {
+        weapon = weaponToBuff;
+    }
 
-        protected Weapon _weapon;
-
-        public Enchantment(Weapon weaponToBuff)
+    public override int Attack()
+    {
+        if(weapon == null)
         {
-            _weapon = weaponToBuff;
+            return 0;
         }
-
-        public override int Attack()
+        else
         {
-            return _weapon.Attack();
-        }
-
-        public override string? Descritption()
-        {
-            return $"{_weapon.Descritption()}";
+            return weapon.Attack();
         }
     }
+
+    public override string? Descritption()
+    {
+        if (weapon == null)
+            return $"{Name()} : This is an enchantment";
+        else
+        {
+            return $"{weapon.Descritption()}";
+        }
+    }
+
+
 }
