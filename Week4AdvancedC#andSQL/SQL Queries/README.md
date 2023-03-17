@@ -194,3 +194,82 @@ join product_category pc
 order by po.date asc
 
 In this example each table has a corresponding ID to link each table
+
+# GitHub Questions
+
+- What is an ERD?
+An entity relationship diagram (ERD), also known as an entity relationship model, is a graphical representation that depicts relationships among tables in a database system.
+
+- What is a primary key?
+A primary key is used to identify different rows of information in a table
+
+- What is a foreign key?
+A foreign key is a key that links the current table to another table in a database
+
+- What is the difference between a foreign and primary key?
+A primary key is the current tables primary identifier for its rows, a foreign key is a primary key of another table in the database
+
+- Explain Normalisation.
+Normalization is the process to eliminate data redundancy and enhance data integrity in the table. Normalization also helps to organize the data in the database.
+
+- What command would you use if you want to add a table?
+CREATE TABLE [dbo].[SpartanTest] (
+    [SpartanID] INT     NOT NULL IDENTITY,
+    CONSTRAINT [PK_SpartanID] PRIMARY KEY CLUSTERED ([SpartanID] ASC)
+);
+
+- What command would you use if you want to add a column to a table
+ALTER TABLE dbo.SpartanTest
+ADD Email varchar(255);
+
+- What command would you use if you want to delete a row of data
+ALTER TABLE dbo.SpartanTest
+DROP COLUMN Email;
+
+- What command would you use if you want to insert data into a table
+insert into dbo.Spartan (FirstName, LastName, Age)
+values ('Connor', 'Dawson', '24')
+
+- What are DML, DDL, DCL and TCL?
+DDL - Data Definition Language. DQL - Data Query Language. DML - Data Manipulation Language. DCL - Data Control Language. TCL - Transaction Control Language.
+
+- If you wanted to select only the top 10 highest earners in a table of millionaires, what query would you write?
+Select Top 10 M.Earnings, M.Name
+from dbo.Millionaires M
+
+- What is a wildcard?
+A wildcard is used in conjunction with the Where keyword to sort through tables for if you want the likeness of specific information such as every entry in name that begins with J
+
+where C.Name like 'J%'
+
+- What is concatenation (with example)
+Concatenation is joining two tables together with the + operand
+
+Select C.firstname + ' ' + C.lastname as "Full Name"
+from dbo.Customer C
+
+- What query would I write if I want to find out all customers who do not have city listed in a table
+Select * From dbo.Customers where City is null
+
+- What does the arithmetic operator % do?
+% - modulo, returns the remainder of a divide
+
+- What does NULL mean?
+null means there is no information currently set to that field
+
+- Can a primary key be NULL?
+No a primary key needs to be filled in when adding data into a table
+
+- How do I select all the values starting with the letter C?
+Select *
+From dbo.Customers C
+Where C.Name Like 'C%'
+
+- When is the GROUP BY keyword used?
+
+Used to group results together based on a column
+
+Select Count(C.ContactTitle) as "Number of Contacts by Sales Title", C.ContactTitle
+From dbo.Customers C
+Group By C.ContactTitle
+Order By Count(C.ContactTitle) desc
