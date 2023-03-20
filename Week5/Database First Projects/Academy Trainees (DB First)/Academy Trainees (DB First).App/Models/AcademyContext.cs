@@ -10,8 +10,7 @@ public partial class AcademyContext : DbContext
     {
     }
 
-    public AcademyContext(DbContextOptions<AcademyContext> options)
-        : base(options)
+    public AcademyContext(DbContextOptions<AcademyContext> options) : base(options)
     {
     }
 
