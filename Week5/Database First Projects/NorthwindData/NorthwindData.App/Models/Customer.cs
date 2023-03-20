@@ -30,4 +30,5 @@ public partial class Customer
     public virtual ICollection<Order> Orders { get; } = new List<Order>();
 
     public virtual ICollection<CustomerDemographic> CustomerTypes { get; } = new List<CustomerDemographic>();
+
 }
