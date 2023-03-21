@@ -43,3 +43,9 @@ The basics of c# covering:
 - [Design Patterns](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week4AdvancedC%23andSQL/DesignPatternExamples) - Goes over three design principles; Factory Model, Singleton and Decorator.
 - [Decorator Design Pattern Project](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week4AdvancedC%23andSQL/DecoratingDesignPatternExample/DecoratorExample) - A project to go over the Decorator design pattern in a different scenario.
 - [SQL Northwind Project](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week4AdvancedC%23andSQL/SQL%20Queries) - A project going over the Northwind SQL Database with multiple queries based on a brief given during the lesson and the SQL basic notes
+- [Sort Manager Mini Project](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week4AdvancedC%23andSQL/Sort-Manager-Mini-Project-dev) - The mini project that was made with MVC, Factory design pattern with multiple sorting methods
+
+## **[Week 5](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week5Entity%20FrameworkandData) Entity Framework and Data**
+
+- [Database First Projects](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week5Entity%20FrameworkandData/Database%20First%20Projects) These projects go over the initial projects that go through the initial creation of a DbContent class through Scaffolding.
+- [Query and Method Syntax for EF SQL](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week5Entity%20FrameworkandData/QueryAndMethodSyntax) These projects go over the two ways to write sql querys in EF framework.
