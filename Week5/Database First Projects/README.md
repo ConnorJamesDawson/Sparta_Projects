@@ -50,6 +50,8 @@ The DbContext allows you to link your model properties to your database with a c
 
 “HasMany” and “WithMany” method is used to define one-to-many or many-to-many relation in entity framework.
 
+1-to-many is represented as a list, many-to-1 is represented by just a property
+
 - What is the using keyword used for?
 
 The using keyword has two major uses:

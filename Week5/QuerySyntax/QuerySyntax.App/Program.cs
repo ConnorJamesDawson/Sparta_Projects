@@ -10,9 +10,20 @@ public class Program
         using (var db = new NorthwindContext())
         {
             var records = //Sets up the query
-                from customer in db.Customers
-                where customer.City == "London" || customer.City == "Paris"
-                select customer;
+                from product in db.Products
+                group product by product.SupplierId into newgroup
+                orderby newgroup.Sum(c => c.UnitsInStock) descending
+                select new
+                {
+                    SupplierID = newgroup.Key,
+                    UnitsInStock = newgroup.Sum(c => c.UnitsInStock)
+                };
+
+/*                select new  //Anonamus type
+                {
+                    Customer = customer.CompanyName, 
+                    Country = customer.City
+                };*/
 
             foreach(var row in records) // Executes the query
             {
