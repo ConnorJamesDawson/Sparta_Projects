@@ -75,3 +75,19 @@ The migrations feature in EF Core provides a way to incrementally update the dat
 - Using EF, how do you update an object’s data in the database?
 
 First retrieve the instance of the object, then change/set the property desired, and then save the database to save the changes.
+
+- When loading an object from the database, why aren’t all its associated objects loaded by default? 
+ 
+Entity Framework does not load related objects by default to help prevent potential performance problems around loading one-to-many or many-to-many relationships into memory.
+
+- What is the difference between the Object Orientated and Relational Approach?
+
+In relational systems, relations between entities are implemented using foreign key / primary key references. In object-oriented systems, relations are usually explicitly implemented through attributes.
+
+- How do you load associated objects in a query?
+
+Eager loading is the process whereby a query for one type of entity also loads related entities as part of the query.
+
+- Why isn’t eager loading enabled by default?
+
+Eager Loading can cause huge amount of lag for the sysyem if it has hundreads of tables with thousands of rows when all you need are 5 rows from 1 table
