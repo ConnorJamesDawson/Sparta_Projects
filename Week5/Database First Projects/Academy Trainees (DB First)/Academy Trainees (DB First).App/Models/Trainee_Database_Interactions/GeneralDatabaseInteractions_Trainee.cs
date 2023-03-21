@@ -2,13 +2,6 @@
 
 public static class GeneralDatabaseInteractions_Trainee
 {
-    public static void PrintAllTrainees(AcademyContext db)
-    {
-        foreach (var trainees in db.Trainees)
-        {
-            Console.WriteLine(trainees);
-        }
-    }
 
     public static void AddTraineeToDatabase(AcademyContext db, int traineeId, string traineeName, string traineeCourse = null, string traineeLocation = null)
     {
@@ -22,16 +15,23 @@ public static class GeneralDatabaseInteractions_Trainee
         db.Trainees.Add(trainee);
         db.SaveChanges();
     }
+    public static void PrintAllTrainees(AcademyContext db)
+    {
+        foreach (var trainees in db.Trainees)
+        {
+            Console.WriteLine(trainees);
+        }
+    }
 
     public static void UpdateTraineeInDatabase(AcademyContext db, int traineeId, string traineeName = null, string traineeCourse = null, string traineeLocation = null)
     {
         Trainee selecetedTrainee = db.Trainees.Find(traineeId)!;
 
-        if (traineeName != null) selecetedTrainee.Name = traineeName;
+        if (traineeName != null && traineeName != "") selecetedTrainee.Name = traineeName;
 
-        if (traineeCourse != null) selecetedTrainee.Course = traineeCourse;
+        if (traineeCourse != null && traineeCourse != "") selecetedTrainee.Course = traineeCourse;
 
-        if (traineeLocation != null) selecetedTrainee.Location = traineeLocation;
+        if (traineeLocation != null && traineeLocation != "") selecetedTrainee.Location = traineeLocation;
 
         db.SaveChanges();
     }
@@ -41,6 +41,7 @@ public static class GeneralDatabaseInteractions_Trainee
         db.Trainees.Remove(db.Trainees.Find(traineeId)!);
         db.SaveChanges();
     }
+
     public static void DemoDatabaseMethods(AcademyContext db) ///Add, Update and Remove said trainee from the database
     {
         PrintAllTrainees(db);
