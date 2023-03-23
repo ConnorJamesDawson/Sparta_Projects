@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using EF_ModelFirst.Model;
+using System.Collections.Generic;
 
 namespace EF_ModelFirst;
 
@@ -9,7 +10,9 @@ class Program
 
         using (var db = new SouthwindContext())
         {
-
+            //SeedDatabase.SeedCustomers(db);
+            SeedDatabase.SeedOrder(db);
+            SeedDatabase.SeedOrderDetails(db);
         }
     }
 }

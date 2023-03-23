@@ -70,7 +70,7 @@ public static class HandleInput
             Console.WriteLine("Please input the Postcode of the new customer:");
             string postcode = Console.ReadLine();
 
-            CustomerManager.UpdateCustomer(db, customer, name, city, postcode);
+            CustomerManager.UpdateCustomerById(db, customer.CustomerId, name, city, postcode);
         }
     }
 

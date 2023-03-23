@@ -19,37 +19,61 @@ namespace EF_ModelFirst.Model.Managers
             }
         }
 
-        public static void ReadForSpecificCustomerById(SouthwindContext db, string Id)
+        public static Customer ReadForSpecificCustomerById(SouthwindContext db, string Id)
         {
             var query = db.Customers
                 .Where(c => c.CustomerId == Id);
 
-            foreach (var customer in db.Customers)
+            foreach (var customer in query)
             {
-                Console.WriteLine(customer);
+                return customer;
             }
+            return null;
         }
 
-        public static void UpdateCustomer(SouthwindContext db, Customer customer, string contactName = null, string city = null, string postcode = null)
+        public static bool UpdateCustomerById(SouthwindContext db, string customerId, string contactName = null, string city = null, string postcode = null)
         {
+            var customer = ReadForSpecificCustomerById(db, customerId);
+            if (customer == null) return false;
             Console.WriteLine($"{customer} has be changed to -");
-            if (contactName != null || contactName != "") customer.ContactName = contactName;
-            if (city != null || city != "") customer.City = city;
-            if (postcode != null || postcode != "") customer.PostalCode = postcode;
-            Console.WriteLine(customer);
+            if (contactName != null || contactName != "")
+            {
+                customer.ContactName = contactName;
+            }
 
+            if (city != null || city != "")
+            {
+                customer.City = city;
+            }
+
+            if (postcode != null || postcode != "")
+            {
+                customer.PostalCode = postcode;
+            }
+
+            Console.WriteLine(customer);
+            return true;
         }
 
-        public static void DeleteCustomerById(SouthwindContext db, string Id)
+        public static bool DeleteCustomerById(SouthwindContext db, string Id)
         {
-            var query = db.Customers
-            .Where(c => c.CustomerId == Id);
+            var customer = ReadForSpecificCustomerById(db, Id);
 
-            foreach (var customer in db.Customers)
+            int beforeCount = db.Customers.Count();
+            if(customer != null)
             {
                 Console.WriteLine($"Removed {customer}");
+
                 db.Customers.Remove(customer);
+
+                db.SaveChanges();
             }
+            if (beforeCount != db.Customers.Count())
+            {
+                return true;
+            }
+            else
+                return false;
         }
 
     }
