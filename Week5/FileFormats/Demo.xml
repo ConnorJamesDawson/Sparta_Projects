@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?> 
+
+<academy title="Sparta Global Academy">
+  <trainer>
+    <name>Nish Mandal</name>
+    <stream>Engineering</stream>
+    <course>C#SDET</course>
+    <location>Birmingham</location>
+  </trainer>
+  <trainer>
+    <name>Cathy French</name>
+    <stream>Engineering</stream>
+    <course>C#DEV</course>
+    <location>Birmingham</location>
+  </trainer> 
+</academy>

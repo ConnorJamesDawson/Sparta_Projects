@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<academy title="Trainees in Sparta">
+  <trainee>
+    <name>Connor Dawson</name>
+    <course>Tech 205</course>
+    <location>Newcastle</location>
+  </trainee>
+  <trainee>
+    <name>Connor James Dawson</name>
+    <course>Tech 205</course>
+    <location>Manchester</location>
+  </trainee>
+  <trainee>
+    <name>Connor Shawn Dawson</name>
+    <course>Tech 205</course>
+    <location>Birmingham</location>
+  </trainee>
+</academy>

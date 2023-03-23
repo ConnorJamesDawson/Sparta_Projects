@@ -1,0 +1,21 @@
+﻿#employee details
+name: “Peter Bellaby"
+degree: Physics BSc
+age: 30
+height: 190.55
+employed: true
+a-levels:
+  - Physics
+  - Maths
+  - Chemistry
+
+gcses: [English, French, Art, History, Biology]
+
+employer:
+  name: "Sparta Global"
+  location:
+    country: UK
+    city: Birmingham
+summary: |
+Recent Physics graduate.
+Currently training students in C# Development
