@@ -49,3 +49,7 @@ The basics of c# covering:
 
 - [Database First Projects](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week5Entity%20FrameworkandData/Database%20First%20Projects) These projects go over the initial projects that go through the initial creation of a DbContent class through Scaffolding.
 - [Query and Method Syntax for EF SQL](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week5Entity%20FrameworkandData/QueryAndMethodSyntax) These projects go over the two ways to write sql querys in EF framework.
+- [Aysnc CakeStarter](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week5Entity%20FrameworkandData/AysncCakeStarter) - This project goes over the basics of Asynchronous Programming as well as my notes on the matter
+- [Query And Method Syntax SQL](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week5Entity%20FrameworkandData/QueryAndMethodSyntax) - Goes over the two types of SQL statements 
+- [Loading Tables](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week5Entity%20FrameworkandData/LoadingTables)
+- [Serialisation & FileFormats](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week5Entity%20FrameworkandData/Serialisation%20%26%20FileFormats) - Goes over the basics of serialisation into different file formats (XML, Json and YML) and the structures of those file formats
