@@ -5,8 +5,7 @@ using System.Collections.Generic;
 
 namespace NorthwindData
 {
-    public partial class Customer
-    {
+    public partial class Customer    {
         public Customer()
         {
             CustomerCustomerDemos = new HashSet<CustomerCustomerDemo>();
@@ -27,5 +26,6 @@ namespace NorthwindData
 
         public virtual ICollection<CustomerCustomerDemo> CustomerCustomerDemos { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
+
     }
 }
