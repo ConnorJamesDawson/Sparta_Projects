@@ -42,7 +42,7 @@ Lambda expressions are done with the => sign, to do abstract methods.
 
 Query Syntax uses raw sql commands to query tables
 
-Method Syntax uses Methods in place of sql commands with information passed in with lambda expressions
+Method Syntax uses Methods in place of sql commands with information passed in with lambda/anon expressions
 
 - When is a LINQ query executed?
 
@@ -52,7 +52,7 @@ LinQ querys are executed with an iteator that is within the same scope as the qu
 
 A lambda expression is a way of defining an anonymous function that can be passed around as a variable or as a parameter to a method call. 
 
-Many LINQ methods take a function (called a delegate) as a parameter.
+Many LINQ methods take an anonymous function (called a delegate) as a parameter.
 
 - What does x => x * x mean?
 
@@ -60,7 +60,7 @@ Return the product of X where X is the value passed to the method
 
 - What is an anonymous method?
 
-An anonymous method is a nunamed method 
+An anonymous method is a unnamed method 
 
 - What is Expression body syntax?
 

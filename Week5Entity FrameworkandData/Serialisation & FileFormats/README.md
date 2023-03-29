@@ -2,7 +2,7 @@
  
 What is serialisation?
 
-Serialization is the process of converting a data object into a series of bytes that saves the state of the object in an easily transmittable form so turn a .
+Serialization is the process of converting a data object into a series of bytes that saves the state of the object in an easily transmittable form so turn a c# class into a json file.
 
 What are the advantages and disadvantages of using binary object serialisation? JSON Serialisation? / XML Serialisation?
 
@@ -17,7 +17,7 @@ Disadvantages:
 Serialisation can be quite slow,
 There is high overhead on the CPU with object serialisation
 
-XML serialisation also has a big disadvantage in that it only works on Public values therefore violating Abstraction
+XML serialisation also has a big disadvantage in that it only works on Public values therefore potencially violating Abstraction
  
 # File Formats
  
