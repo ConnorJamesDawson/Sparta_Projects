@@ -152,7 +152,7 @@ Application Program Interface
     - Delete - Delete 
 
 - What is the structure of an HTTP request?  An HTTP response?
-The structure of a HTTP request is: Request Line, Headers, Message Body
+The structure of a HTTP request is: Request Line(URI), Headers, Message Body
 The structure of a HTTP responce is: A Status Line/Code, Headers, Message Body in Json
 
 - What are the categories of HTTP response status code?

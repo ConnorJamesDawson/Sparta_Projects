@@ -3,11 +3,8 @@
 - What are the 5 types of test doubles?
 test stubs, mocks, dummies, spies, fakes.
 
-- What does a Fake do?
-Fakes are generally used to improve performance by avoiding external calls.
-
 - Why should you use an in-memory database for testing?
-So you're not testing on a live server.
+So you're not testing on a live server. Means the tests will also use less resources.
 
 - Why should you use the Moq framework for testing?
 Moq makes it easier to unit test more complicated objects without writing a lot of boilerplate code. It also makes it easier to assert that your tests are passing.
@@ -25,16 +22,10 @@ The dummies are objects that our SUT depends on, but they are never used.
 A stub is an object which returns fake/Made up data. So it emulates what a class should return instead of using the actual classes methods
 
 - How can we use a Moq to check if a method is called with the correct parameters?
-When a moq is made you can use .Setup() and in the () you can use a lambda/anonymous method to setup the fake method that can be called by the moq object and it's return
+When a moq is made you can use .Setup() and in the () you can use a lambda/anonymous method to setup the fake method that can be called by the moq object and determin it's return
 
 So in our example mockService.GetCustomerById("Rock").Returns(new Customer), when the method is called return a new customer
 
 - What is the difference between strict and loose mocking behaviour?
 Strict behavior means that exceptions will be thrown if anything that was not set up on our interface is called. 
 Loose behavior, on the other hand, does not throw exceptions in situations like this.
-
-- What is returned if a method is not set up (loose)
-There would not be an exception thrown, just the method will not do anything.
-
-- What is returned if a method is not set up (strict)
-It will throw an exception because it is not setup
