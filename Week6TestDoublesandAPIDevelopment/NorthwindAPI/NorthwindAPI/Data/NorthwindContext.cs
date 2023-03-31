@@ -21,8 +21,7 @@ public partial class NorthwindContext : DbContext
 
     public virtual DbSet<Supplier> Suppliers { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Name=DefaultConnectionString");
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
