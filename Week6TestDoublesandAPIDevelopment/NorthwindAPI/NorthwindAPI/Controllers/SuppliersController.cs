@@ -12,27 +12,40 @@ namespace NorthwindAPI.Controllers
     [ApiController]
     public class SuppliersController : ControllerBase
     {
-        private readonly NorthwindContext _context;
         private readonly ILogger _logger;
         private readonly INorthwindRepository<Supplier> _supplierRepository;
+        private readonly INorthwindRepository<Category> _categoryRepository;
 
-        public SuppliersController(NorthwindContext context, ILogger<SuppliersController> logger, INorthwindRepository<Supplier> supplierRepository)
+        public SuppliersController(ILogger<SuppliersController> logger, INorthwindRepository<Supplier> supplierRepository, INorthwindRepository<Category> categoryRepository)
         {
-            _context = context;
             _logger = logger;
             _supplierRepository = supplierRepository;
+            _categoryRepository = categoryRepository;
         }
 
         // GET: api/Suppliers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<SupplierDTO>>> GetSuppliers()
         {
-            if (_context.Suppliers == null)
+            if (_supplierRepository.IsNull)
             {
                 return NotFound();
             }
             return (await _supplierRepository.GetAllAsync())
                 .Select(s => Utils.SupplierToDTO(s))
+                .ToList();
+        }
+
+        [HttpGet("category")]
+        public async Task<ActionResult<IEnumerable<CategoryDTO>>> GetCategories()
+        {
+            if (_categoryRepository.IsNull)
+            {
+                return NotFound();
+            }
+
+            return (await _categoryRepository.GetAllAsync())
+                .Select(s => Utils.CategoryToDTO(s))
                 .ToList();
         }
 

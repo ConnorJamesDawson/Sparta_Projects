@@ -13,7 +13,8 @@ public static class Utils
         ContactTitle = supplier.ContactTitle,
         Country = supplier.Country,
         TotalProducts = supplier.Products.Count, //Setting the products property
-        Products = supplier.Products.Select(x => ProductToDTO(x)).ToList() }; 
+        Products = supplier.Products.Select(x => ProductToDTO(x)).ToList() 
+    }; 
     
     public static ProductDTO ProductToDTO(Product product) => new ProductDTO 
     { 
@@ -28,7 +29,8 @@ public static class Utils
     {
         CategoryId = category.CategoryId,
         CategoryName = category.CategoryName,
-        Description = category.Description
+        Description = category.Description,
+        Products = category.Products.Select(x => ProductToDTO(x)).ToList()
     };
 
 }
