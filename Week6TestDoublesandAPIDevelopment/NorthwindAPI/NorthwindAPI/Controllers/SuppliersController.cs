@@ -3,8 +3,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using NorthwindAPI.Data.Repositories;
 using NorthwindAPI.Models;
-using System.Net;
-using System.Security.Cryptography;
+using NorthwindAPI.Services;
 
 namespace NorthwindAPI.Controllers
 {
@@ -12,26 +11,29 @@ namespace NorthwindAPI.Controllers
     [ApiController]
     public class SuppliersController : ControllerBase
     {
-        private readonly ILogger _logger;
-        private readonly INorthwindRepository<Supplier> _supplierRepository;
-        private readonly INorthwindRepository<Category> _categoryRepository;
+        //protected readonly INorthwindRepository<Supplier> _supplierRepository;
+        protected readonly INorthwindService<Supplier> _supplierService;
+        protected readonly INorthwindRepository<Category> _categoryRepository;
 
-        public SuppliersController(ILogger<SuppliersController> logger, INorthwindRepository<Supplier> supplierRepository, INorthwindRepository<Category> categoryRepository)
+        public SuppliersController(INorthwindRepository<Category> categoryRepository, INorthwindService<Supplier> supplierService)
         {
-            _logger = logger;
-            _supplierRepository = supplierRepository;
+            //_supplierRepository = supplierRepository;
             _categoryRepository = categoryRepository;
+            _supplierService = supplierService;
         }
 
         // GET: api/Suppliers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<SupplierDTO>>> GetSuppliers()
         {
-            if (_supplierRepository.IsNull)
+            var suppliers = _supplierService.GetAllAsync().Result;
+
+            if (suppliers == null)
             {
                 return NotFound();
             }
-            return (await _supplierRepository.GetAllAsync())
+
+            return suppliers
                 .Select(s => Utils.SupplierToDTO(s))
                 .ToList();
         }
@@ -53,26 +55,17 @@ namespace NorthwindAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<SupplierDTO>> GetSupplier(int id)
         {
-            if (_supplierRepository.IsNull)
+            var supplier = await _supplierService.GetAsync(id);
+
+            if(supplier == null)
             {
-                return NotFound();
+                return NoContent();
             }
-
-            var supplier = await _supplierRepository.FindAsync(id);
-
-
-            if (supplier == null)
-            {
-                _logger.LogWarning($"Supplier with id:{id} was not found");
-                return NotFound();
-            }
-
-            _logger.LogInformation($"Supplier with id:{id} was found");
 
             return Utils.SupplierToDTO(supplier);
         }
 
-        //GET: api/suppliers/1/products
+/*        //GET: api/suppliers/1/products
         [HttpGet("{id}/products")]
         public async Task<ActionResult<IEnumerable<ProductDTO>>> GetProductsBySupplierId(int id)
         {
@@ -91,18 +84,33 @@ namespace NorthwindAPI.Controllers
             return supplier.Products
                     .Select(p => Utils.ProductToDTO(p))
                     .ToList();
+        }*/
+
+        [HttpGet("category/{id}")]
+        public async Task<ActionResult<CategoryDTO>> GetCategory(int id)
+        {
+            if (_categoryRepository.IsNull)
+            {
+                return NotFound();
+            }
+
+            var category = await _categoryRepository.FindAsync(id);
+
+            if(category == null)
+            {
+                return NotFound();
+            }
+            
+            return Utils.CategoryToDTO(category);
         }
+
+
 
         //GET: api/suppliers/1/products/1
         [HttpGet("{sId}/products/{pId}")]
         public async Task<ActionResult<ProductDTO>> GetProductFromSupplierId(int sId, int pId)
         {
-            if (_supplierRepository.IsNull)
-            {
-                return NotFound();
-            }
-
-            var supplier = await _supplierRepository.FindAsync(sId);
+            var supplier = await _supplierService.GetAsync(sId);
 
             if (supplier == null)
             {
@@ -120,28 +128,7 @@ namespace NorthwindAPI.Controllers
         public async Task<ActionResult> PutSupplier(int id,
             [Bind("SupplierId", "CompanyName", "CoontactTitle", "Country")] Supplier supplier)
         {
-            if (id != supplier.SupplierId)
-            {
-                return BadRequest();
-            }
-
-            _supplierRepository.Update(supplier);
-
-            try
-            {
-                await _supplierRepository.SaveAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!SupplierExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            _supplierService.UpdateAsync(id, supplier);
 
             return CreatedAtAction("GetSupplier", new { id = supplier.SupplierId }, Utils.SupplierToDTO(supplier));
         }
@@ -152,14 +139,12 @@ namespace NorthwindAPI.Controllers
         public async Task<ActionResult<SupplierDTO>> PostSupplier(
             [Bind("CompanyName", "ContactName", "ContactTitle", "Country", "Products")]Supplier supplier)
         {
-            if (_supplierRepository.IsNull)
+            if (!_supplierService.CreateAsync(supplier).Result)
             {
                 return Problem("Entity set 'NorthwindContext.Suppliers'  is null.");
             }
 
-            _supplierRepository.Add(supplier);
-
-            await _supplierRepository.SaveAsync();
+            await _supplierService.SaveAsync();
 
             return CreatedAtAction("GetSupplier", new { id = supplier.SupplierId }, Utils.SupplierToDTO(supplier)); //This is Output from request
         }
@@ -168,35 +153,22 @@ namespace NorthwindAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSupplier(int id)
         {
-            if (_supplierRepository.IsNull)
-            {
-                return NotFound();
-            }
+            var supplier = await _supplierService.GetAsync(id);
 
-            var supplier = await _supplierRepository.FindAsync(id);
-
-            if (supplier == null)
-            {
-                return NotFound();
-            }
+            if (supplier == null) return NotFound();
 
             supplier.Products.Select(p => p.SupplierId = null);
 
-            _supplierRepository.Remove(supplier);
+            var deletedSuccessfully = await _supplierService.DeleteAsync(id);
 
-            await _supplierRepository.SaveAsync();
-
-            _logger.LogInformation($"Supplier with id:{id} was found and removed");
-
+            if (!deletedSuccessfully) return NotFound();
+            
             return NoContent();
         }
 
         private bool SupplierExists(int id)
         {
-            var supplier = _supplierRepository.FindAsync(id);
-
-            if (supplier != null) return true;
-            else return false;
+            return _supplierService.GetAsync(id).Result != null;
         }
     }
 }

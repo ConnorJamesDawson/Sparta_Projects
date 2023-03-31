@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using NorthwindAPI.Data.Repositories;
 using NorthwindAPI.Models;
+using NorthwindAPI.Services;
 
 namespace NorthwindAPI
 {
@@ -24,12 +25,17 @@ namespace NorthwindAPI
                 .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             builder.Services.AddScoped(
-                typeof(INorthwindRepository<>), typeof(NorthwindRepository<>)); //When it comes accross a INorthwind Repos with the type of NorthwindContext it know to distinguish it from the one below
+                typeof(INorthwindRepository<>), 
+                typeof(NorthwindRepository<>)); //When it comes accross a INorthwind Repos with the type of NorthwindContext it know to distinguish it from the one below
 
+            builder.Services.AddScoped(
+                typeof(INorthwindService<>), 
+                typeof(NorthwindService<>));
 
             builder.Services.AddScoped<INorthwindRepository<Supplier>, SuppliersRepository>();
 
             builder.Services.AddScoped<INorthwindRepository<Category>, CategoryRepository>();
+
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 /*            builder.Services.AddEndpointsApiExplorer();
