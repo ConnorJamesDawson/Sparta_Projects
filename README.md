@@ -54,3 +54,9 @@ The basics of c# covering:
 - [Loading Tables](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week5Entity%20FrameworkandData/LoadingTables)
 - [Serialisation & FileFormats](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week5Entity%20FrameworkandData/Serialisation%20%26%20FileFormats) - Goes over the basics of serialisation into different file formats (XML, Json and YML) and the structures of those file formats
 - [Tennis Project](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week5Entity%20FrameworkandData/Tennis) - This project was completed in TDD methodology and was refactored into using State Machine design pattern
+
+## **[Week 6](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week6TestDoublesandAPIDevelopment) Test Doubles and API Development**
+
+- [DBFirst 3 Layer](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week6TestDoublesandAPIDevelopment/DBFirst_3Layer_TestStarterCode) - This project went over Test Doubles; Stubs, Mocks, Dummies, Spies and Fakes.
+- [To Do API](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week6TestDoublesandAPIDevelopment/ToDoAPI) - This project went over the basics of API usage, HTTP/HTTPs operations and URIs.
+- [Northwind API](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week6TestDoublesandAPIDevelopment/NorthwindAPI) - This project went over the advanced logic of APIs, the usage of Binding and displaying json information to a webpage.
