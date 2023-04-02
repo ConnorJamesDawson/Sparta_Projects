@@ -9,74 +9,73 @@ using System.Net;
 
 namespace NorthwindAPI.Tests;
 
-internal class SuppliersControllerShould
+internal class ProductsControllerShould
 {
 
     [Category("Happy Path")]
-    [Category("GetAllSuppliers")]
+    [Category("GetAllProducts")]
     [Test]
-    public async Task GetSuppliers_WhenThereAreSuppliers_ReturnsListOfSupplierDTOs()
+    public async Task GetProducts_WhenThereAreProductss_ReturnsListOfProductDTOs()
     {
-        var mockService = Mock.Of<INorthwindService<Supplier>>();
-        List<Supplier> suppliers = new List<Supplier> { Mock.Of<Supplier>(s => s.Products == Mock.Of<List<Product>>()) };
+        var mockService = Mock.Of<INorthwindService<Product>>();
+        List<Product> products = new List<Product>();
         Mock.Get(mockService)
         .Setup(sc => sc.GetAllAsync().Result)
-        .Returns(suppliers);
+        .Returns(products);
 
 
-        var sut = new SuppliersController(null, mockService);
-        var result = await sut.GetSuppliers();
-        Assert.That(result.Value, Is.InstanceOf<IEnumerable<SupplierDTO>>());
+        var sut = new ProductsController(mockService);
+        var result = await sut.GetProducts();
+        Assert.That(result.Value, Is.InstanceOf<IEnumerable<ProductDTO>>());
     }
 
     [Category("Sad Path")]
-    [Category("GetAllSuppliers")]
+    [Category("GetAllProducts")]
     [Test]
-    public async Task GetSuppliers_WhenThereAreNotSuppliers_ReturnsNotFound()
+    public async Task GetProducts_WhenThereAreNoProducts_ReturnsNotFound()
     {
-        var mockService = Mock.Of<INorthwindService<Supplier>>();
-        List<Supplier> suppliers = new List<Supplier> { Mock.Of<Supplier>(s => s.Products == Mock.Of<List<Product>>()) };
+        var mockService = Mock.Of<INorthwindService<Product>>();
+        List<Product> products = new List<Product>();
         Mock.Get(mockService)
         .Setup(sc => sc.GetAllAsync().Result)
         .Returns<IEnumerable<Task>>(null);
 
 
-        var sut = new SuppliersController(null, mockService);
-        var result = await sut.GetSuppliers();
+
+        var sut = new ProductsController(mockService);
+        var result = await sut.GetProducts();
         Assert.IsInstanceOf<NotFoundObjectResult>(result.Result);
     }
 
     [Category("Happy Path")]
-    [Category("GetSuppliers")]
+    [Category("GetProduct")]
     [Test]
-    public async Task GetSupplier_WhenThereAreSuppliers_ReturnsASupplierDTOs()
+    public async Task GetProduct_WhenThereAreSuppliers_ReturnsASupplierDTOs()
     {
-        var mockService = Mock.Of<INorthwindService<Supplier>>();
-        List<Supplier> suppliers = new List<Supplier> { Mock.Of<Supplier>(s => s.Products == Mock.Of<List<Product>>()) };
+        var mockService = Mock.Of<INorthwindService<Product>>();
         Mock.Get(mockService)
         .Setup(sc => sc.GetAsync(1).Result)
-        .Returns(new Supplier());
+        .Returns(new Product());
 
 
-        var sut = new SuppliersController(null, mockService);
-        var result = await sut.GetSupplier(1);
-        Assert.That(result.Value, Is.InstanceOf<SupplierDTO>());
+        var sut = new ProductsController(mockService);
+        var result = await sut.GetProduct(1);
+        Assert.That(result.Value, Is.InstanceOf<ProductDTO>());
     }
 
     [Category("Sad Path")]
-    [Category("GetSuppliers")]
+    [Category("GetProduct")]
     [Test]
-    public async Task GetSupplier_WhenGivenBadId_ReturnsNotFound()
+    public async Task GetProduct_WhenGivenBadId_ReturnsNotFound()
     {
-        var mockService = Mock.Of<INorthwindService<Supplier>>();
-        List<Supplier> suppliers = new List<Supplier> { Mock.Of<Supplier>(s => s.Products == Mock.Of<List<Product>>()) };
+        var mockService = Mock.Of<INorthwindService<Product>>();
         Mock.Get(mockService)
             .Setup(sc => sc.GetAsync(99).Result)
             .Returns<Task>(null);
 
 
-        var sut = new SuppliersController(null, mockService);
-        var result = await sut.GetSupplier(99);
+        var sut = new ProductsController(mockService);
+        var result = await sut.GetProduct(99);
         Assert.IsInstanceOf<NotFoundObjectResult>(result.Result);
     }
 
@@ -85,18 +84,18 @@ internal class SuppliersControllerShould
     [Test]
     public async Task UpdateSupplier_WhenGivenValidSupplierId_ReturnsAnUpdatedSupplierDTO()
     {
-        var mockService = Mock.Of<INorthwindService<Supplier>>();
+        var mockService = Mock.Of<INorthwindService<Product>>();
 
         Supplier Microsoft = new();
 
         List<Supplier> suppliers = new List<Supplier> { Mock.Of<Supplier>(s => s.Products == Mock.Of<List<Product>>()) };
         Mock.Get(mockService)
-        .Setup(sc => sc.UpdateAsync(1, It.IsAny<Supplier>()).Result)
+        .Setup(sc => sc.UpdateAsync(1, It.IsAny<Product>()).Result)
         .Returns(true);
 
 
-        var sut = new SuppliersController(null, mockService);
-        var result = await sut.PutSupplier(1, new Supplier());
+        var sut = new ProductsController(mockService);
+        var result = await sut.PutProduct(1, new Product());
 
         Assert.That(result, Is.Not.Null);
         Assert.IsInstanceOf<CreatedAtActionResult>(result.Result);
@@ -107,18 +106,18 @@ internal class SuppliersControllerShould
     [Test]
     public async Task UpdateSupplier_WhenGivenABadId_ReturnsAnBAdRequest()
     {
-        var mockService = Mock.Of<INorthwindService<Supplier>>();
+        var mockService = Mock.Of<INorthwindService<Product>>();
 
         Supplier Microsoft = new();
 
         List<Supplier> suppliers = new List<Supplier> { Mock.Of<Supplier>(s => s.Products == Mock.Of<List<Product>>()) };
         Mock.Get(mockService)
-        .Setup(sc => sc.UpdateAsync(1, It.IsAny<Supplier>()).Result)
+        .Setup(sc => sc.UpdateAsync(1, It.IsAny<Product>()).Result)
         .Returns(false);
 
 
-        var sut = new SuppliersController(null, mockService);
-        var result = await sut.PutSupplier(99, new Supplier());
+        var sut = new ProductsController(mockService);
+        var result = await sut.PutProduct(99, new Product());
 
         Assert.That(result, Is.Not.Null);
         Assert.IsInstanceOf<BadRequestObjectResult>(result.Result);
@@ -128,18 +127,18 @@ internal class SuppliersControllerShould
     [Test]
     public async Task UpdateSupplier_WhenGivenABadUpdateSupplier_ReturnsAnBAdRequest()
     {
-        var mockService = Mock.Of<INorthwindService<Supplier>>();
+        var mockService = Mock.Of<INorthwindService<Product>>();
 
         Supplier Microsoft = new();
 
         List<Supplier> suppliers = new List<Supplier> { Mock.Of<Supplier>(s => s.Products == Mock.Of<List<Product>>()) };
         Mock.Get(mockService)
-        .Setup(sc => sc.UpdateAsync(1, It.IsAny<Supplier>()).Result)
+        .Setup(sc => sc.UpdateAsync(1, It.IsAny<Product>()).Result)
         .Returns(false);
 
 
-        var sut = new SuppliersController(null, mockService);
-        var result = await sut.PutSupplier(1, null);
+        var sut = new ProductsController(mockService);
+        var result = await sut.PutProduct(1, null);
 
         Assert.That(result, Is.Not.Null);
         Assert.IsInstanceOf<BadRequestObjectResult>(result.Result);
@@ -150,24 +149,24 @@ internal class SuppliersControllerShould
     [Test]
     public async Task PostSupplier_WhenGivenAValidSupplier_ReturnsCreatedAtActionResult()
     {
-        var mockService = Mock.Of<INorthwindService<Supplier>>();
+        var mockService = Mock.Of<INorthwindService<Product>>();
 
         Mock.Get(mockService)
-        .Setup(sc => sc.CreateAsync(It.IsAny<Supplier>()).Result)
+        .Setup(sc => sc.CreateAsync(It.IsAny<Product>()).Result)
         .Returns(true);
 
-        var sut = new SuppliersController(null, mockService);
+        var sut = new ProductsController(mockService);
 
-        var supplier = new Supplier()
+        var product = new Product()
         {
-            CompanyName = "Microsoft",
-            City = "California"
+            ProductName = "Windows CD",
+            UnitPrice = 10.0m
         };
 
-        var result = sut.PostSupplier(supplier).Result;
+        var result = sut.PostProduct(product).Result;
 
         Assert.That(result, Is.Not.Null);
-        Assert.IsInstanceOf<CreatedAtActionResult> (result.Result);
+        Assert.IsInstanceOf<CreatedAtActionResult>(result.Result);
     }
 
     [Category("Sad Path")]
@@ -175,15 +174,15 @@ internal class SuppliersControllerShould
     [Test]
     public async Task PostSupplier_WhenGivenANullSupplier_ReturnsCreatedAtActionResult()
     {
-        var mockService = Mock.Of<INorthwindService<Supplier>>();
+        var mockService = Mock.Of<INorthwindService<Product>>();
 
         Mock.Get(mockService)
-        .Setup(sc => sc.CreateAsync(It.IsAny<Supplier>()).Result)
+        .Setup(sc => sc.CreateAsync(It.IsAny<Product>()).Result)
         .Returns(false);
 
-        var sut = new SuppliersController(null, mockService);
+        var sut = new ProductsController(mockService);
 
-        var result = sut.PostSupplier(null).Result;
+        var result = sut.PostProduct(null).Result;
 
         Assert.IsInstanceOf<BadRequestObjectResult>(result.Result);
     }
@@ -193,18 +192,18 @@ internal class SuppliersControllerShould
     [Test]
     public async Task RemoveSupplier_WhenGivenAValidSupplier_RemovesSupplierAndReturnsNoContent()
     {
-        var mockService = Mock.Of<INorthwindService<Supplier>>();
+        var mockService = Mock.Of<INorthwindService<Product>>();
         List<Supplier> suppliers = new List<Supplier> { Mock.Of<Supplier>(s => s.Products == Mock.Of<List<Product>>()) };
         Mock.Get(mockService)
         .Setup(sc => sc.DeleteAsync(1).Result)
         .Returns(true);
         Mock.Get(mockService)
         .Setup(sc => sc.GetAsync(1).Result)
-        .Returns(new Supplier());
+        .Returns(new Product());
 
 
-        var sut = new SuppliersController(null, mockService);
-        var result = await sut.DeleteSupplier(1);
+        var sut = new ProductsController(mockService);
+        var result = await sut.DeleteProduct(1);
 
         Assert.IsNotNull(result);
         Assert.IsInstanceOf<NoContentResult>(result);
@@ -214,18 +213,18 @@ internal class SuppliersControllerShould
     [Test]
     public async Task RemoveSupplier_WhenGivenANonValidSupplier_RemovesSupplierAndReturnsNotFound()
     {
-        var mockService = Mock.Of<INorthwindService<Supplier>>();
+        var mockService = Mock.Of<INorthwindService<Product>>();
         List<Supplier> suppliers = new List<Supplier> { Mock.Of<Supplier>(s => s.Products == Mock.Of<List<Product>>()) };
         Mock.Get(mockService)
         .Setup(sc => sc.DeleteAsync(1).Result)
         .Returns(false);
         Mock.Get(mockService)
         .Setup(sc => sc.GetAsync(1).Result)
-        .Returns(new Supplier());
+        .Returns(new Product());
 
 
-        var sut = new SuppliersController(null, mockService);
-        var result = await sut.DeleteSupplier(1);
+        var sut = new ProductsController(mockService);
+        var result = await sut.DeleteProduct(1);
 
         Assert.IsNotNull(result);
         Assert.IsInstanceOf<NotFoundResult>(result);

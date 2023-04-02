@@ -23,7 +23,7 @@ namespace NorthwindAPI.Controllers
             var products = _productService.GetAllAsync().Result;
             if (products == null)
             {
-                return NotFound();
+                return NotFound("Cannot find any Suppliers in database");
             }
             return products
                 .Select(p => Utils.ProductToDTO(p))
@@ -39,7 +39,7 @@ namespace NorthwindAPI.Controllers
 
             if (product == null)
             {
-                return NotFound();
+                return NotFound("Id given does not match any product in database.");
             }
 
             return Utils.ProductToDTO(product);
@@ -48,10 +48,19 @@ namespace NorthwindAPI.Controllers
         // PUT: api/Products/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProduct(int id, 
+        public async Task<ActionResult<ProductDTO>> PutProduct(int id, 
             [Bind("ProductId", "SupplierId", "CategoryId", "ProductName", "UnitPrice")] Product product)
         {
-            _productService.UpdateAsync(id, product);
+            
+            if (product == null)
+            {
+                return BadRequest($"The updated Supplier given is null.");
+            }
+
+            if (!_productService.UpdateAsync(id, product).Result)
+            {
+                return BadRequest($"Cannot find Supplier with Id given to replace");
+            }
 
             return CreatedAtAction("GetProduct", new { id = product.ProductId }, Utils.ProductToDTO(product));
         }
@@ -61,6 +70,11 @@ namespace NorthwindAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
+            if (product == null)
+            {
+                return BadRequest($"The Supplier given is null and has not been created.");
+            }
+
             if (!_productService.CreateAsync(product).Result)
             {
                 return Problem("Entity set 'NorthwindContext.Products'  is null.");
@@ -75,12 +89,7 @@ namespace NorthwindAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
-            var product = await _productService.GetAsync(id);
-
-            if (product == null) return NotFound();
-
-            product.SupplierId = null;
-            product.CategoryId = null;
+            if (!ProductExists(id)) return NotFound();
 
             var deletedSuccessfully = await _productService.DeleteAsync(id);
 

@@ -3,15 +3,10 @@ using Moq;
 using NorthwindAPI.Data.Repositories;
 using NorthwindAPI.Models;
 using NorthwindAPI.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NorthwindAPI.Tests
 {
-    internal class SuppliersServiceShould
+    internal class ProductsServiceShould
     {
         [Category("Happy Path")]
         [Category("GetAllSuppliers")]
@@ -20,7 +15,7 @@ namespace NorthwindAPI.Tests
         {
             var mockRepository = GetRepository();
             var mockLogger = GetLogger();
-            List<Supplier> suppliers = new List<Supplier> { It.IsAny<Supplier>() };
+            List<Product> suppliers = new List<Product> { It.IsAny<Product>() };
             Mock
             .Get(mockRepository)
             .Setup(sc => sc.GetAllAsync().Result)
@@ -30,9 +25,9 @@ namespace NorthwindAPI.Tests
             .Setup(sc => sc.IsNull)
             .Returns(false);
 
-            var _sut = new NorthwindService<Supplier>(mockLogger, mockRepository);
+            var _sut = new NorthwindService<Product>(mockLogger, mockRepository);
             var result = await _sut.GetAllAsync();
-            Assert.That(result, Is.InstanceOf<IEnumerable<Supplier>>());
+            Assert.That(result, Is.InstanceOf<IEnumerable<Product>>());
         }
 
         [Category("Sad Path")]
@@ -42,7 +37,6 @@ namespace NorthwindAPI.Tests
         {
             var mockRepository = GetRepository();
             var mockLogger = GetLogger();
-            List<Supplier> suppliers = new List<Supplier> { It.IsAny<Supplier>() };
             Mock
             .Get(mockRepository)
             .Setup(sc => sc.GetAllAsync().Result)
@@ -52,7 +46,7 @@ namespace NorthwindAPI.Tests
             .Setup(sc => sc.IsNull)
             .Returns(true);
 
-            var _sut = new NorthwindService<Supplier>(mockLogger, mockRepository);
+            var _sut = new NorthwindService<Product>(mockLogger, mockRepository);
             var result = await _sut.GetAllAsync();
             Assert.That(result, Is.Null);
         }
@@ -67,15 +61,15 @@ namespace NorthwindAPI.Tests
             Mock
             .Get(mockRepository)
             .Setup(sc => sc.FindAsync(1).Result)
-            .Returns(new Supplier());
+            .Returns(new Product());
             Mock
             .Get(mockRepository)
             .Setup(sc => sc.IsNull)
             .Returns(false);
 
-            var _sut = new NorthwindService<Supplier>(mockLogger, mockRepository);
+            var _sut = new NorthwindService<Product>(mockLogger, mockRepository);
             var result = await _sut.GetAsync(1);
-            Assert.That(result, Is.InstanceOf<Supplier>());
+            Assert.That(result, Is.InstanceOf<Product>());
         }
 
         [Category("Sad Path")]
@@ -94,7 +88,7 @@ namespace NorthwindAPI.Tests
             .Setup(sc => sc.IsNull)
             .Returns(true);
 
-            var _sut = new NorthwindService<Supplier>(mockLogger, mockRepository);
+            var _sut = new NorthwindService<Product>(mockLogger, mockRepository);
             var result = await _sut.GetAsync(1);
             Assert.That(result, Is.Null);
         }
@@ -111,8 +105,8 @@ namespace NorthwindAPI.Tests
             .Setup(sc => sc.IsNull)
             .Returns(false);
 
-            var _sut = new NorthwindService<Supplier>(mockLogger, mockRepository);
-            var result = await _sut.CreateAsync(new Supplier());
+            var _sut = new NorthwindService<Product>(mockLogger, mockRepository);
+            var result = await _sut.CreateAsync(new Product());
             Assert.That(result, Is.True);
         }
 
@@ -128,8 +122,8 @@ namespace NorthwindAPI.Tests
             .Setup(sc => sc.IsNull)
             .Returns(false);
 
-            var _sut = new NorthwindService<Supplier>(mockLogger, mockRepository);
-            var result = await _sut.CreateAsync(It.IsAny<Supplier>());
+            var _sut = new NorthwindService<Product>(mockLogger, mockRepository);
+            var result = await _sut.CreateAsync(It.IsAny<Product>());
             Assert.That(result, Is.False);
         }
 
@@ -145,8 +139,8 @@ namespace NorthwindAPI.Tests
             .Setup(sc => sc.IsNull)
             .Returns(true);
 
-            var _sut = new NorthwindService<Supplier>(mockLogger, mockRepository);
-            var result = await _sut.CreateAsync(new Supplier());
+            var _sut = new NorthwindService<Product>(mockLogger, mockRepository);
+            var result = await _sut.CreateAsync(new Product());
             Assert.That(result, Is.False);
         }
 
@@ -164,10 +158,10 @@ namespace NorthwindAPI.Tests
             Mock
             .Get(mockRepository)
             .Setup(sc => sc.FindAsync(1).Result)
-            .Returns(new Supplier());
+            .Returns(new Product());
 
-            var _sut = new NorthwindService<Supplier>(mockLogger, mockRepository);
-            var result = await _sut.UpdateAsync(1, new Supplier());
+            var _sut = new NorthwindService<Product>(mockLogger, mockRepository);
+            var result = await _sut.UpdateAsync(1, new Product());
             Assert.That(result, Is.True);
         }
 
@@ -187,8 +181,8 @@ namespace NorthwindAPI.Tests
             .Setup(sc => sc.IsNull)
             .Returns(false);
 
-            var _sut = new NorthwindService<Supplier>(mockLogger, mockRepository);
-            var result = await _sut.UpdateAsync(99, new Supplier());
+            var _sut = new NorthwindService<Product>(mockLogger, mockRepository);
+            var result = await _sut.UpdateAsync(99, new Product());
             Assert.That(result, Is.False);
         }
 
@@ -206,9 +200,9 @@ namespace NorthwindAPI.Tests
             Mock
             .Get(mockRepository)
             .Setup(sc => sc.FindAsync(1).Result)
-            .Returns(new Supplier());
+            .Returns(new Product());
 
-            var _sut = new NorthwindService<Supplier>(mockLogger, mockRepository);
+            var _sut = new NorthwindService<Product>(mockLogger, mockRepository);
             var result = await _sut.DeleteAsync(1);
             Assert.That(result, Is.True);
         }
@@ -229,18 +223,18 @@ namespace NorthwindAPI.Tests
             .Setup(sc => sc.FindAsync(99).Result)
             .Returns<Task>(null);
 
-            var _sut = new NorthwindService<Supplier>(mockLogger, mockRepository);
+            var _sut = new NorthwindService<Product>(mockLogger, mockRepository);
             var result = await _sut.DeleteAsync(99);
             Assert.That(result, Is.False);
         }
 
-        private static ILogger<INorthwindService<Supplier>> GetLogger()
+        private static ILogger<INorthwindService<Product>> GetLogger()
         {
-            return Mock.Of<ILogger<INorthwindService<Supplier>>>();
+            return Mock.Of<ILogger<INorthwindService<Product>>>();
         }
-        private static INorthwindRepository<Supplier> GetRepository()
+        private static INorthwindRepository<Product> GetRepository()
         {
-            return Mock.Of<INorthwindRepository<Supplier>>();
+            return Mock.Of<INorthwindRepository<Product>>();
         }
     }
 }

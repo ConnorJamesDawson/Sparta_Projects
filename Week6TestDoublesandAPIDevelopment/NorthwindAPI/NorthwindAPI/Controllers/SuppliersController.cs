@@ -30,7 +30,7 @@ namespace NorthwindAPI.Controllers
 
             if (suppliers == null)
             {
-                return NotFound();
+                return NotFound("Cannot find any Suppliers in database");
             }
 
             return suppliers
@@ -59,7 +59,7 @@ namespace NorthwindAPI.Controllers
 
             if(supplier == null)
             {
-                return NoContent();
+                return NotFound("Id given does not match any supplier in database.");
             }
 
             return Utils.SupplierToDTO(supplier);
@@ -125,10 +125,18 @@ namespace NorthwindAPI.Controllers
         // PUT: api/Suppliers/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<ActionResult> PutSupplier(int id,
+        public async Task<ActionResult<SupplierDTO>> PutSupplier(int id,
             [Bind("SupplierId", "CompanyName", "CoontactTitle", "Country")] Supplier supplier)
         {
-            _supplierService.UpdateAsync(id, supplier);
+            if (supplier == null)
+            {
+                return BadRequest($"The updated Supplier given is null.");
+            }
+
+            if(!_supplierService.UpdateAsync(id, supplier).Result)
+            {
+                return BadRequest($"Cannot find Supplier with Id given to replace");
+            }
 
             return CreatedAtAction("GetSupplier", new { id = supplier.SupplierId }, Utils.SupplierToDTO(supplier));
         }
@@ -139,12 +147,17 @@ namespace NorthwindAPI.Controllers
         public async Task<ActionResult<SupplierDTO>> PostSupplier(
             [Bind("CompanyName", "ContactName", "ContactTitle", "Country", "Products")]Supplier supplier)
         {
-            if (!_supplierService.CreateAsync(supplier).Result)
+            if(supplier == null)
             {
-                return Problem("Entity set 'NorthwindContext.Suppliers'  is null.");
+                return BadRequest($"The Supplier given is null and has not been created.");
             }
 
-            await _supplierService.SaveAsync();
+            if (!_supplierService.CreateAsync(supplier).Result)
+            {
+                return BadRequest($"{supplier.CompanyName} has not been created.");
+            }
+
+            _supplierService.SaveAsync();
 
             return CreatedAtAction("GetSupplier", new { id = supplier.SupplierId }, Utils.SupplierToDTO(supplier)); //This is Output from request
         }
@@ -153,12 +166,6 @@ namespace NorthwindAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSupplier(int id)
         {
-            var supplier = await _supplierService.GetAsync(id);
-
-            if (supplier == null) return NotFound();
-
-            supplier.Products.Select(p => p.SupplierId = null);
-
             var deletedSuccessfully = await _supplierService.DeleteAsync(id);
 
             if (!deletedSuccessfully) return NotFound();

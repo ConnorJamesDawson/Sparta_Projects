@@ -22,5 +22,12 @@ namespace NorthwindAPI.Data.Repositories
                 .Include(s => s.Products)
                 .ToListAsync(); 
         }
+
+        public override void Remove(Supplier entity)
+        {
+            entity.Products.Select(p => p.SupplierId = null);
+
+            base.Remove(entity);
+        }
     }
 }

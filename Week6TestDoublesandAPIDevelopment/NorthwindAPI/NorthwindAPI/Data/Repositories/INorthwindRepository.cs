@@ -9,7 +9,7 @@ public interface INorthwindRepository<T>
     void Add(T entity); 
     void AddRange(IEnumerable<T> entities); 
     void Update(T entity); 
-    virtual void Remove(T entity) { } 
+    void Remove(T entity) { } 
     Task SaveAsync();
 
 }

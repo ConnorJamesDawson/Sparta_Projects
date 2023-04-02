@@ -36,7 +36,7 @@ namespace NorthwindAPI.Data.Repositories
             return await _dbSet.ToListAsync();
         }
 
-        public void Remove(T entity)
+        public virtual void Remove(T entity)
         {
             _dbSet.Remove(entity);
         }

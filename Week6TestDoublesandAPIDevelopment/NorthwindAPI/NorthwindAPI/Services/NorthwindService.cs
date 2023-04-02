@@ -19,7 +19,7 @@ namespace NorthwindAPI.Services
 
         public async Task<bool> CreateAsync(T entity)
         {
-            if(_respository.IsNull)
+            if(_respository.IsNull || entity == null)
             {
                 return false;
             }
@@ -89,7 +89,7 @@ namespace NorthwindAPI.Services
 
         public async Task<bool> UpdateAsync(int id, T entity)
         {
-            if (_respository.FindAsync(id).Result == null)
+            if (!EntityExists(id))
             {
                 return false;
             }
@@ -102,7 +102,7 @@ namespace NorthwindAPI.Services
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (EntityExists(id))
+                if (!EntityExists(id))
                 {
                     return false;
                 }
