@@ -28,7 +28,9 @@ namespace NorthwindAPI.Controllers
           {
               return NotFound();
           }
-            return await _context.Categories.ToListAsync();
+            return await _context.Categories
+                .Include(c => c.Products)
+                .ToListAsync();
         }
 
         // GET: api/Categories/5

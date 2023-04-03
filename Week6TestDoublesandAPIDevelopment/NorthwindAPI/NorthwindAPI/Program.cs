@@ -26,7 +26,7 @@ namespace NorthwindAPI
 
             builder.Services.AddScoped(
                 typeof(INorthwindRepository<>), 
-                typeof(NorthwindRepository<>)); //When it comes accross a INorthwind Repos with the type of NorthwindContext it know to distinguish it from the one below
+                typeof(NorthwindRepository<>)); //When it comes accross a INorthwindRepos with the type of NorthwindContext it know to distinguish it from the one below
 
             builder.Services.AddScoped(
                 typeof(INorthwindService<>), 
