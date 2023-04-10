@@ -10,10 +10,6 @@ namespace NorthwindAPI
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            builder.Logging.ClearProviders();
-            builder.Logging.AddConsole();
-
-            // Add services to the container.
             var dbConnectionString = builder.Configuration["DefaultConnectionString"];
 
             builder.Services.AddDbContext<NorthwindContext>(
