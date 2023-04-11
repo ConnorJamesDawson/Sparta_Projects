@@ -60,3 +60,10 @@ The basics of c# covering:
 - [DBFirst 3 Layer](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week6TestDoublesandAPIDevelopment/DBFirst_3Layer_TestStarterCode) - This project went over Test Doubles; Stubs, Mocks, Dummies, Spies and Fakes.
 - [To Do API](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week6TestDoublesandAPIDevelopment/ToDoAPI) - This project went over the basics of API usage, HTTP/HTTPs operations and URIs.
 - [Northwind API](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week6TestDoublesandAPIDevelopment/NorthwindAPI) - This project went over the advanced logic of APIs, the usage of Binding and displaying json information to a webpage.
+- [Northwind API - Mini Project](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week6TestDoublesandAPIDevelopment/NorthwindAPI-MiniProject) - This mini project went over API usage from a customer perspective.
+
+## **[Week 7](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week7) Web Development with ASP.NET (Dev)**
+
+- [Client Side](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week7/ClientSide) - This project went over the basics of Java, XML and CSS and how they are all linked to display a webpage.
+- [MvcMovie](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week7/MvcMovie) - This project was a walkthrough of how to use the MVC ASP.NET project to setup a website to display information from a database.
+- [SpartaToDo](https://github.com/ConnorJamesDawson/Sparta_Projects/tree/main/Week7/SpartaToDo) - This project went over what the walkthrough went through with displaying information from a website with CRUD functionality and a sort method.
