@@ -5,12 +5,12 @@ namespace SpartaToDo.App.Service
 {
     public interface IToDoService
     {
-        Task<ServiceResponce<IEnumerable<ToDoVM>>> GetTodoItemsAsync(string? filter = null);
-        Task<ServiceResponce<ToDoVM>> GetTodoItemAsync(int id);
-        Task<ServiceResponce<ToDoVM>> GetDetailsAsync(int? id);
-        Task<ServiceResponce<ToDoVM>> CreateTodoAsync(CreateToDoVM createTodoVM);
-        Task<ServiceResponce<ToDoVM>> EditTodoAsync(int? id, ToDoVM todoVM);
-        Task<ServiceResponce<ToDoVM>> UpdateTodoCompleteAsync(int id, MarkCompleteVM markCompleteVM);
-        Task<ServiceResponce<ToDoVM>> DeleteTodoAsync(int? id);
+        Task<ServiceResponce<IEnumerable<ToDoVM>>> GetTodoItemsAsync(Spartan? user,string role = "Trainee", string? filter = null);
+        Task<ServiceResponce<ToDoVM>> GetTodoItemAsync(Spartan? user, int id, string role = "Trainee");
+        Task<ServiceResponce<ToDoVM>> GetDetailsAsync(Spartan? user, int? id, string role = "Trainee");
+        Task<ServiceResponce<ToDoVM>> CreateTodoAsync(Spartan? user, CreateToDoVM createTodoVM);
+        Task<ServiceResponce<ToDoVM>> EditTodoAsync(Spartan? user, int? id, ToDoVM todoVM, string role = "Trainee");
+        Task<ServiceResponce<ToDoVM>> UpdateTodoCompleteAsync(Spartan? user, int id, MarkCompleteVM markCompleteVM);
+        Task<ServiceResponce<ToDoVM>> DeleteTodoAsync(Spartan? user, int? id);
     }
 }

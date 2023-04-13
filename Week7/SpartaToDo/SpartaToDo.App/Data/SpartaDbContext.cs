@@ -6,11 +6,11 @@ namespace SpartaToDo.App.Data
 {
     public class SpartaToDoContext : IdentityDbContext
     {
-        public SpartaToDoContext(DbContextOptions<SpartaToDoContext> options)
-            : base(options)
+        public SpartaToDoContext(DbContextOptions<SpartaToDoContext> options) : base(options)
         {
         }
 
         public DbSet<ToDo> ToDoItems { get; set; }
+        public DbSet<Spartan> Spartans { get; set; }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SpartaToDo.App.Data;
@@ -8,21 +10,25 @@ using SpartaToDo.App.Service;
 
 namespace SpartaToDo.App.Controllers
 {
+    [Authorize]
     public class ToDoItemsController : Controller
     {
-        private readonly IMapper _mapper;
         private readonly IToDoService _service;
+        private readonly UserManager<Spartan> _userManager;
 
-        public ToDoItemsController(IMapper mapper, IToDoService serice)
+        public ToDoItemsController(IToDoService serice, UserManager<Spartan> userManager)
         {
-            _mapper = mapper;
             _service = serice;
+            _userManager = userManager;
         }
 
         // GET: ToDoItems
+        [Authorize(Roles = "Trainee, Trainer")]
         public async Task<IActionResult> Index(string? filter)
         {
-            var responce = await _service.GetTodoItemsAsync(filter);
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
+
+            var responce = await _service.GetTodoItemsAsync(currentUser, GetRole() , filter);
 
             if (responce.Success)
             {
@@ -33,9 +39,12 @@ namespace SpartaToDo.App.Controllers
         }
 
         // GET: ToDoItems/Details/5
+        [Authorize(Roles = "Trainee, Trainer")]
         public async Task<IActionResult> Details(int? id)
         {
-            var responce = await _service.GetDetailsAsync(id);
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
+
+            var responce = await _service.GetDetailsAsync(currentUser, id, GetRole());
 
             if (responce.Success)
             {
@@ -54,13 +63,16 @@ namespace SpartaToDo.App.Controllers
         // POST: ToDoItems/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Trainee")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CreateToDoVM createToDoVM)
         {
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
+
             if (ModelState.IsValid)
             {
-                var responce = await _service.CreateTodoAsync(createToDoVM);
+                var responce = await _service.CreateTodoAsync(currentUser, createToDoVM);
                 if(responce.Success)
                 {
                     return RedirectToAction(nameof(Index));
@@ -74,9 +86,12 @@ namespace SpartaToDo.App.Controllers
         }
 
         // GET: ToDoItems/Edit/5
+        [Authorize(Roles = "Trainee, Trainer")]
         public async Task<IActionResult> Edit(int id)
         {
-            var responce = await _service.GetTodoItemAsync(id);
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
+
+            var responce = await _service.GetTodoItemAsync(currentUser, id, GetRole());
 
             if(responce.Success)
             {
@@ -89,11 +104,14 @@ namespace SpartaToDo.App.Controllers
         // POST: ToDoItems/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Trainee, Trainer")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, ToDoVM toDoVM)
         {
-            var responce = await _service.EditTodoAsync(id, toDoVM);
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
+
+            var responce = await _service.EditTodoAsync(currentUser, id, toDoVM, GetRole());
 
             if (ModelState.IsValid)
             {
@@ -102,12 +120,14 @@ namespace SpartaToDo.App.Controllers
 
             return View(toDoVM);
         }
-
+        [Authorize(Roles = "Trainee")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> UpdateTodoComplete(int id, MarkCompleteVM markCompleteVM)
         {
-            var responce = await _service.UpdateTodoCompleteAsync(id, markCompleteVM);
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
+
+            var responce = await _service.UpdateTodoCompleteAsync(currentUser, id, markCompleteVM);
 
             if(responce.Success)
             {
@@ -118,9 +138,12 @@ namespace SpartaToDo.App.Controllers
         }
 
         // GET: ToDoItems/Delete/5
+        [Authorize(Roles = "Trainee")]
         public async Task<IActionResult> Delete(int id)
         {
-            var responce = await _service.GetTodoItemAsync(id);
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
+
+            var responce = await _service.GetTodoItemAsync(currentUser, id);
 
             if (responce.Success)
             {
@@ -135,7 +158,9 @@ namespace SpartaToDo.App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var responce = await _service.DeleteTodoAsync(id);
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
+
+            var responce = await _service.DeleteTodoAsync(currentUser, id);
 
             if(responce.Success)
             {
@@ -143,6 +168,11 @@ namespace SpartaToDo.App.Controllers
             }
 
             return Problem(responce.Message);
+        }
+
+        private string? GetRole()
+        {
+            return HttpContext.User.IsInRole("Trainee") ? "Trainee" : "Trainer";
         }
     }
 }

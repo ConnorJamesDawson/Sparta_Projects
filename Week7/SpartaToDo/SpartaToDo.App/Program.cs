@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SpartaToDo.App.Data;
+using SpartaToDo.App.Models;
 using SpartaToDo.App.Service;
 
 namespace SpartaToDo.App
@@ -17,8 +18,11 @@ namespace SpartaToDo.App
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            builder.Services.AddDefaultIdentity<Spartan>
+                (options => options.SignIn.RequireConfirmedAccount = true)
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<SpartaToDoContext>();
+
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddScoped<IToDoService, ToDoService>();

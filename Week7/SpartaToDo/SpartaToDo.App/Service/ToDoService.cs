@@ -17,7 +17,7 @@ namespace SpartaToDo.App.Service
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponce<ToDoVM>> CreateTodoAsync(CreateToDoVM createTodoVM)
+        public async Task<ServiceResponce<ToDoVM>> CreateTodoAsync(Spartan? user, CreateToDoVM createTodoVM)
         {
             var responce = new ServiceResponce<ToDoVM>();
             if(_context == null)
@@ -26,6 +26,7 @@ namespace SpartaToDo.App.Service
                 responce.Message = "Cannot find the Database assigned";
                 return responce;
             }
+            createTodoVM.Spartan = user;
 
             _context.Add(_mapper.Map<ToDo>(createTodoVM));
 
@@ -34,7 +35,7 @@ namespace SpartaToDo.App.Service
             return responce;
         }
 
-        public async Task<ServiceResponce<ToDoVM>> DeleteTodoAsync(int? id)
+        public async Task<ServiceResponce<ToDoVM>> DeleteTodoAsync(Spartan? user, int? id)
         {
             var responce = new ServiceResponce<ToDoVM>();
 
@@ -45,11 +46,13 @@ namespace SpartaToDo.App.Service
                 return responce;
             }
 
-            responce.Data = _mapper.Map<ToDoVM>(await _context.ToDoItems.FindAsync(id));
+            responce.Data = _mapper.Map<ToDoVM>(await _context.ToDoItems
+                .Where(td => td.SpartanId == user!.Id && td.Id == id)
+                .FirstOrDefaultAsync());
             
             if (responce.Data != null)
             {
-                _context.ToDoItems.Remove(await _context.ToDoItems.FindAsync(id));
+                _context.ToDoItems.Remove(_mapper.Map<ToDo>(responce.Data));
             }
 
             await _context.SaveChangesAsync();
@@ -57,7 +60,7 @@ namespace SpartaToDo.App.Service
             return responce;
         }
 
-        public async Task<ServiceResponce<ToDoVM>> EditTodoAsync(int? id, ToDoVM todoVM)
+        public async Task<ServiceResponce<ToDoVM>> EditTodoAsync(Spartan? user, int? id, ToDoVM todoVM, string role = "Trainee")
         {
             var responce = new ServiceResponce<ToDoVM>();
             if (id != todoVM.Id)
@@ -66,6 +69,23 @@ namespace SpartaToDo.App.Service
                 responce.Message = $"Id given {id} does not match Id {todoVM.Id}";
                 return responce;
             }
+            if(role == "Trainee")
+            {
+                var todo = await _context.ToDoItems
+                .AsNoTracking()
+                .FirstOrDefaultAsync(td => td.Id == id);
+
+                if (todo.SpartanId != user.Id)
+                {
+                    responce.Success = false;
+                    responce.Message = $"Id given {id} does not match Id {todoVM.Id}";
+                    return responce;
+                }
+            }
+
+
+            todoVM.Spartan = user;
+            todoVM.SpartanId = user!.Id;
 
             try
             {
@@ -89,7 +109,7 @@ namespace SpartaToDo.App.Service
             return responce;
         }
 
-        public async Task<ServiceResponce<ToDoVM>> GetDetailsAsync(int? id)
+        public async Task<ServiceResponce<ToDoVM>> GetDetailsAsync(Spartan? user, int? id, string role = "Trainee")
         {
             var responce = new ServiceResponce<ToDoVM>();
 
@@ -100,20 +120,39 @@ namespace SpartaToDo.App.Service
                 return responce;
             }
 
-            responce.Data = _mapper.Map<ToDoVM>(await _context.ToDoItems
-                .FirstOrDefaultAsync(m => m.Id == id));
-
-            if (responce.Data == null)
+            if (ToDoExists((int)id))
             {
-                responce.Success = false;
-                responce.Message = $"Could not find Item with Id given {id}";
-                return responce;
+                if(role == "Trainee")
+                {
+                    responce.Data = _mapper.Map<ToDoVM>(await _context.ToDoItems
+                                    .FirstOrDefaultAsync(m => m.Id == id && m.SpartanId == user!.Id));
+
+
+                    if (responce.Data == null)
+                    {
+                        responce.Success = false;
+                        responce.Message = $"Found ToDoItem but user ID doen not match";
+                        return responce;
+                    }
+                    return responce;
+                }
+                else if(role == "Trainer")
+                {
+                    responce.Data = _mapper.Map<ToDoVM>(await _context.ToDoItems
+                    .FirstOrDefaultAsync(m => m.Id == id));
+
+                    return responce;
+                }
+
             }
+
+            responce.Success = false;
+            responce.Message = "Could not find ToDoItem in database";
 
             return responce;
         }
 
-        public async Task<ServiceResponce<ToDoVM>> GetTodoItemAsync(int id)
+        public async Task<ServiceResponce<ToDoVM>> GetTodoItemAsync(Spartan? user, int id, string role = "Trainee")
         {
             var responce = new ServiceResponce<ToDoVM>();
 
@@ -126,8 +165,27 @@ namespace SpartaToDo.App.Service
 
             if(ToDoExists(id))
             {
-                responce.Data = _mapper.Map<ToDoVM>(await _context.ToDoItems.FindAsync(id));
-                return responce;
+                if(role == "Trainee")
+                {
+                    responce.Data = _mapper.Map<ToDoVM>(await _context.ToDoItems
+                        .FirstOrDefaultAsync(m => m.Id == id && m.SpartanId == user!.Id));
+
+                    if (responce.Data == null)
+                    {
+                        responce.Success = false;
+                        responce.Message = $"Found ToDoItem but user ID doen not match";
+                        return responce;
+                    }
+
+                    return responce;
+                }
+                else if(role == "Trainer")
+                {
+                    responce.Data = _mapper.Map<ToDoVM>(await _context.ToDoItems
+                        .FirstOrDefaultAsync(m => m.Id == id));
+                    return responce;
+                }
+
             }
 
             responce.Success = false;
@@ -136,7 +194,7 @@ namespace SpartaToDo.App.Service
             return responce;
         }
 
-        public async Task<ServiceResponce<IEnumerable<ToDoVM>>> GetTodoItemsAsync(string? filter = null)
+        public async Task<ServiceResponce<IEnumerable<ToDoVM>>> GetTodoItemsAsync(Spartan? user, string role = "Trainee", string? filter = null)
         {
             var responce = new ServiceResponce<IEnumerable<ToDoVM>>();
             if (_context.ToDoItems == null)
@@ -146,7 +204,23 @@ namespace SpartaToDo.App.Service
                 return responce;
             }
 
-            var todoItems = await _context.ToDoItems.ToListAsync();
+            if (user == null)
+            {
+                responce.Success = false;
+                responce.Message = ("The user is null");
+                return responce;
+            }
+
+            List<ToDo> todoItems = new();
+            if (role == "Trainee")
+            {
+                todoItems = await _context.ToDoItems.Where(td => td.SpartanId == user!.Id).ToListAsync();
+            }
+            if (role == "Trainer")
+            {
+                todoItems = await _context.ToDoItems.ToListAsync();
+            }
+
             if (filter == null)
             {
                 responce.Data = todoItems.Select(d => _mapper.Map<ToDoVM>(d));
@@ -162,7 +236,7 @@ namespace SpartaToDo.App.Service
 
         }
 
-        public async Task<ServiceResponce<ToDoVM>> UpdateTodoCompleteAsync(int id, MarkCompleteVM markCompleteVM)
+        public async Task<ServiceResponce<ToDoVM>> UpdateTodoCompleteAsync(Spartan? user, int id, MarkCompleteVM markCompleteVM)
         {
             var responce = new ServiceResponce<ToDoVM>();
             if (id != markCompleteVM.Id)
@@ -171,8 +245,20 @@ namespace SpartaToDo.App.Service
                 responce.Message = $"Id given {id} does not match Id {markCompleteVM.Id}";
                 return responce;
             }
-            var todo = await _context.ToDoItems.FindAsync(id);
-            if (todo == null)
+            ToDo todo = null;
+
+            if(ToDoExists(id))
+            {
+                todo = await _context.ToDoItems.FirstOrDefaultAsync(m => m.Id == id && m.SpartanId == user!.Id);
+
+                if (todo == null)
+                {
+                    responce.Success = false;
+                    responce.Message = $"Found Item but User Id does not match";
+                    return responce;
+                }
+            }
+            else
             {
                 responce.Success = false;
                 responce.Message = $"Could not find Item with Id given {id}";

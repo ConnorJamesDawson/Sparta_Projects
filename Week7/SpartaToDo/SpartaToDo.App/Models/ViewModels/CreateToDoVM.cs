@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Xml.Linq;
 
 namespace SpartaToDo.App.Models;
@@ -13,4 +15,9 @@ public class CreateToDoVM
 
     [Display(Name = "Complete?")]
     public bool Complete { get; set; }
+    [ValidateNever]
+    [ForeignKey("Spartan")]
+    public string SpartanId { get; set; } = null!;
+
+    public Spartan? Spartan { get; set; }
 }

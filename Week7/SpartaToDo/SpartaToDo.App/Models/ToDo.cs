@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Xml.Linq;
 
 namespace SpartaToDo.App.Models;
@@ -19,5 +21,11 @@ public class ToDo
     [DataType(DataType.Date)]
     [Display(Name = "Created")]
     public DateTime DateCreated { get; init; } = DateTime.Now;
+
+    [ValidateNever]
+    [ForeignKey("Spartan")]
+    public string SpartanId { get; set; } = null!;
+
+    public Spartan? Spartan { get; set; }
 
 }
