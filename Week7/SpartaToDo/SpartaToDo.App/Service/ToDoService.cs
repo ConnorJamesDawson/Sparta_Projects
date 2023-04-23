@@ -218,7 +218,7 @@ namespace SpartaToDo.App.Service
             }
             if (role == "Trainer")
             {
-                todoItems = await _context.ToDoItems.ToListAsync();
+                todoItems = await _context.ToDoItems.Include(td => td.Spartan).ToListAsync();
             }
 
             if (filter == null)

@@ -37,7 +37,21 @@ namespace SpartaToDo.App.Controllers
 
             return Problem(responce.Message);
         }
+        
+        [Authorize(Roles = "Trainee, Trainer")]
+        public async Task<IActionResult> IndexTrainer(string? filter)
+        {
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
 
+            var responce = await _service.GetTodoItemsAsync(currentUser, GetRole(), filter);
+
+            if (responce.Success)
+            {
+                return View(responce.Data);
+            }
+
+            return Problem(responce.Message);
+        }
         // GET: ToDoItems/Details/5
         [Authorize(Roles = "Trainee, Trainer")]
         public async Task<IActionResult> Details(int? id)
