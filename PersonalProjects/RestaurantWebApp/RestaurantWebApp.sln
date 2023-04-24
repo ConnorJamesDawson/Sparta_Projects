@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantWebApp.App", "RestaurantWebApp.App\RestaurantWebApp.App.csproj", "{C540B81F-F955-4170-BDC1-EED72D777C7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantWebApp.App", "RestaurantWebApp.App\RestaurantWebApp.App.csproj", "{C540B81F-F955-4170-BDC1-EED72D777C7E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantWebApp.DataAccess", "RestaurantWebApp.DataAccess\RestaurantWebApp.DataAccess.csproj", "{B2269D81-B43B-4146-8DD5-13BE239DEA05}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantWebApp.Models", "RestaurantWebApp.Models\RestaurantWebApp.Models.csproj", "{C5ADAF18-8492-43AF-A762-AC44C8B9BDFB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantWebApp.Utility", "RestaurantWebApp.Utility\RestaurantWebApp.Utility.csproj", "{758F579D-1E2F-426F-94A0-1816A5F33116}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{C540B81F-F955-4170-BDC1-EED72D777C7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C540B81F-F955-4170-BDC1-EED72D777C7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C540B81F-F955-4170-BDC1-EED72D777C7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2269D81-B43B-4146-8DD5-13BE239DEA05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2269D81-B43B-4146-8DD5-13BE239DEA05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2269D81-B43B-4146-8DD5-13BE239DEA05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2269D81-B43B-4146-8DD5-13BE239DEA05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5ADAF18-8492-43AF-A762-AC44C8B9BDFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5ADAF18-8492-43AF-A762-AC44C8B9BDFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5ADAF18-8492-43AF-A762-AC44C8B9BDFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5ADAF18-8492-43AF-A762-AC44C8B9BDFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{758F579D-1E2F-426F-94A0-1816A5F33116}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{758F579D-1E2F-426F-94A0-1816A5F33116}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{758F579D-1E2F-426F-94A0-1816A5F33116}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{758F579D-1E2F-426F-94A0-1816A5F33116}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

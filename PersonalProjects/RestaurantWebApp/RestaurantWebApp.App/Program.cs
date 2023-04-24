@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using RestaurantWebApp.App.Data;
+using RestaurantWebApp.DataAccess.Data;
+using RestaurantWebApp.DataAccess.Repository;
+using RestaurantWebApp.DataAccess.Repository.IRepository;
+using Microsoft.AspNetCore.Identity;
 
 namespace RestaurantWebApp.App
 {
@@ -11,14 +14,25 @@ namespace RestaurantWebApp.App
 
             // Add services to the container.
             builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+
             builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
                 builder.Configuration.GetConnectionString("DefaultConnection")
                 ));
 
+            builder.Services.AddDefaultIdentity<IdentityUser>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddSignInManager<SignInManager<IdentityUser>>();
+
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
-            if (!app.Environment.IsDevelopment())
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
             {
                 app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
@@ -30,10 +44,14 @@ namespace RestaurantWebApp.App
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.MapRazorPages();
 
+            app.MapControllers();
+            
             app.Run();
         }
     }
