@@ -28,4 +28,19 @@ public class OrderHeader
     [Required]
     [Display(Name = "Pick Up Time")]
     public DateTime PickUpTime { get; set; }
+
+    [Required]
+    [NotMapped]
+    public DateTime PickUpDate { get; set; }
+
+    public string Status { get; set; }
+
+    public string? Comments { get; set; }
+    public string? TransactionId { get; set; }
+    [Display(Name = "Pickup Name")]
+    [Required]
+    public string? PickupName { get; set; }
+    [Display(Name = "Phone Number")]
+	[Required]
+	public string? PhoneNumber { get; set; }
 }

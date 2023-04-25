@@ -12,6 +12,9 @@ namespace RestaurantWebApp.DataAccess.Repository.IRepository
         IFoodTypeRepository FoodType { get; }
         IMenuItemRepository MenuItem { get; }
         IShoppingCartRepository ShoppingCart { get; }
+        IOrderDetailsRepository OrderDetail { get; }
+        IOrderHeaderRepository OrderHeader { get; }
+        IApplicationUserRepository ApplicationUser { get; }
         void SaveChanges();
 
     }
