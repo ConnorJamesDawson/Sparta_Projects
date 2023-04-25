@@ -3,6 +3,8 @@ using RestaurantWebApp.DataAccess.Data;
 using RestaurantWebApp.DataAccess.Repository;
 using RestaurantWebApp.DataAccess.Repository.IRepository;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using RestaurantWebApp.App.Utils;
 
 namespace RestaurantWebApp.App
 {
@@ -19,11 +21,19 @@ namespace RestaurantWebApp.App
                 builder.Configuration.GetConnectionString("DefaultConnection")
                 ));
 
-            builder.Services.AddDefaultIdentity<IdentityUser>()
+            builder.Services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddSignInManager<SignInManager<IdentityUser>>();
+                .AddSignInManager<SignInManager<IdentityUser>>()
+                .AddDefaultTokenProviders();
 
+            builder.Services.AddSingleton<IEmailSender, EmailSender>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            builder.Services.ConfigureApplicationCookie(options => {
+                options.LoginPath = "/Identity/Account/Login";
+                options.LogoutPath = "/Identity/Account/Logout";
+                options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+            });
 
             var app = builder.Build();
 

@@ -6,6 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.5" />
@@ -22,10 +26,10 @@
   <ItemGroup>
     <ProjectReference Include="..\RestaurantWebApp.DataAccess\RestaurantWebApp.DataAccess.csproj" />
     <ProjectReference Include="..\RestaurantWebApp.Models\RestaurantWebApp.Models.csproj" />
+    <ProjectReference Include="..\RestaurantWebApp.Utility\RestaurantWebApp.Utility.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Customer\Cart\" />
     <Folder Include="wwwroot\Images\MenuItems\" />
   </ItemGroup>
 
