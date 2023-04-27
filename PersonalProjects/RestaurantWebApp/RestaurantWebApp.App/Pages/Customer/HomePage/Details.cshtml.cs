@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RestaurantWebApp.DataAccess.Repository.IRepository;
 using RestaurantWebApp.Models;
+using RestaurantWebApp.Utility;
 using System.Security.Claims;
 
 namespace RestaurantWebApp.App.Pages.Customer.HomePage
@@ -44,12 +46,12 @@ namespace RestaurantWebApp.App.Pages.Customer.HomePage
                 {
                     _unitOfWork.ShoppingCart.Add(ShoppingCart);
                     _unitOfWork.SaveChanges();
+                    HttpContext.Session.SetInt32(SD.SessionCart, _unitOfWork.ShoppingCart.GetAll(
+                        sc=> sc.ApplicationUserId == ShoppingCart.ApplicationUserId).ToList().Count);
                 }
                 else
                 {
-
                     _unitOfWork.ShoppingCart.IncrementCount(fromDb, ShoppingCart.Count);
-
                 }
                 return RedirectToPage("Index");
             }

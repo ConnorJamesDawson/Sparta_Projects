@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RestaurantWebApp.DataAccess.Data;
 using RestaurantWebApp.DataAccess.Repository.IRepository;
+using RestaurantWebApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,7 +55,7 @@ namespace RestaurantWebApp.DataAccess.Repository
 			}
 			if (includeProperties != null)
             {
-                foreach(var includeProperty in includeProperties.Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries))
+                foreach(var includeProperty in includeProperties.Trim().Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries))
                 {
                     query= query.Include(includeProperty);
                 }

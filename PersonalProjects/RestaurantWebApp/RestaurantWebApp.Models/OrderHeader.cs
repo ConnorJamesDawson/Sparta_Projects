@@ -18,7 +18,7 @@ public class OrderHeader
     public string UserId { get; set; }
     [ForeignKey("UserId")]
     [ValidateNever]
-    public ApplicationUser AppUser { get; set; }
+    public ApplicationUser ApplicationUser { get; set; }
     [Required]
     public DateTime OrderDate { get; set; }
     [Required]
@@ -36,7 +36,8 @@ public class OrderHeader
     public string Status { get; set; }
 
     public string? Comments { get; set; }
-    public string? TransactionId { get; set; }
+    public string? SessionId { get; set; }
+    public string? PaymentIntentId { get; set; }
     [Display(Name = "Pickup Name")]
     [Required]
     public string? PickupName { get; set; }

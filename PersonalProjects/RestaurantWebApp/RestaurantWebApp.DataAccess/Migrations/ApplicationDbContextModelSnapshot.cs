@@ -245,7 +245,7 @@ namespace RestaurantWebApp.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Catagory");
+                    b.ToTable("Catagory", (string)null);
                 });
 
             modelBuilder.Entity("RestaurantWebApp.Models.FoodType", b =>
@@ -262,7 +262,7 @@ namespace RestaurantWebApp.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("FoodType");
+                    b.ToTable("FoodType", (string)null);
                 });
 
             modelBuilder.Entity("RestaurantWebApp.Models.MenuItem", b =>
@@ -300,7 +300,7 @@ namespace RestaurantWebApp.DataAccess.Migrations
 
                     b.HasIndex("FoodTypeId");
 
-                    b.ToTable("MenuItem");
+                    b.ToTable("MenuItem", (string)null);
                 });
 
             modelBuilder.Entity("RestaurantWebApp.Models.OrderDetails", b =>
@@ -333,7 +333,7 @@ namespace RestaurantWebApp.DataAccess.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("OrderDetail");
+                    b.ToTable("OrderDetail", (string)null);
                 });
 
             modelBuilder.Entity("RestaurantWebApp.Models.OrderHeader", b =>
@@ -353,20 +353,25 @@ namespace RestaurantWebApp.DataAccess.Migrations
                     b.Property<double>("OrderTotal")
                         .HasColumnType("float");
 
+                    b.Property<string>("PaymentIntentId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("PickUpTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("PickupName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SessionId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TransactionId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
@@ -377,7 +382,7 @@ namespace RestaurantWebApp.DataAccess.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("OrderHeader");
+                    b.ToTable("OrderHeader", (string)null);
                 });
 
             modelBuilder.Entity("RestaurantWebApp.Models.ShoppingCart", b =>
@@ -404,7 +409,7 @@ namespace RestaurantWebApp.DataAccess.Migrations
 
                     b.HasIndex("MenuItemId");
 
-                    b.ToTable("ShoppingCart");
+                    b.ToTable("ShoppingCart", (string)null);
                 });
 
             modelBuilder.Entity("RestaurantWebApp.Models.ApplicationUser", b =>

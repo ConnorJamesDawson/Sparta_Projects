@@ -1,4 +1,5 @@
-﻿using RestaurantWebApp.DataAccess.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using RestaurantWebApp.DataAccess.Data;
 using RestaurantWebApp.DataAccess.Repository.IRepository;
 using RestaurantWebApp.Models;
 using System;
@@ -22,6 +23,15 @@ namespace RestaurantWebApp.DataAccess.Repository
         public void Update(OrderHeader orderHeader)
         {
             _context.OrderHeader.Update(orderHeader);
+        }
+
+        public void UpdateStatus(int id, string newStatus)
+        {
+            var orderFromDb= _context.OrderHeader.FirstOrDefault(oh=>oh.Id==id);
+            if(orderFromDb!=null)
+            {
+                orderFromDb.Status = newStatus;
+            }
         }
     }
 }
