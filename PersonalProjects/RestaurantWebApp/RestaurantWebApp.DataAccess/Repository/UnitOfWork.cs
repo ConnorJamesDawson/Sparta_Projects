@@ -22,6 +22,7 @@ namespace RestaurantWebApp.DataAccess.Repository
             OrderDetail = new OrderDetailsRepository(_context);
             OrderHeader = new OrderHeaderRepository(_context);
             ApplicationUser = new ApplicationUserRepository(_context);
+            Project = new ProjectRepository(_context);
         }
         public ICategoryRepository Category { get; private set; }
         public IFoodTypeRepository FoodType { get; private set; }
@@ -30,6 +31,7 @@ namespace RestaurantWebApp.DataAccess.Repository
         public IOrderDetailsRepository OrderDetail { get; private set; }
         public IOrderHeaderRepository OrderHeader { get; private set; }
         public IApplicationUserRepository ApplicationUser { get; private set; }
+        public IProjectRepository Project { get; private set; }
 
         public void Dispose()
         {

@@ -15,6 +15,7 @@ namespace RestaurantWebApp.DataAccess.Repository.IRepository
         IOrderDetailsRepository OrderDetail { get; }
         IOrderHeaderRepository OrderHeader { get; }
         IApplicationUserRepository ApplicationUser { get; }
+        IProjectRepository Project { get; }
         void SaveChanges();
 
     }

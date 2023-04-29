@@ -14,7 +14,7 @@ namespace RestaurantWebApp.App.Pages
 
         public IActionResult OnGet()
         {
-            return RedirectToPage("/Customer/HomePage/Index");
+            return RedirectToPage("/RestaurantApp/Customer/HomePage/Index");
         }
     }
 }
