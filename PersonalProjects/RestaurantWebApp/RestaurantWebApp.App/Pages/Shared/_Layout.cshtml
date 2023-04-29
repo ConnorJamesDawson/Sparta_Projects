@@ -1,4 +1,5 @@
 ﻿@using RestaurantWebApp.Utility;
+@using Microsoft.AspNetCore.Http.Extensions
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,26 +27,43 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-page="/Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/RestaurantApp/Admin/Order/OrderList">Order List</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/RestaurantApp/Admin/Order/ManageOrder">Manage Order List</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" asp-area="" asp-page="/RestaurantApp/Admin/Categories/Index">Categories</a>
-                                <a class="dropdown-item" asp-area="" asp-page="/RestaurantApp/Admin/FoodTypes/Index">Food Types</a>
-                                <a class="dropdown-item" asp-area="" asp-page="/RestaurantApp/Admin/MenuItems/Index">Menu Items</a>
-                                <div class="dropdown-divider"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <a class="nav-link text-white" asp-area="" asp-page="/RestaurantApp/Customer/Cart/Index">
-                                @await Component.InvokeAsync("ShoppingCart");
-                            </a>
-                        </li>
+                        @if (!Context.Request.GetDisplayUrl().Contains("RestaurantApp"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Projects</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="" asp-page="/RestaurantApp/Admin/Categories/Index">All Projects</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" asp-area="" asp-page="/RestaurantApp/Customer/HomePage/Index">Restaurant App</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" asp-area="" asp-page="/RestaurantApp/Customer/HomePage/Index">Card Game</a>
+                                </div>
+                            </li>
+                        }
+                        @if (Context.Request.GetDisplayUrl().Contains("RestaurantApp"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-page="/RestaurantApp/Admin/Order/OrderList">Order List</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-page="/RestaurantApp/Admin/Order/ManageOrder">Manage Order List</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="" asp-page="/RestaurantApp/Admin/Categories/Index">Categories</a>
+                                    <a class="dropdown-item" asp-area="" asp-page="/RestaurantApp/Admin/FoodTypes/Index">Food Types</a>
+                                    <a class="dropdown-item" asp-area="" asp-page="/RestaurantApp/Admin/MenuItems/Index">Menu Items</a>
+                                    <div class="dropdown-divider"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="nav-link text-white" asp-area="" asp-page="/RestaurantApp/Customer/Cart/Index">
+                                    @await Component.InvokeAsync("ShoppingCart");
+                                </a>
+                            </li>
+                        }
+
                     </ul>
                     <partial name="_loginPartial" />
                 </div>

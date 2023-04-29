@@ -12,9 +12,9 @@ namespace RestaurantWebApp.App.Pages
             _logger = logger;
         }
 
-        public IActionResult OnGet()
+        public void OnGet()
         {
-            return RedirectToPage("/RestaurantApp/Customer/HomePage/Index");
+            //return RedirectToPage("/RestaurantApp/Customer/HomePage/Index");
         }
     }
 }
