@@ -25,6 +25,7 @@ namespace RestaurantWebApp.DataAccess.Repository
             objFromDb.Name = project.Name;
             objFromDb.Description = project.Description;
             objFromDb.GitHubRepositoryURL = project.GitHubRepositoryURL;
+            objFromDb.ImageURL = project.ImageURL;
         }
     }
 }

@@ -1,0 +1,35 @@
+﻿@page
+@model RestaurantWebApp.App.Pages.ProjectsPage.Customer.ViewDetailsModel
+<div class="card">
+    <div class="card-header">
+        <div class="text-light ml-0 row">
+            <div class="col-12 col-md-6 pt-2">
+                <h1 class="text-dark">@Model.Project.Name</h1>
+                    <h4><a href="@Model.Project.GitHubRepositoryURL" class="card-link">GitHub Link</a></h4>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="container rounded p-2">
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="text-primary">@Html.Raw(Model.Project.Description)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4 p-1 text-center">
+                    <img src="@Model.Project.ImageURL" width="100%" class="rounded" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="row pb-1">
+            <div class="col-12 col-md-6">
+                <a class="btn btn-success btn-square form-control" asp-page="Index" style="height:50px;">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>
