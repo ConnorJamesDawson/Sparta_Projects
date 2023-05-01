@@ -17,4 +17,6 @@ public class Projects
     public string Description { get; set; }
     [Required]
     public string GitHubRepositoryURL { get; set; }
+    public string? ImageURL { get; set; }
+
 }
